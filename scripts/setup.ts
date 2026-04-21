@@ -53,6 +53,8 @@ async function ensureBranch(commit: string) {
 
 async function ensureStgitStack(commit: string, branchExisted: boolean) {
   const repo = cd(worktreeDir)
+  await repo`git config stgit.namelength 120`
+
   if (hasStgitStack(worktreeDir, BRANCH)) {
     step('Stgit stack already initialized')
     return
