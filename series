@@ -37,7 +37,6 @@ hooks/chat-menu-items.patch
 feature/web-preview-replacements.patch
 feature/no-join-discuss.patch
 feature/jump-to-discussion.patch
-debloat/chat-hide-bottom-bar.patch
 debloat/intro-sticker.patch
 debloat/hide-fade-views.patch
 debloat/hide-stories.patch
@@ -82,3 +81,4 @@ bugfix/lazy-chromecast.patch
 debloat/recyclerview-instant-tap.patch
 debloat/opt-in-motion-photos.patch
 feature/long-press-reply-in-replies.patch
+debloat/chat-hide-bottom-bar.patch

@@ -1,4 +1,4 @@
-From d8812c2814aa2c9c1c9258d6186513fd8d827570 Mon Sep 17 00:00:00 2001
+From bf4a44d7c990bf2691e948859cf3184693388c01 Mon Sep 17 00:00:00 2001
 From: alina sireneva <alina@tei.su>
 Date: Thu, 16 Apr 2026 08:47:27 +0300
 Subject: [PATCH] non-island ui in various parts of the app
@@ -19,7 +19,7 @@ Subject: [PATCH] non-island ui in various parts of the app
  .../ui/Components/TopicsTabsView.java         |  28 ++--
  .../ui/Components/TranslateButton.java        |   4 +-
  .../impl/BlurredBackgroundProviderImpl.java   |  15 ++-
- .../chat/ChatInputViewsContainer.java         |  22 ++-
+ .../chat/ChatInputViewsContainer.java         |  12 +-
  .../chat/ChatListViewPaddingsAnimator.java    |   9 +-
  .../ChatActivityBlurredRoundButton.java       |   6 +-
  .../ChatActivityChannelButtonsLayout.java     |   4 +
@@ -30,7 +30,7 @@ Subject: [PATCH] non-island ui in various parts of the app
  .../java/org/telegram/ui/bots/BotAdView.java  |   2 +-
  .../ui/bots/BotCommandsMenuContainer.java     |   4 +-
  .../bots/ChatAttachAlertBotWebViewLayout.java |   5 +-
- 26 files changed, 321 insertions(+), 150 deletions(-)
+ 26 files changed, 310 insertions(+), 151 deletions(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Cells/SharedPhotoVideoCell2.java b/TMessagesProj/src/main/java/org/telegram/ui/Cells/SharedPhotoVideoCell2.java
 index 086305067..ca4f8012b 100644
@@ -48,10 +48,20 @@ index 086305067..ca4f8012b 100644
              lerp(dp(1), dp(8), checkBoxProgress)
          );
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
-index 9328797fb..e7caf65be 100644
+index 34799bd14..cfe1044a1 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
-@@ -340,6 +340,7 @@ import java.util.regex.Matcher;
+@@ -132,6 +132,9 @@ import androidx.viewpager.widget.ViewPager;
+ import com.google.android.exoplayer2.ui.AspectRatioFrameLayout;
+ import com.google.zxing.common.detector.MathUtils;
+ 
++import desu.inugram.InuConfig;
++import desu.inugram.helpers.ChatHelper;
++import desu.inugram.helpers.DoubleTapActionHelper;
+ import org.telegram.PhoneFormat.PhoneFormat;
+ import org.telegram.messenger.AccountInstance;
+ import org.telegram.messenger.AndroidUtilities;
+@@ -337,6 +340,7 @@ import java.util.regex.Matcher;
  import java.util.regex.Pattern;
  import java.util.stream.Collectors;
  
@@ -59,7 +69,7 @@ index 9328797fb..e7caf65be 100644
  import me.vkryl.android.animator.BoolAnimator;
  import me.vkryl.android.animator.FactorAnimator;
  import me.vkryl.core.BitwiseUtils;
-@@ -2542,9 +2543,9 @@ public class ChatActivity extends BaseFragment implements
+@@ -2539,9 +2543,9 @@ public class ChatActivity extends BaseFragment implements
              glassBackgroundSourceFrostedRenderNode.setUnderSource(navbarContentSourceWallpaper);
  
              glassBackgroundDrawableFactoryFrosted = new BlurredBackgroundDrawableViewFactory(glassBackgroundSourceFrostedRenderNode);
@@ -71,7 +81,7 @@ index 9328797fb..e7caf65be 100644
                  glassBackgroundSourceRenderNode = new BlurredBackgroundSourceRenderNode(navbarContentSourceWallpaper);
                  glassBackgroundSourceRenderNode.setOnDrawablesRelativePositionChangeListener(this::invalidateMergedVisibleBlurredPositionsAndSourcesPositions);
                  glassBackgroundSourceRenderNode.setScrollableNoiseSuppressor(scrollableViewNoiseSuppressor, DownscaleScrollableNoiseSuppressor.DRAW_GLASS);
-@@ -7439,8 +7440,8 @@ public class ChatActivity extends BaseFragment implements
+@@ -7436,8 +7440,8 @@ public class ChatActivity extends BaseFragment implements
          messagesSearchListContainer = new FrameLayout(context);
  
          BlurredBackgroundDrawable searchContainerDrawable = (glassBackgroundDrawableFactoryFrosted != null ? glassBackgroundDrawableFactoryFrosted : glassBackgroundDrawableFactory).create(messagesSearchListContainer, blurredBackgroundColorProviderWhite);
@@ -82,7 +92,7 @@ index 9328797fb..e7caf65be 100644
  
          messagesSearchListContainer.setBackground(searchContainerDrawable);
          messagesSearchListContainer.setClipToOutline(true);
-@@ -7965,7 +7966,7 @@ public class ChatActivity extends BaseFragment implements
+@@ -7962,7 +7966,7 @@ public class ChatActivity extends BaseFragment implements
  
          chatActivityEnterView.setViewParentForEmoji(chatInputInAppContainer);
  
@@ -91,7 +101,7 @@ index 9328797fb..e7caf65be 100644
  
          int chatListIndex = contentView.indexOfChild(chatListView);
          chatListIndex = chatListIndex < 0 ? contentView.getChildCount() : (chatListIndex + 1);
-@@ -8007,7 +8008,7 @@ public class ChatActivity extends BaseFragment implements
+@@ -8004,7 +8008,7 @@ public class ChatActivity extends BaseFragment implements
          bottomViewsVisibilityController.setViewVisible(MESSAGE_ACTION_CONTAINER, false, false);
          actionsButtonsLayout.setPadding(0, dp(56), 0, 0);
          actionsButtonsLayout.setClipToPadding(false);
@@ -100,7 +110,7 @@ index 9328797fb..e7caf65be 100644
          chatActivityEnterView.setSuggestionButtonVisible(ChatObject.isMonoForum(currentChat), false);
  
          chatActivityEnterTopView = new ChatActivityEnterTopView(context) {
-@@ -8390,7 +8391,7 @@ public class ChatActivity extends BaseFragment implements
+@@ -8385,7 +8389,7 @@ public class ChatActivity extends BaseFragment implements
              chatInputViewsContainer.setInputBubbleOffsets(l, r);
          });
  
@@ -109,7 +119,7 @@ index 9328797fb..e7caf65be 100644
  
          bottomOverlayStartButton = new TextView(context) {
              CellFlickerDrawable cellFlickerDrawable;
-@@ -8916,10 +8917,13 @@ public class ChatActivity extends BaseFragment implements
+@@ -8911,10 +8915,13 @@ public class ChatActivity extends BaseFragment implements
          }
  
          final BlurredBackgroundDrawable topPanelLayoutBackground = glassBackgroundDrawableFactory.create(topPanelLayout, BlurredBackgroundProviderImpl.topPanelChatActivity(themeDelegate));
@@ -125,7 +135,7 @@ index 9328797fb..e7caf65be 100644
  
          if (chatMode == MODE_SEARCH) {
              messagesSearchListContainer.setVisibility(View.VISIBLE);
-@@ -9579,6 +9583,7 @@ public class ChatActivity extends BaseFragment implements
+@@ -9574,6 +9581,7 @@ public class ChatActivity extends BaseFragment implements
          reportSpamButton = new TextView(getContext());
          reportSpamButton.setTextColor(getThemedColor(Theme.key_text_RedBold));
          reportSpamButton.setBackground(Theme.createInsetRoundRectDrawable(getThemedColor(Theme.key_text_RedBold) & 0x19ffffff, dp(18), dp(4)));
@@ -133,7 +143,7 @@ index 9328797fb..e7caf65be 100644
          reportSpamButton.setTag(Theme.key_text_RedBold);
          reportSpamButton.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 14);
          reportSpamButton.setTypeface(AndroidUtilities.bold());
-@@ -9615,6 +9620,7 @@ public class ChatActivity extends BaseFragment implements
+@@ -9610,6 +9618,7 @@ public class ChatActivity extends BaseFragment implements
          addToContactsButton.setPadding(AndroidUtilities.dp(4), 0, AndroidUtilities.dp(4), 0);
          addToContactsButton.setGravity(Gravity.CENTER);
          addToContactsButton.setBackground(Theme.createInsetRoundRectDrawable(getThemedColor(Theme.key_chat_addContact) & 0x19ffffff, dp(18), dp(4)));
@@ -141,7 +151,7 @@ index 9328797fb..e7caf65be 100644
          topChatPanelView.addView(addToContactsButton, LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT, LayoutHelper.MATCH_PARENT, Gravity.LEFT | Gravity.TOP));
          addToContactsButton.setOnClickListener(v -> {
              if (addToContactsButtonArchive) {
-@@ -9674,6 +9680,7 @@ public class ChatActivity extends BaseFragment implements
+@@ -9669,6 +9678,7 @@ public class ChatActivity extends BaseFragment implements
          restartTopicButton.setGravity(Gravity.CENTER);
          restartTopicButton.setText(LocaleController.getString(R.string.RestartTopic));
          restartTopicButton.setBackground(Theme.createSelectorDrawable(getThemedColor(Theme.key_chat_addContact) & 0x19ffffff, 3));
@@ -149,7 +159,7 @@ index 9328797fb..e7caf65be 100644
          topPanelLayout.addView(restartTopicButton, LayoutHelper.createLinear(LayoutHelper.MATCH_PARENT, 48));
          topPanelLayout.setPriority(restartTopicButton, 4);
          topPanelLayout.setDebugName(restartTopicButton, "restart topic button");
-@@ -9770,6 +9777,7 @@ public class ChatActivity extends BaseFragment implements
+@@ -9765,6 +9775,7 @@ public class ChatActivity extends BaseFragment implements
              });
          });
          ScaleStateListAnimator.apply(addProfilePictureButton, 0.04f, 1.5f);
@@ -157,7 +167,7 @@ index 9328797fb..e7caf65be 100644
          topPanelLayout.addView(addProfilePictureButton, LayoutHelper.createLinear(LayoutHelper.MATCH_PARENT, 36, Gravity.LEFT | Gravity.BOTTOM));
          topPanelLayout.setPriority(addProfilePictureButton, 12);
          topPanelLayout.setDebugName(addProfilePictureButton, "add profile picture button");
-@@ -9849,9 +9857,12 @@ public class ChatActivity extends BaseFragment implements
+@@ -9844,9 +9855,12 @@ public class ChatActivity extends BaseFragment implements
                      view.invalidate();
                  }
              });
@@ -171,7 +181,7 @@ index 9328797fb..e7caf65be 100644
              if (floatingDateView != null) {
                  floatingDateView.setTranslationX(getSideMenuWidth() / 2f);
              }
-@@ -10389,7 +10400,7 @@ public class ChatActivity extends BaseFragment implements
+@@ -10384,7 +10398,7 @@ public class ChatActivity extends BaseFragment implements
          searchCountText.setTextColor(getThemedColor(Theme.key_chat_searchPanelText));
          searchCountText.setGravity(Gravity.LEFT);
          searchContainer.addView(searchCountText, LayoutHelper.createFrame(LayoutHelper.WRAP_CONTENT, 30, Gravity.CENTER_VERTICAL, 0, -1, 97.33f, 0));
@@ -180,7 +190,7 @@ index 9328797fb..e7caf65be 100644
          if (hashtagHistoryView != null) {
              hashtagHistoryView.bringToFront();
          }
-@@ -11777,7 +11788,7 @@ public class ChatActivity extends BaseFragment implements
+@@ -11772,7 +11786,7 @@ public class ChatActivity extends BaseFragment implements
          }
          float topPanelViewH = 0;
          // topPanelViewH += (-topPanelViewH);
@@ -189,7 +199,7 @@ index 9328797fb..e7caf65be 100644
          if (actionBarSearchTags != null) {
              pinnedViewH = Math.max(pinnedViewH, actionBarSearchTags.getCurrentHeight());
          }
-@@ -11880,7 +11891,7 @@ public class ChatActivity extends BaseFragment implements
+@@ -11875,7 +11889,7 @@ public class ChatActivity extends BaseFragment implements
          if (isInsideContainer) {
              paddingBottom = AndroidUtilities.navigationBarHeight;
          } else {
@@ -198,7 +208,7 @@ index 9328797fb..e7caf65be 100644
                  + inputIslandHeightCurrent
                  + getTopicTabsSideSize(TopicsTabsView.Position.BOTTOM)
                  + windowInsetsStateHolder.getAnimatedMaxBottomInset();
-@@ -17409,7 +17420,7 @@ public class ChatActivity extends BaseFragment implements
+@@ -17404,7 +17418,7 @@ public class ChatActivity extends BaseFragment implements
                  }
              }
              if (child == actionBar && parentLayout != null) {
@@ -207,7 +217,7 @@ index 9328797fb..e7caf65be 100644
              }
              return result;
          }
-@@ -18166,7 +18177,7 @@ public class ChatActivity extends BaseFragment implements
+@@ -18161,7 +18175,7 @@ public class ChatActivity extends BaseFragment implements
                      int contentWidthSpec = View.MeasureSpec.makeMeasureSpec(widthSize, View.MeasureSpec.EXACTLY);
                      int contentHeightSpec = View.MeasureSpec.makeMeasureSpec(allHeight
                              - (isInsideContainer ? 0 : actionBarHeight)
@@ -216,7 +226,7 @@ index 9328797fb..e7caf65be 100644
                              - windowInsetsStateHolder.getCurrentNavigationBarInset(),
                          View.MeasureSpec.EXACTLY);
                      child.measure(contentWidthSpec, contentHeightSpec);
-@@ -18340,7 +18351,7 @@ public class ChatActivity extends BaseFragment implements
+@@ -18335,7 +18349,7 @@ public class ChatActivity extends BaseFragment implements
                  } else if (child == emojiButtonRed) {
                      childTop -= windowInsetsStateHolder.getCurrentMaxBottomInset() + dp(7);
                  } else if (chatActivityEnterView != null && child == chatActivityEnterView.recordedAudioPanel) {
@@ -225,17 +235,7 @@ index 9328797fb..e7caf65be 100644
                  } else if (child == gifHintTextView || child == voiceHintTextView || child == mediaBanTooltip || child == emojiHintTextView) {
                      childTop -= inputFieldHeight;
                  } else if (child == chatListView || child == chatListThanosEffect || child == floatingDateView || child == floatingTopicSeparator || child == infoTopView) {
-@@ -26985,6 +26996,9 @@ public class ChatActivity extends BaseFragment implements
-         if (chatInputViewsContainer != null && chatInputViewsContainer.getFadeView() != null) {
-             chatInputViewsContainer.getFadeView().setVisibility(forceNoBottom ? View.GONE : View.VISIBLE);
-         }
-+        if (chatInputViewsContainer != null) {
-+            chatInputViewsContainer.inu_setForceNoBottomBar(forceNoBottom);
-+        }
-         boolean showGiftButton = false;
-         boolean showSuggestButton = false;
-         boolean showSearchButton = chatMode == MODE_DEFAULT && ChatObject.isChannelOrGiga(currentChat);
-@@ -44904,7 +44918,7 @@ public class ChatActivity extends BaseFragment implements
+@@ -44896,7 +44910,7 @@ public class ChatActivity extends BaseFragment implements
          }
  
          final float margin = windowInsetsStateHolder.getAnimatedMaxBottomInset() +
@@ -244,7 +244,7 @@ index 9328797fb..e7caf65be 100644
  
          topicsTabs.setSideMenuBackgroundMarginBottom(margin);
      }
-@@ -44912,13 +44926,13 @@ public class ChatActivity extends BaseFragment implements
+@@ -44904,13 +44918,13 @@ public class ChatActivity extends BaseFragment implements
      private void checkUi_botMenuPosition() {
          final float margin = windowInsetsStateHolder.getAnimatedMaxBottomInset()
              + getTopicTabsSideSize(TopicsTabsView.Position.BOTTOM)
@@ -260,7 +260,7 @@ index 9328797fb..e7caf65be 100644
          }
      }
  
-@@ -45016,6 +45030,10 @@ public class ChatActivity extends BaseFragment implements
+@@ -45008,6 +45022,10 @@ public class ChatActivity extends BaseFragment implements
          if (topPanelLayoutFade == null) {
              return;
          }
@@ -271,7 +271,7 @@ index 9328797fb..e7caf65be 100644
  
          float fadeHeight = 0;
          float fadeAlphaInv = 1;
-@@ -45503,7 +45521,7 @@ public class ChatActivity extends BaseFragment implements
+@@ -45495,7 +45513,7 @@ public class ChatActivity extends BaseFragment implements
      }
  
      private float getTopicTabsSideSize(TopicsTabsView.Position position) {
@@ -1016,27 +1016,18 @@ index 8f19ef3db..f12dd52cf 100644
  
      public static BlurredBackgroundProvider bulletin(Theme.ResourcesProvider resourcesProvider) {
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/chat/ChatInputViewsContainer.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/chat/ChatInputViewsContainer.java
-index 4255534f3..00f7421a4 100644
+index 4255534f3..61d6febaf 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/chat/ChatInputViewsContainer.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/chat/ChatInputViewsContainer.java
-@@ -76,8 +76,16 @@ public class ChatInputViewsContainer extends FrameLayout {
- 
-     private BlurredBackgroundDrawable blurredBackgroundDrawable;
+@@ -78,6 +78,7 @@ public class ChatInputViewsContainer extends FrameLayout {
      private BlurredBackgroundDrawable underKeyboardBackgroundDrawable;
-+    public boolean inu_forceNoBottomBar;
-+    public void inu_setForceNoBottomBar(boolean value) {
-+        if (inu_forceNoBottomBar != value) {
-+            inu_forceNoBottomBar = value;
-+            invalidate();
-+        }
-+    }
      public void setInputIslandBubbleDrawable(BlurredBackgroundDrawable drawable) {
          blurredBackgroundDrawable = drawable;
 +        if (desu.inugram.helpers.NonIslandHelper.chatElements()) return;
          blurredBackgroundDrawable.setPadding(dp(7));
          blurredBackgroundDrawable.setRadius(dp(INPUT_BUBBLE_RADIUS));
      }
-@@ -267,11 +275,19 @@ public class ChatInputViewsContainer extends FrameLayout {
+@@ -267,11 +268,14 @@ public class ChatInputViewsContainer extends FrameLayout {
          );
          tmpRect.inset(0, -dp(7));
          tmpRect.offset(0, blurTop + (int) bubbleInputTranlationY);
@@ -1049,11 +1040,7 @@ index 4255534f3..00f7421a4 100644
  
 -        blurredBackgroundDrawable.setBounds(tmpRect);
 -        blurredBackgroundDrawable.draw(canvas);
-+        if (!inu_forceNoBottomBar) {
-+            blurredBackgroundDrawable.setBounds(tmpRect);
-+            blurredBackgroundDrawable.draw(canvas);
-+        }
- 
+-
 -        if (needDrawInAppKeyboard) {
 +        if (needDrawInAppKeyboard && !desu.inugram.helpers.NonIslandHelper.chatElements()) { // inputIslandBubbleDrawable covers the under-keyboard area too
              underKeyboardBackgroundDrawable.draw(canvas);

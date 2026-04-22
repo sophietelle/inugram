@@ -1,4 +1,4 @@
-From aa28d66fc97cc325acb35e1afaadd7adab349540 Mon Sep 17 00:00:00 2001
+From 40682a13f8af72f497e668fe9c50b9c038750abf Mon Sep 17 00:00:00 2001
 From: alina sireneva <alina@tei.su>
 Date: Thu, 9 Apr 2026 20:16:35 +0300
 Subject: [PATCH] double-tap messages actions
@@ -9,10 +9,10 @@ Subject: [PATCH] double-tap messages actions
  2 files changed, 27 insertions(+), 4 deletions(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
-index e8f832b2f..e48ac81c5 100644
+index 82bc77a90..f0861d12c 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
-@@ -769,9 +769,9 @@ public class ChatActivity extends BaseFragment implements
+@@ -766,9 +766,9 @@ public class ChatActivity extends BaseFragment implements
      private AnimatorSet runningAnimation;
      private int runningAnimationIndex = -1;
  
@@ -25,7 +25,7 @@ index e8f832b2f..e48ac81c5 100644
      private boolean forbidForwardingWithDismiss;
      public MessagePreviewParams messagePreviewParams;
      public MessageSuggestionParams messageSuggestionParams;
-@@ -1622,6 +1622,10 @@ public class ChatActivity extends BaseFragment implements
+@@ -1619,6 +1619,10 @@ public class ChatActivity extends BaseFragment implements
              if (textSelectionHelper.isTryingSelect() || textSelectionHelper.isInSelectionMode() || inPreviewMode || isInsideContainer) {
                  return false;
              }
@@ -36,7 +36,7 @@ index e8f832b2f..e48ac81c5 100644
              wasManualScroll = true;
              boolean result = true;
              boolean showMenu = true;
-@@ -1815,6 +1819,11 @@ public class ChatActivity extends BaseFragment implements
+@@ -1812,6 +1816,11 @@ public class ChatActivity extends BaseFragment implements
  
          @Override
          public boolean hasDoubleTap(View view, int position) {
@@ -48,7 +48,7 @@ index e8f832b2f..e48ac81c5 100644
              if (chatMode == MODE_QUICK_REPLIES) return false;
              String reactionStringSetting = getMediaDataController().getDoubleTapReaction();
              TLRPC.TL_availableReaction reaction = getMediaDataController().getReactionsMap().get(reactionStringSetting);
-@@ -1841,6 +1850,7 @@ public class ChatActivity extends BaseFragment implements
+@@ -1838,6 +1847,7 @@ public class ChatActivity extends BaseFragment implements
  
          @Override
          public void onDoubleTap(View view, int position, float x, float y) {
@@ -56,7 +56,7 @@ index e8f832b2f..e48ac81c5 100644
              if (getParentActivity() == null || isSecretChat() || isInScheduleMode() || isInPreviewMode() || chatMode == MODE_QUICK_REPLIES) {
                  return;
              }
-@@ -29946,6 +29956,12 @@ public class ChatActivity extends BaseFragment implements
+@@ -29938,6 +29948,12 @@ public class ChatActivity extends BaseFragment implements
          return createMenu(v, single, listView, x, y, searchGroup, longpress, false);
      }
  
@@ -69,7 +69,7 @@ index e8f832b2f..e48ac81c5 100644
      @SuppressLint("ClickableViewAccessibility")
      private boolean createMenu(View v, boolean single, boolean listView, float x, float y, boolean searchGroup, boolean longpress, boolean suggestEdit) {
          if (actionBar.isActionModeShowed() || isReport()) {
-@@ -31244,6 +31260,7 @@ public class ChatActivity extends BaseFragment implements
+@@ -31236,6 +31252,7 @@ public class ChatActivity extends BaseFragment implements
              } else {
                  final boolean tags = getUserConfig().getClientUserId() == getDialogId();
                  reactionsLayout = new ReactionsContainerLayout(tags ? ReactionsContainerLayout.TYPE_TAGS : ReactionsContainerLayout.TYPE_DEFAULT, ChatActivity.this, contentView.getContext(), currentAccount, getResourceProvider());
@@ -77,7 +77,7 @@ index e8f832b2f..e48ac81c5 100644
                  if (tags) {
                      reactionsLayout.setHint(getUserConfig().isPremium() ? LocaleController.getString(R.string.SavedTagReactionsHint2) : AndroidUtilities.replaceSingleTag(LocaleController.getString(R.string.SavedTagReactionsPremiumHint), Theme.key_windowBackgroundWhiteBlueText2, 0, () -> {
                          closeMenu(false);
-@@ -32406,7 +32423,7 @@ public class ChatActivity extends BaseFragment implements
+@@ -32398,7 +32415,7 @@ public class ChatActivity extends BaseFragment implements
          MediaController.saveFile(path, getParentActivity(), messageObject.isVideo() ? 1 : 0, null, null);
      }
  

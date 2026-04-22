@@ -1,4 +1,4 @@
-From a3e3030db05d7e0dff71aa09322f17c649cc811f Mon Sep 17 00:00:00 2001
+From 22af38868fa092894d5160470e84c266d7d3e512 Mon Sep 17 00:00:00 2001
 From: alina sireneva <alina@tei.su>
 Date: Mon, 20 Apr 2026 12:50:31 +0300
 Subject: [PATCH] support ios-style menu gestures (release to commit) in

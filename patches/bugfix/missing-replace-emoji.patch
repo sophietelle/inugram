@@ -1,4 +1,4 @@
-From 8b80152e1402b4f3e16359250e1f9b93a3c43e35 Mon Sep 17 00:00:00 2001
+From 4fd72818cbf41d6b618bf0d511d75ebba8ec178e Mon Sep 17 00:00:00 2001
 From: alina sireneva <alina@tei.su>
 Date: Sun, 19 Apr 2026 05:33:38 +0300
 Subject: [PATCH] added some missing Emoji.replaceEmoji calls in various places
@@ -26,10 +26,10 @@ index 1ce45b710..62587799b 100644
                      CharSequence s = AndroidUtilities.highlightText(messageNameString, message.highlightedWords, resourcesProvider);
                      if (s != null) {
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
-index e7caf65be..42849557e 100644
+index cfe1044a1..b20b93aeb 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
-@@ -15093,11 +15093,11 @@ public class ChatActivity extends BaseFragment implements
+@@ -15091,11 +15091,11 @@ public class ChatActivity extends BaseFragment implements
                              }
                          }
                          if (userNamesCount == 1) {
@@ -43,7 +43,7 @@ index e7caf65be..42849557e 100644
                      }
                  }
                  replyObjectHintTextView.setText(LocaleController.getString(R.string.TapForForwardingOptions));
-@@ -15120,20 +15120,20 @@ public class ChatActivity extends BaseFragment implements
+@@ -15118,20 +15118,20 @@ public class ChatActivity extends BaseFragment implements
                      replyObjectTextView.setText(pendingLinkSearchString);
                  } else {
                      if (webPage.site_name != null) {

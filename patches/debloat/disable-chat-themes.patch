@@ -1,4 +1,4 @@
-From 45dcf2db08b43f088181f6c8538cf89d687bbcb4 Mon Sep 17 00:00:00 2001
+From 4db74d518bba121f018d67a555b651a457f3cd4d Mon Sep 17 00:00:00 2001
 From: alina sireneva <alina@tei.su>
 Date: Sun, 19 Apr 2026 10:05:04 +0300
 Subject: [PATCH] disable per-chat backgrounds and themes
@@ -29,10 +29,10 @@ index 9f16c61d8..66d7d74e0 100644
              TLRPC.UserFull userFull = getMessagesController().getUserFull(dialogId);
              if (userFull != null) {
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
-index f24f21234..d04398d66 100644
+index 05db57e6a..88fff76ce 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
-@@ -42054,6 +42054,11 @@ public class ChatActivity extends BaseFragment implements
+@@ -42046,6 +42046,11 @@ public class ChatActivity extends BaseFragment implements
          if (themeDelegate == null || parentThemeDelegate != null) {
              return;
          }

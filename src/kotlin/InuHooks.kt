@@ -23,6 +23,11 @@ object InuHooks {
         InuConfig.load(context)
         syncDoubleTapDelay()
         syncChatBubbles()
+        try {
+            Class.forName("android.animation.ValueAnimator")
+                .getMethod("setDurationScale", Float::class.javaPrimitiveType)
+                .invoke(null, 1f / 1.5f)
+        } catch (_: Throwable) {}
     }
 
     @JvmStatic

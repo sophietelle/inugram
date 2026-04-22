@@ -1,4 +1,4 @@
-From 21721585433bff013e125dbc19169de36ea83bee Mon Sep 17 00:00:00 2001
+From 16bb5dbb740bee25bcf4652cc35fd91753edc31d Mon Sep 17 00:00:00 2001
 From: alina sireneva <alina@tei.su>
 Date: Sun, 19 Apr 2026 09:52:49 +0300
 Subject: [PATCH] added some infra for internal web apps (mostly ported from

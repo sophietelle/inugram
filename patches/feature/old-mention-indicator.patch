@@ -1,4 +1,4 @@
-From ced59c49cc14e725e7b2e0016128e257c7eeaf35 Mon Sep 17 00:00:00 2001
+From d2ba86ca50104a7945a6dd441cbbc95462e1cf21 Mon Sep 17 00:00:00 2001
 From: alina sireneva <alina@tei.su>
 Date: Mon, 20 Apr 2026 17:00:30 +0300
 Subject: [PATCH] forward-port of the old (pre-12.6) mention and reaction

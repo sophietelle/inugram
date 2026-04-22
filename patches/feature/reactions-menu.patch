@@ -1,4 +1,4 @@
-From b771671fb1c0283a7f5f89295137a25658871714 Mon Sep 17 00:00:00 2001
+From f7aae1ef099b23cf1cb1831d29cca7ad1694a057 Mon Sep 17 00:00:00 2001
 From: alina sireneva <alina@tei.su>
 Date: Sun, 19 Apr 2026 01:00:39 +0300
 Subject: [PATCH] visual tweaks for the reactions bar in the message menu
@@ -12,10 +12,10 @@ Subject: [PATCH] visual tweaks for the reactions bar in the message menu
  5 files changed, 65 insertions(+), 18 deletions(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
-index e7897ae7c..f24f21234 100644
+index d80e1ecc2..05db57e6a 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
-@@ -31275,7 +31275,9 @@ public class ChatActivity extends BaseFragment implements
+@@ -31267,7 +31267,9 @@ public class ChatActivity extends BaseFragment implements
                  if (isReactionsAvailable && (!tags || !getMessagesController().premiumFeaturesBlocked())) {
                      int pad = 22;
                      int sPad = 24;
@@ -26,7 +26,7 @@ index e7897ae7c..f24f21234 100644
  
                      ReactionsContainerLayout finalReactionsLayout = reactionsLayout;
                      reactionsLayout.setDelegate(new ReactionsContainerLayout.ReactionsContainerDelegate() {
-@@ -31312,8 +31314,11 @@ public class ChatActivity extends BaseFragment implements
+@@ -31304,8 +31306,11 @@ public class ChatActivity extends BaseFragment implements
                          }
                      });
  
@@ -40,7 +40,7 @@ index e7897ae7c..f24f21234 100644
                      scrimPopupContainerLayout.setReactionsLayout(reactionsLayout);
                      scrimPopupContainerLayout.setClipChildren(false);
                      MessageObject messageWithReactions = message;
-@@ -31347,6 +31352,9 @@ public class ChatActivity extends BaseFragment implements
+@@ -31339,6 +31344,9 @@ public class ChatActivity extends BaseFragment implements
  
                  boolean showNoForwards = (isPeerNoForwards() || message.messageOwner.noforwards && currentUser != null && currentUser.bot) && message.messageOwner.action == null && message.isSent() && !message.isEditing() && chatMode != MODE_SCHEDULED && chatMode != MODE_SAVED && getDialogId() != UserObject.VERIFY;
                  scrimPopupContainerLayout.addView(popupLayout, LayoutHelper.createLinearRelatively(LayoutHelper.WRAP_CONTENT, LayoutHelper.WRAP_CONTENT, Gravity.LEFT, isReactionsAvailable ? 16 : 0, 0, isReactionsAvailable ? 36 : 0, 0));
@@ -50,7 +50,7 @@ index e7897ae7c..f24f21234 100644
                  scrimPopupContainerLayout.setPopupWindowLayout(popupLayout);
                  if (showNoForwards) {
                      popupLayout.measure(View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED), View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
-@@ -31380,7 +31388,11 @@ public class ChatActivity extends BaseFragment implements
+@@ -31372,7 +31380,11 @@ public class ChatActivity extends BaseFragment implements
                      FrameLayout fl = new FrameLayout(contentView.getContext());
                      fl.setBackground(shadowDrawable2);
                      fl.addView(tv, LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT, LayoutHelper.WRAP_CONTENT, 0, 11, 11, 11, 11));
@@ -63,7 +63,7 @@ index e7897ae7c..f24f21234 100644
                      scrimPopupContainerLayout.applyViewBottom(fl);
                  }
  
-@@ -31403,7 +31415,11 @@ public class ChatActivity extends BaseFragment implements
+@@ -31395,7 +31407,11 @@ public class ChatActivity extends BaseFragment implements
                      FrameLayout fl = new FrameLayout(contentView.getContext());
                      fl.setBackground(shadowDrawable2);
                      fl.addView(tv, LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT, LayoutHelper.WRAP_CONTENT, 0, 11, 11, 11, 11));

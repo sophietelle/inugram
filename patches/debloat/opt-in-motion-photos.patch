@@ -1,4 +1,4 @@
-From 72aa4f6ecb607852ae66cd045dfbb98ad42eed60 Mon Sep 17 00:00:00 2001
+From 9fdd902fe34d3ca64aa1f400a0fa4fd062b512e8 Mon Sep 17 00:00:00 2001
 From: alina sireneva <alina@tei.su>
 Date: Wed, 22 Apr 2026 08:10:29 +0300
 Subject: [PATCH] disable "motion photos" in attach picker by default
