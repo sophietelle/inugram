@@ -89,6 +89,8 @@
     <string name="InuDeleteForBothGroups">Group chats</string>
     <string name="InuSimpleAttachPopupAnimation">Simple attach popup animation</string>
     <string name="InuHidePaidReactionUpsell">Hide paid reaction upsell</string>
+    <string name="InuOptInMotionPhotos">Opt-in motion photos</string>
+    <string name="InuOptInMotionPhotosInfo">Disable sending photos as "live" by default</string>
     <string name="InuChatAlwaysShowDown">Always show "go to bottom"</string>
     <string name="InuChatAlwaysShowDownInfo">Even when scrolling upwards</string>
     <string name="InuChatRememberAllReplies">Remember all clicked replies</string>

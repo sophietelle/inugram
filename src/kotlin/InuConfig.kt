@@ -183,6 +183,9 @@ object InuConfig {
     val HIDE_PAID_REACTION_UPSELL = BoolItem("hide_paid_reaction_upsell", true)
 
     @JvmField
+    val OPT_IN_MOTION_PHOTOS = BoolItem("opt_in_motion_photos", true)
+
+    @JvmField
     val HIDE_REACTIONS_ENTRY = BoolItem("hide_reactions_entry", false)
 
     @JvmField
