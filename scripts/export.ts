@@ -71,7 +71,7 @@ async function exportPatchFile(repoDir: string, patchName: string) {
   await ensureDir(targetDir)
 
   step(`Exporting ${patchName} -> ${relative(rootDir, targetFile)}`)
-  const patch = await git`git format-patch --stdout -1 ${commitId}`
+  const patch = await git`git format-patch --stdout --zero-commit -1 ${commitId}`
   await fs.writeFile(targetFile, patch.stdout)
 
   return parsed

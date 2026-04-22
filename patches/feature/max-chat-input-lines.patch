@@ -1,4 +1,4 @@
-From 7f42c9f78a97739cfe13c5c148f672422cdcb755 Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: alina sireneva <alina@tei.su>
 Date: Mon, 20 Apr 2026 09:56:20 +0300
 Subject: [PATCH] customizable max chat input lines (+ bumped default)

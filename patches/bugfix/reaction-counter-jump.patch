@@ -1,4 +1,4 @@
-From f829a21cf357b9e4cf92f461a13db8b9380552fb Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: alina sireneva <alina@tei.su>
 Date: Tue, 21 Apr 2026 05:42:07 +0300
 Subject: [PATCH] fix reaction counter shift during long-tap menu

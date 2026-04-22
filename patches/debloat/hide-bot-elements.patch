@@ -1,4 +1,4 @@
-From bd28db9b51773f31455f71e34a7bb897ec75b09e Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: alina sireneva <alina@tei.su>
 Date: Sat, 11 Apr 2026 03:30:55 +0300
 Subject: [PATCH] hide bot commands menu button and webview button
