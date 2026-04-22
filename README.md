@@ -16,6 +16,15 @@ you can expect:
 
 all that while still allowing users to disable our custom tweaks to (mostly) achieve the stock experience (but why?)
 
+### why should i use this over whatevergram?
+
+i don't know. maybe you shouldn't.
+
+inugram exists primarily for my own personal use, because i got tired of the bloat (and lack of transparency) that most forks are, and latest stock is borderline unusable.
+and apparently my vision for a good ui/ux client and declutter aligns well with many long-term telegram users who spend hours in the app daily, so here we are.
+
+feel free to fork this repo and remove patches you don't like or add your own, or even "steal" the features you like to your own fork. i really don't care.
+
 ## patchset, not a fork
 
 unlike most alternative clients based on Telegram Android, Inugram is a patchset.
@@ -58,6 +67,7 @@ contributions are welcome, but before implementing a new feature please ping me 
 requirements: Node.js 20+, `git`, `stg`
 
 ```sh
+pnpm install
 pnpm run setup
 ```
 
