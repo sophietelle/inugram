@@ -81,3 +81,4 @@ bugfix/lazy-face-detect.patch
 bugfix/lazy-chromecast.patch
 debloat/recyclerview-instant-tap.patch
 debloat/opt-in-motion-photos.patch
+feature/long-press-reply-in-replies.patch
