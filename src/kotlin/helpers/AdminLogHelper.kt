@@ -4,11 +4,37 @@ import org.telegram.messenger.LocaleController
 import org.telegram.messenger.MediaController
 import org.telegram.messenger.MessageObject
 import org.telegram.messenger.R
+import desu.inugram.ui.MessageDetailsActivity
 import org.telegram.tgnet.TLRPC
+import org.telegram.ui.ActionBar.BaseFragment
 
 object AdminLogHelper {
+    const val OPTION_DETAILS = 510
+
     @JvmStatic
-    fun injectOldMediaBubble(
+    fun addMenuItems(
+        items: ArrayList<CharSequence>,
+        options: ArrayList<Int>,
+        icons: ArrayList<Int>,
+        selected: MessageObject,
+    ) {
+        if (selected.currentEvent == null) return
+        items.add(LocaleController.getString(R.string.InuMessageDetails))
+        options.add(OPTION_DETAILS)
+        icons.add(R.drawable.msg_info)
+    }
+
+    @JvmStatic
+    fun processMenuOption(option: Int, fragment: BaseFragment, selected: MessageObject): Boolean {
+        when (option) {
+            OPTION_DETAILS -> fragment.presentFragment(MessageDetailsActivity(selected, null))
+            else -> return false
+        }
+        return true
+    }
+
+    @JvmStatic
+    fun injectBubbles(
         accountNum: Int,
         event: TLRPC.TL_channelAdminLogEvent,
         messageObjects: ArrayList<MessageObject>,

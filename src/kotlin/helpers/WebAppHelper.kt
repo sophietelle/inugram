@@ -43,11 +43,34 @@ object WebAppHelper {
         })
     }
 
+    // serialized message without attach path. stack-inspection monkeypatch —
+    // we can't actually override Message.writeAttachPath without a hooking lib,
+    // so we no-op the writes it would issue when we detect it in the stack.
+    class CleanSerializedData(size: Int) : SerializedData(size) {
+        private fun inWriteAttachPath(): Boolean {
+            val stack = Thread.currentThread().stackTrace
+            for (i in 2 until stack.size.coerceAtMost(8)) {
+                if (stack[i].methodName == "writeAttachPath") return true
+            }
+            return false
+        }
+
+        override fun writeString(s: String) {
+            if (inWriteAttachPath()) return
+            super.writeString(s)
+        }
+
+        override fun writeInt32(x: Int) {
+            if (inWriteAttachPath()) return
+            super.writeInt32(x)
+        }
+    }
+
     @JvmStatic
     fun openTlViewer(fragment: BaseFragment, obj: TLObject) {
         var serialized = "";
         try {
-            val data = SerializedData(obj.getObjectSize());
+            val data = CleanSerializedData(obj.getObjectSize());
             obj.serializeToStream(data);
             serialized =
                 Base64.encodeToString(data.toByteArray(), Base64.NO_PADDING or Base64.NO_WRAP or Base64.URL_SAFE)

@@ -141,7 +141,15 @@ class MessageDetailsActivity(
     override fun getTitle(): CharSequence = LocaleController.getString(R.string.InuMessageDetails)
 
     override fun fillItems(items: ArrayList<UItem>, adapter: UniversalAdapter) {
-        items.add(detailItem(ROW_ID, "ID", messageObject.messageOwner.id.toString()))
+        items.add(
+            detailItem(
+                ROW_ID, "ID", if (messageObject.currentEvent != null) {
+                    messageObject.currentEvent.id.toString()
+                } else {
+                    messageObject.messageOwner.id.toString()
+                }
+            )
+        )
         if (messageObject.scheduled) {
             items.add(detailItem(ROW_SCHEDULED, R.string.InuMsgDetailScheduled, "Yes"))
         }
