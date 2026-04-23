@@ -5,13 +5,15 @@ Subject: [PATCH] added some missing Emoji.replaceEmoji calls in various places
 
 ---
  .../java/org/telegram/ui/Cells/DialogCell.java   |  1 +
+ .../org/telegram/ui/ChannelAdminLogActivity.java |  3 ++-
  .../main/java/org/telegram/ui/ChatActivity.java  | 16 ++++++++--------
  .../telegram/ui/Components/EditTextEmoji.java    |  2 +-
  .../ui/Components/MessagePreviewView.java        |  4 ++--
  .../java/org/telegram/ui/MainTabsActivity.java   |  3 ++-
+ .../java/org/telegram/ui/MessageSeenView.java    |  3 ++-
  .../java/org/telegram/ui/SettingsActivity.java   |  4 ++--
  .../Stories/recorder/CaptionContainerView.java   | 13 +++++++++++++
- 7 files changed, 29 insertions(+), 14 deletions(-)
+ 9 files changed, 33 insertions(+), 16 deletions(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Cells/DialogCell.java b/TMessagesProj/src/main/java/org/telegram/ui/Cells/DialogCell.java
 index 0000000..0000000 100644
@@ -25,11 +27,32 @@ index 0000000..0000000 100644
                  if (message != null && message.hasHighlightedWords()) {
                      CharSequence s = AndroidUtilities.highlightText(messageNameString, message.highlightedWords, resourcesProvider);
                      if (s != null) {
+diff --git a/TMessagesProj/src/main/java/org/telegram/ui/ChannelAdminLogActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/ChannelAdminLogActivity.java
+index 0000000..0000000 100644
+--- a/TMessagesProj/src/main/java/org/telegram/ui/ChannelAdminLogActivity.java
++++ b/TMessagesProj/src/main/java/org/telegram/ui/ChannelAdminLogActivity.java
+@@ -84,6 +84,7 @@ import org.telegram.messenger.BuildVars;
+ import org.telegram.messenger.ChatObject;
+ import org.telegram.messenger.ContactsController;
+ import org.telegram.messenger.DialogObject;
++import org.telegram.messenger.Emoji;
+ import org.telegram.messenger.FileLoader;
+ import org.telegram.messenger.FileLog;
+ import org.telegram.messenger.ImageLocation;
+@@ -688,7 +689,7 @@ public class ChannelAdminLogActivity extends BaseFragment implements Notificatio
+             ssb.append(" S");
+             ssb.setSpan(new ColoredImageSpan(drawable), ssb.length() - 1, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+         }
+-        messageObject.messageText = ssb;
++        messageObject.messageText = Emoji.replaceEmoji(ssb, Theme.chat_msgTextPaint.getFontMetricsInt(), false);
+         MessageObject lastMessage = messages.size() <= 0 ? null : messages.get(messages.size() - 1);
+         if (lastMessage != null) {
+             if (!stableIdByEventExpand.containsKey(lastMessage.eventId))
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
 index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
-@@ -15091,11 +15091,11 @@ public class ChatActivity extends BaseFragment implements
+@@ -15111,11 +15111,11 @@ public class ChatActivity extends BaseFragment implements
                              }
                          }
                          if (userNamesCount == 1) {
@@ -43,7 +66,7 @@ index 0000000..0000000 100644
                      }
                  }
                  replyObjectHintTextView.setText(LocaleController.getString(R.string.TapForForwardingOptions));
-@@ -15118,20 +15118,20 @@ public class ChatActivity extends BaseFragment implements
+@@ -15138,20 +15138,20 @@ public class ChatActivity extends BaseFragment implements
                      replyObjectTextView.setText(pendingLinkSearchString);
                  } else {
                      if (webPage.site_name != null) {
@@ -126,6 +149,27 @@ index 0000000..0000000 100644
          textView.setMaxLines(2);
          textView.setEllipsize(TextUtils.TruncateAt.END);
          btn.addView(textView, LayoutHelper.createLinear(0, LayoutHelper.WRAP_CONTENT, 1f, Gravity.CENTER_VERTICAL, 13, 0, 14, 0));
+diff --git a/TMessagesProj/src/main/java/org/telegram/ui/MessageSeenView.java b/TMessagesProj/src/main/java/org/telegram/ui/MessageSeenView.java
+index 0000000..0000000 100644
+--- a/TMessagesProj/src/main/java/org/telegram/ui/MessageSeenView.java
++++ b/TMessagesProj/src/main/java/org/telegram/ui/MessageSeenView.java
+@@ -24,6 +24,7 @@ import androidx.recyclerview.widget.RecyclerView;
+ import org.telegram.messenger.AndroidUtilities;
+ import org.telegram.messenger.ChatObject;
+ import org.telegram.messenger.ContactsController;
++import org.telegram.messenger.Emoji;
+ import org.telegram.messenger.ImageLocation;
+ import org.telegram.messenger.LocaleController;
+ import org.telegram.messenger.MessageObject;
+@@ -415,7 +416,7 @@ public class MessageSeenView extends FrameLayout {
+                 avatarDrawable.setInfo(currentAccount, object);
+                 ImageLocation imageLocation = ImageLocation.getForUserOrChat(object, ImageLocation.TYPE_SMALL);
+                 avatarImageView.setImage(imageLocation, "50_50", avatarDrawable, object);
+-                nameView.setText(ContactsController.formatName(object));
++                nameView.setText(Emoji.replaceEmoji(ContactsController.formatName(object), nameView.getPaint().getFontMetricsInt(), false));
+             }
+ 
+             if (date <= 0) {
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/SettingsActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/SettingsActivity.java
 index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/SettingsActivity.java
@@ -138,7 +182,7 @@ index 0000000..0000000 100644
 +        titleView.setText(Emoji.replaceEmoji(UserObject.getUserName(user), titleView.getPaint().getFontMetricsInt(), false));
          final StringBuilder sb = new StringBuilder();
          if (user != null) {
-             sb.append(PhoneFormat.getInstance().format("+" + user.phone));
+             sb.append(desu.inugram.InuConfig.HIDE_MY_PHONE_NUMBER.getValue() ? getString(R.string.MobileHidden) : PhoneFormat.getInstance().format("+" + user.phone));
 @@ -1034,7 +1034,7 @@ public class SettingsActivity extends BaseFragment implements NotificationCenter
              avatarDrawable.setInfo(account, user);
              avatarView.getImageReceiver().setCurrentAccount(account);

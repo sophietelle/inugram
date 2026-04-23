@@ -26,7 +26,7 @@ index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/SettingsActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/SettingsActivity.java
 @@ -530,7 +530,7 @@ public class SettingsActivity extends BaseFragment implements NotificationCenter
-         titleView.setText(Emoji.replaceEmoji(UserObject.getUserName(user), titleView.getPaint().getFontMetricsInt(), false));
+         titleView.setText(UserObject.getUserName(user));
          final StringBuilder sb = new StringBuilder();
          if (user != null) {
 -            sb.append(PhoneFormat.getInstance().format("+" + user.phone));
