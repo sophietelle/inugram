@@ -9,10 +9,12 @@ import android.graphics.drawable.Drawable
 import android.view.Gravity
 import android.view.HapticFeedbackConstants
 import android.view.MotionEvent
+import android.view.View
 import android.widget.FrameLayout
 import android.widget.ImageView
 import androidx.core.graphics.createBitmap
 import androidx.core.graphics.drawable.toDrawable
+import androidx.core.view.isVisible
 import desu.inugram.InuConfig
 import org.telegram.messenger.AndroidUtilities
 import org.telegram.messenger.LocaleController
@@ -68,8 +70,20 @@ object VoiceRecorderHelper {
     @JvmStatic
     fun addFab(alert: ChatAttachAlert, container: FrameLayout, resourcesProvider: Theme.ResourcesProvider?) {
         if (!isMovedToAttach()) return
-        val enterView = (alert.baseFragment as? ChatActivity)?.getChatActivityEnterView() ?: return
+        val activity: ChatActivity = alert.baseFragment as? ChatActivity ?: return;
+        val enterView = activity.chatActivityEnterView
         val context = container.context
+
+        val buttonsWrapper = alert.buttonsRecyclerViewWrapper
+
+        val tabBarHeight = if (NonIslandHelper.tabBars()) 48 else 70
+        val fabLayoutParams = LayoutHelper.createFrame(
+            FAB_SIZE.toFloat(), FAB_SIZE.toFloat(),
+            Gravity.BOTTOM or Gravity.RIGHT,
+            0f, 0f,
+            (if (NonIslandHelper.tabBars()) 0 else FAB_MARGIN).toFloat(),
+            (tabBarHeight + FAB_MARGIN).toFloat()
+        )
 
         val fab = object : FrameLayout(context) {
             private var isVideoMode = enterView.isInVideoMode
@@ -106,6 +120,17 @@ object VoiceRecorderHelper {
                         runnableStarted = true
                         recordRunnable = Runnable {
                             runnableStarted = false
+
+                            if (enterView.audioVideoButtonContainerForbidden) {
+                                performHapticFeedback(HapticFeedbackConstants.KEYBOARD_TAP)
+                                val hint =
+                                    activity.inu_makeMediaBannedHint(isVideoMode, container, container.childCount)
+                                hint ?: return@Runnable
+                                hint.setBottomOffset(fabLayoutParams.bottomMargin + 8)
+                                hint.showForView(this, true)
+                                return@Runnable
+                            }
+
                             performHapticFeedback(HapticFeedbackConstants.LONG_PRESS)
                             if (isVideoMode && InuConfig.ROUND_DEFAULT_CAMERA.value == 3) {
                                 showCameraPicker(
@@ -146,24 +171,21 @@ object VoiceRecorderHelper {
             }
         }
 
-        val tabBarHeight = if (NonIslandHelper.tabBars()) 48 else 70
-        container.addView(
-            fab, LayoutHelper.createFrame(
-                FAB_SIZE.toFloat(), FAB_SIZE.toFloat(),
-                Gravity.BOTTOM or Gravity.RIGHT,
-                0f, 0f,
-                (if (NonIslandHelper.tabBars()) 0 else FAB_MARGIN).toFloat(),
-                (tabBarHeight + FAB_MARGIN).toFloat()
-            )
-        )
 
-        val buttonsWrapper = alert.buttonsRecyclerViewWrapper
-        fab.viewTreeObserver.addOnPreDrawListener {
-            fab.translationY = buttonsWrapper.translationY
-            fab.alpha = buttonsWrapper.alpha
-            fab.visibility = buttonsWrapper.visibility
-            true
+        container.addView(fab, fabLayoutParams)
+
+        val sync = Runnable {
+            val wrapperVisible = buttonsWrapper.isVisible && buttonsWrapper.alpha > 0.01f
+            val target = if (wrapperVisible) View.VISIBLE else View.GONE
+            if (fab.visibility != target) fab.visibility = target
+            if (wrapperVisible) {
+                fab.alpha = buttonsWrapper.alpha
+                fab.translationY = buttonsWrapper.translationY
+            }
         }
+        sync.run()
+        // listener is window-VTO-scoped, so it fires for any draw in the alert regardless of fab state
+        buttonsWrapper.viewTreeObserver.addOnPreDrawListener { sync.run(); true }
     }
 
     private fun dismissAndRecord(alert: ChatAttachAlert, enterView: ChatActivityEnterView, video: Boolean) {

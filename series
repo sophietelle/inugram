@@ -48,7 +48,6 @@ debloat/hide-suggestions.patch
 feature/double-tap-action.patch
 debloat/disable-chat-title-phone.patch
 feature/id-in-profile.patch
-feature/voice-recorder.patch
 feature/hide-spoiler-pending.patch
 bugfix/paid-reaction-animation.patch
 feature/reactions-menu.patch
@@ -85,3 +84,4 @@ feature/animation-multiplier.patch
 feature/search-media-type-filter.patch
 debloat/disable-bg-parallax.patch
 feature/no-join-discuss.patch
+feature/voice-recorder.patch
