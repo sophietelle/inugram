@@ -1,0 +1,91 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: alina sireneva <alina@tei.su>
+Date: Thu, 23 Apr 2026 21:22:31 +0300
+Subject: [PATCH] hiding pinned panel from the chat
+
+---
+ .../java/org/telegram/ui/ChatActivity.java    | 19 ++++++++++++++++---
+ 1 file changed, 16 insertions(+), 3 deletions(-)
+
+diff --git a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
+index 0000000..0000000 100644
+--- a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
++++ b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
+@@ -423,7 +423,7 @@ public class ChatActivity extends BaseFragment implements
+     private ComposeDrawable otherIcon;
+     private ActionBarMenu.LazyItem attachItem;
+     private ActionBarMenuItem.Item savedChatsItem, savedChatsGap;;
+-    private ActionBarMenuItem headerItem;
++    public ActionBarMenuItem headerItem;
+     private ActionBarMenu.LazyItem editTextItem;
+     protected ActionBarMenuItem searchItem;
+     protected ActionBarMenuItem topicCreateItem;
+@@ -722,7 +722,7 @@ public class ChatActivity extends BaseFragment implements
+ 
+     private Runnable checkPaddingsRunnable;
+ 
+-    private boolean wasManualScroll;
++    public boolean wasManualScroll;
+     private boolean fixPaddingsInLayout;
+     private boolean globalIgnoreLayout;
+ 
+@@ -3735,6 +3735,8 @@ public class ChatActivity extends BaseFragment implements
+                     }
+                 } else if (id == ChatHelper.ACTION_OPEN_IN_DISCUSSION) {
+                     ChatHelper.openInDiscussionGroup(ChatActivity.this);
++                } else if (id == ChatHelper.ACTION_SHOW_PINNED_PANEL) {
++                    ChatHelper.showPinnedPanel(ChatActivity.this);
+                 } else if (id == view_as_topics) {
+                     if (getUserConfig().getClientUserId() == dialog_id) {
+                         getMessagesController().setSavedViewAs(true);
+@@ -4503,6 +4505,10 @@ public class ChatActivity extends BaseFragment implements
+             closeTopicItem = headerItem.lazilyAddSubItem(topic_close, R.drawable.msg_topic_close, LocaleController.getString(R.string.CloseTopic));
+             closeTopicItem.setVisibility(currentChat != null && ChatObject.canManageTopic(currentAccount, currentChat, forumTopic) && forumTopic != null && !forumTopic.closed ? View.VISIBLE : View.GONE);
+         }
++        if (headerItem != null && chatMode == 0 && currentEncryptedChat == null) {
++            headerItem.lazilyAddSubItem(ChatHelper.ACTION_SHOW_PINNED_PANEL, R.drawable.msg_pin, LocaleController.getString(R.string.InuShowPinnedPanel));
++            headerItem.setSubItemShown(ChatHelper.ACTION_SHOW_PINNED_PANEL, false);
++        }
+         menu.setVisibility(inMenuMode ? View.GONE : View.VISIBLE);
+ 
+         updateTitle(false);
+@@ -11409,6 +11415,7 @@ public class ChatActivity extends BaseFragment implements
+         pinnedListButton.setBackgroundDrawable(Theme.createSelectorDrawable(getThemedColor(Theme.key_inappPlayerClose) & 0x19ffffff));
+         pinnedMessageView.addView(pinnedListButton, LayoutHelper.createFrame(36, 48, Gravity.RIGHT | Gravity.TOP, 0, 0, 7, 0));
+         pinnedListButton.setOnClickListener(v -> openPinnedMessagesList(false));
++        pinnedListButton.setOnLongClickListener(v -> ChatHelper.onPinnedPanelLongPressed(ChatActivity.this));
+ 
+         closePinned = new ImageView(getContext());
+         closePinned.setImageResource(R.drawable.miniplayer_close);
+@@ -11461,6 +11468,7 @@ public class ChatActivity extends BaseFragment implements
+                 updatePinnedMessageView(true);
+             }
+         });
++        closePinned.setOnLongClickListener(v -> ChatHelper.onPinnedPanelLongPressed(ChatActivity.this));
+ 
+         updatePinnedListButton(false);
+     }
+@@ -27537,7 +27545,7 @@ public class ChatActivity extends BaseFragment implements
+         return false;
+     }
+ 
+-    private void updatePinnedMessageView(boolean animated) {
++    public void updatePinnedMessageView(boolean animated) {
+         updatePinnedMessageView(animated, 0);
+     }
+ 
+@@ -27655,6 +27663,11 @@ public class ChatActivity extends BaseFragment implements
+         if (currentEncryptedChat != null || chatMode != 0) {
+             return;
+         }
++        ChatHelper.updateShowPinnedMenuItem(this, !pinnedMessageIds.isEmpty());
++        if (ChatHelper.isPinnedPanelHidden(currentAccount, dialog_id) && !(isThreadChat() && !isTopic)) {
++            hidePinnedMessageView(animated);
++            return;
++        }
+         int pinned_msg_id;
+         boolean changed = false;
+         MessageObject pinnedMessageObject;
+-- 
+2.52.0
+

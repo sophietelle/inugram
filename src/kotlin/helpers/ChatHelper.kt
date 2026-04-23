@@ -23,9 +23,11 @@ object ChatHelper {
     const val OPTION_REPLY_IN = 503
     const val ACTION_OPEN_IN_DISCUSSION = 504
     const val OPTION_SHOW_IN_CHAT = 505
+    const val ACTION_SHOW_PINNED_PANEL = 506
 
     private fun removeWallpaperKey(currentAccount: Int, dialogId: Long) = "remove_wallpaper:$currentAccount:$dialogId"
     private fun removeThemeKey(currentAccount: Int, dialogId: Long) = "remove_theme:$currentAccount:$dialogId"
+    private fun hidePinnedPanelKey(currentAccount: Int, dialogId: Long) = "hide_pinned_panel:$currentAccount:$dialogId"
 
     private fun toggleDialogBool(key: String): Boolean {
         val new = !InuConfig.prefs.getBoolean(key, false)
@@ -61,6 +63,34 @@ object ChatHelper {
     @JvmStatic
     fun isRemoveThemeSetForDialog(currentAccount: Int, dialogId: Long): Boolean {
         return InuConfig.prefs.getBoolean(removeThemeKey(currentAccount, dialogId), false)
+    }
+
+    @JvmStatic
+    fun isPinnedPanelHidden(currentAccount: Int, dialogId: Long): Boolean =
+        InuConfig.prefs.getBoolean(hidePinnedPanelKey(currentAccount, dialogId), false)
+
+    @JvmStatic
+    fun onPinnedPanelLongPressed(activity: ChatActivity): Boolean {
+        toggleDialogBool(hidePinnedPanelKey(activity.currentAccount, activity.dialogId))
+        activity.wasManualScroll = true
+        activity.updatePinnedMessageView(true)
+        return true
+    }
+
+    @JvmStatic
+    fun showPinnedPanel(activity: ChatActivity) {
+        val key = hidePinnedPanelKey(activity.currentAccount, activity.dialogId)
+        if (!InuConfig.prefs.getBoolean(key, false)) return
+        InuConfig.prefs.edit { remove(key) }
+        activity.wasManualScroll = true
+        activity.updatePinnedMessageView(true)
+    }
+
+    @JvmStatic
+    fun updateShowPinnedMenuItem(activity: ChatActivity, hasPinnedMessages: Boolean) {
+        val headerItem = activity.headerItem ?: return
+        val shouldShow = hasPinnedMessages && isPinnedPanelHidden(activity.currentAccount, activity.dialogId)
+        headerItem.setSubItemShown(ACTION_SHOW_PINNED_PANEL, shouldShow)
     }
 
     @JvmStatic

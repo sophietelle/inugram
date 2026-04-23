@@ -86,3 +86,4 @@ feature/no-join-discuss.patch
 feature/voice-recorder.patch
 bugfix/missing-replace-emoji.patch
 hooks/admin-logs.patch
+feature/hide-pinned-panel.patch
