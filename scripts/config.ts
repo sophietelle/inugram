@@ -57,7 +57,7 @@ export const forkSyncFiles: ForkSyncFile[] = [
 export const ICON_SELECTION: { pack: IconifyJSON, icons: string[], options?: SvgToDrawableOptions }[] = [
   {
     pack: tablerIcons,
-    options: { overrideStrokeWidth: 1.67, paddingInset: 2 }, // to match Telegram
+    options: { overrideStrokeWidth: 1.67, paddingInset: 1 }, // to match Telegram
     icons: [
       'copy',
       'clipboard',
