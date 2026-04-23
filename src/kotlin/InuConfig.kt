@@ -138,6 +138,9 @@ object InuConfig {
     val DISABLE_CHAT_THEMES = BoolItem("disable_chat_themes", false)
 
     @JvmField
+    val DISABLE_BG_PARALLAX = BoolItem("disable_bg_parallax", true)
+
+    @JvmField
     val DISABLE_SWIPE_TO_UNARCHIVE = BoolItem("disable_swipe_to_unarchive", true)
 
     @JvmField

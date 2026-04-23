@@ -88,6 +88,12 @@ class InuAnnoyancesSettingsActivity : InuSettingsPageActivity() {
         )
         items.add(
             UItem.asCheck(
+                TOGGLE_DISABLE_BG_PARALLAX,
+                LocaleController.getString(R.string.InuDisableBgParallax),
+            ).setChecked(InuConfig.DISABLE_BG_PARALLAX.value)
+        )
+        items.add(
+            UItem.asCheck(
                 TOGGLE_HIDE_PAID_REACTION_UPSELL,
                 LocaleController.getString(R.string.InuHidePaidReactionUpsell),
             ).setChecked(InuConfig.HIDE_PAID_REACTION_UPSELL.value)
@@ -141,6 +147,11 @@ class InuAnnoyancesSettingsActivity : InuSettingsPageActivity() {
 
             TOGGLE_DISABLE_CHAT_THEMES -> {
                 val new = InuConfig.DISABLE_CHAT_THEMES.toggle()
+                (view as? TextCheckCell)?.isChecked = new
+            }
+
+            TOGGLE_DISABLE_BG_PARALLAX -> {
+                val new = InuConfig.DISABLE_BG_PARALLAX.toggle()
                 (view as? TextCheckCell)?.isChecked = new
             }
 
@@ -233,6 +244,7 @@ class InuAnnoyancesSettingsActivity : InuSettingsPageActivity() {
         private val TOGGLE_DISABLE_SENSITIVE = InuUtils.generateId()
         private val TOGGLE_DISABLE_CHAT_BACKGROUNDS = InuUtils.generateId()
         private val TOGGLE_DISABLE_CHAT_THEMES = InuUtils.generateId()
+        private val TOGGLE_DISABLE_BG_PARALLAX = InuUtils.generateId()
         private val TOGGLE_HIDE_PAID_REACTION_UPSELL = InuUtils.generateId()
         private val TOGGLE_OPT_IN_MOTION_PHOTOS = InuUtils.generateId()
         private val BUTTON_CLEAR_HINTS = InuUtils.generateId()

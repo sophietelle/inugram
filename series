@@ -84,3 +84,4 @@ feature/long-press-reply-in-replies.patch
 debloat/chat-hide-bottom-bar.patch
 feature/animation-multiplier.patch
 feature/search-media-type-filter.patch
+debloat/disable-bg-parallax.patch

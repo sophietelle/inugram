@@ -31,6 +31,7 @@
     <string name="InuDisableSensitive">Disable sensitive filter</string>
     <string name="InuDisableChatBackgrounds">Disable custom chat backgrounds</string>
     <string name="InuDisableChatThemes">Disable custom chat themes</string>
+    <string name="InuDisableBgParallax">Disable background parallax</string>
     <string name="InuHideCustomWallpaper">Hide custom wallpaper</string>
     <string name="InuShowCustomWallpaper">Show custom wallpaper</string>
     <string name="InuHideCustomTheme">Hide custom theme</string>
