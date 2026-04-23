@@ -9,7 +9,7 @@ Subject: [PATCH] remember all clicked replies when jumping back via the down
  1 file changed, 17 insertions(+)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
-index 88fff76ce..34799bd14 100644
+index 4cd3ebf52..3a9ef63e3 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
 @@ -317,6 +317,7 @@ import java.io.FileWriter;

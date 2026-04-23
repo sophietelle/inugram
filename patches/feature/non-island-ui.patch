@@ -48,7 +48,7 @@ index 086305067..ca4f8012b 100644
              lerp(dp(1), dp(8), checkBoxProgress)
          );
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
-index 34799bd14..cfe1044a1 100644
+index 3a9ef63e3..3f778af05 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
 @@ -132,6 +132,9 @@ import androidx.viewpager.widget.ViewPager;

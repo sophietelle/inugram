@@ -9,7 +9,7 @@ Subject: [PATCH] disable channel bottom bar (mute and join buttons)
  2 files changed, 18 insertions(+), 6 deletions(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
-index c0582079c..ed57aa402 100644
+index efca61edb..b2e33a986 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
 @@ -4386,7 +4386,7 @@ public class ChatActivity extends BaseFragment implements

@@ -12,7 +12,7 @@ Subject: [PATCH] visual tweaks for the reactions bar in the message menu
  5 files changed, 65 insertions(+), 18 deletions(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
-index d80e1ecc2..05db57e6a 100644
+index c66515ffa..6b5a9f5c7 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
 @@ -31267,7 +31267,9 @@ public class ChatActivity extends BaseFragment implements

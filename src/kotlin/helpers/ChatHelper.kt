@@ -187,9 +187,11 @@ object ChatHelper {
     }
 
     @JvmStatic
-    fun isDiscussionGroup(chat: TLRPC.Chat?, chatInfo: TLRPC.ChatFull?): Boolean {
-        if (chat == null || chatInfo == null) return false
-        return chat.megagroup && chatInfo.linked_chat_id != 0L
+    fun isEffectivelyInChat(chat: TLRPC.Chat?, chatInfo: TLRPC.ChatFull?): Boolean {
+        if (chat == null) return false
+        if (!ChatObject.isNotInChat(chat)) return true
+        if (chat.join_to_send) return false
+        return chat.megagroup && chatInfo != null && chatInfo.linked_chat_id != 0L
     }
 
     @JvmStatic

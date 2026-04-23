@@ -10,7 +10,7 @@ Subject: [PATCH] move the "seen by" menu item to the bottom of the menu
  3 files changed, 75 insertions(+), 21 deletions(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
-index b20b93aeb..fd3f6a3cc 100644
+index 37a03ea42..6cb9d0c5a 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
 @@ -30332,6 +30332,10 @@ public class ChatActivity extends BaseFragment implements

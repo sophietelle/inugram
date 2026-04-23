@@ -26,7 +26,7 @@ index 1ce45b710..62587799b 100644
                      CharSequence s = AndroidUtilities.highlightText(messageNameString, message.highlightedWords, resourcesProvider);
                      if (s != null) {
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
-index cfe1044a1..b20b93aeb 100644
+index 3f778af05..37a03ea42 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
 @@ -15091,11 +15091,11 @@ public class ChatActivity extends BaseFragment implements

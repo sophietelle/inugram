@@ -35,7 +35,6 @@ feature/double-tap-delay.patch
 feature/mutual-contact-icon.patch
 hooks/chat-menu-items.patch
 feature/web-preview-replacements.patch
-feature/no-join-discuss.patch
 feature/jump-to-discussion.patch
 debloat/intro-sticker.patch
 debloat/hide-fade-views.patch
@@ -85,3 +84,4 @@ debloat/chat-hide-bottom-bar.patch
 feature/animation-multiplier.patch
 feature/search-media-type-filter.patch
 debloat/disable-bg-parallax.patch
+feature/no-join-discuss.patch
