@@ -9,7 +9,7 @@ Subject: [PATCH] disable per-chat backgrounds and themes
  2 files changed, 7 insertions(+)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/messenger/ChatThemeController.java b/TMessagesProj/src/main/java/org/telegram/messenger/ChatThemeController.java
-index 9f16c61d8..66d7d74e0 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/messenger/ChatThemeController.java
 +++ b/TMessagesProj/src/main/java/org/telegram/messenger/ChatThemeController.java
 @@ -326,6 +326,7 @@ public class ChatThemeController extends BaseController {
@@ -29,7 +29,7 @@ index 9f16c61d8..66d7d74e0 100644
              TLRPC.UserFull userFull = getMessagesController().getUserFull(dialogId);
              if (userFull != null) {
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
-index 6b5a9f5c7..4cd3ebf52 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
 @@ -42046,6 +42046,11 @@ public class ChatActivity extends BaseFragment implements

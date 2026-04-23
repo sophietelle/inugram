@@ -9,7 +9,7 @@ Subject: [PATCH] forward-port of the old (pre-12.6) mention and reaction
  1 file changed, 29 insertions(+), 2 deletions(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Cells/DialogCell.java b/TMessagesProj/src/main/java/org/telegram/ui/Cells/DialogCell.java
-index def86e7cd..1ce45b710 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Cells/DialogCell.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Cells/DialogCell.java
 @@ -4347,14 +4347,25 @@ public class DialogCell extends BaseCell implements StoriesListPlaceProvider.Ava

@@ -8,7 +8,7 @@ Subject: [PATCH] replacements for web previews
  1 file changed, 1 insertion(+)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
-index 6b84e5b2b..f2926868c 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
 @@ -14046,6 +14046,7 @@ public class ChatActivity extends BaseFragment implements

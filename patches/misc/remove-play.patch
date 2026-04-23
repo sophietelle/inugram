@@ -13,7 +13,7 @@ Subject: [PATCH] remove play services stuff only available for official apps
  delete mode 100644 TMessagesProj/src/main/java/org/telegram/messenger/CaptchaController.java
 
 diff --git a/TMessagesProj/build.gradle b/TMessagesProj/build.gradle
-index 366f0c5a9..ea58e0389 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/build.gradle
 +++ b/TMessagesProj/build.gradle
 @@ -48,8 +48,6 @@ dependencies {
@@ -35,7 +35,7 @@ index 366f0c5a9..ea58e0389 100644
  def isWindows = String.valueOf(DefaultNativePlatform.currentOperatingSystem.toFamilyName() == OperatingSystemFamily.WINDOWS)
 diff --git a/TMessagesProj/src/main/java/org/telegram/messenger/CaptchaController.java b/TMessagesProj/src/main/java/org/telegram/messenger/CaptchaController.java
 deleted file mode 100644
-index 20e87724c..000000000
+index 0000000..0000000
 --- a/TMessagesProj/src/main/java/org/telegram/messenger/CaptchaController.java
 +++ /dev/null
 @@ -1,114 +0,0 @@
@@ -154,7 +154,7 @@ index 20e87724c..000000000
 -
 -}
 diff --git a/TMessagesProj/src/main/java/org/telegram/messenger/MessagesController.java b/TMessagesProj/src/main/java/org/telegram/messenger/MessagesController.java
-index 32cb1cf3d..bb25554d5 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/messenger/MessagesController.java
 +++ b/TMessagesProj/src/main/java/org/telegram/messenger/MessagesController.java
 @@ -1778,7 +1778,6 @@ public class MessagesController extends BaseController implements NotificationCe
@@ -184,7 +184,7 @@ index 32cb1cf3d..bb25554d5 100644
                      if (value.value instanceof TLRPC.TL_jsonArray) {
                          TLRPC.TL_jsonArray arr = (TLRPC.TL_jsonArray) value.value;
 diff --git a/TMessagesProj/src/main/java/org/telegram/tgnet/ConnectionsManager.java b/TMessagesProj/src/main/java/org/telegram/tgnet/ConnectionsManager.java
-index ba3aacd3a..13244fb6d 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/tgnet/ConnectionsManager.java
 +++ b/TMessagesProj/src/main/java/org/telegram/tgnet/ConnectionsManager.java
 @@ -15,11 +15,6 @@ import android.util.Base64;
@@ -256,7 +256,7 @@ index ba3aacd3a..13244fb6d 100644
      }
  }
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/LoginActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/LoginActivity.java
-index 5ead1a6a0..9cc7426b8 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/LoginActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/LoginActivity.java
 @@ -103,19 +103,7 @@ import com.android.billingclient.api.BillingFlowParams;

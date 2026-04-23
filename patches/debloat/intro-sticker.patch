@@ -9,7 +9,7 @@ Subject: [PATCH] hide default random greeting suggestion + make the custom
  1 file changed, 5 insertions(+), 1 deletion(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
-index 8cdca404b..3f1ec29c3 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
 @@ -31670,7 +31670,7 @@ public class ChatActivity extends BaseFragment implements

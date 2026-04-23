@@ -8,7 +8,7 @@ Subject: [PATCH] hide trending stickers and emoji packs in egs
  1 file changed, 4 insertions(+)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/messenger/MediaDataController.java b/TMessagesProj/src/main/java/org/telegram/messenger/MediaDataController.java
-index 71c9dcb8d..eccfd16d4 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/messenger/MediaDataController.java
 +++ b/TMessagesProj/src/main/java/org/telegram/messenger/MediaDataController.java
 @@ -103,6 +103,7 @@ import java.util.concurrent.CountDownLatch;

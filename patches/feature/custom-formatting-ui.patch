@@ -9,7 +9,7 @@ Subject: [PATCH] custom formatting ui for rich text fields with better ux
  2 files changed, 17 insertions(+), 3 deletions(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/EditTextBoldCursor.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/EditTextBoldCursor.java
-index a35bf4711..1306254d2 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/EditTextBoldCursor.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/EditTextBoldCursor.java
 @@ -1170,8 +1170,10 @@ public class EditTextBoldCursor extends EditTextEffects {
@@ -26,7 +26,7 @@ index a35bf4711..1306254d2 100644
              return floatingActionMode;
          } else {
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/EditTextEffects.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/EditTextEffects.java
-index 4c4f75c97..f28ba4873 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/EditTextEffects.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/EditTextEffects.java
 @@ -439,7 +439,19 @@ public class EditTextEffects extends EditText {

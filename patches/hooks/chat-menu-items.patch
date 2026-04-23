@@ -8,7 +8,7 @@ Subject: [PATCH] "save to saved messages" message menu item
  1 file changed, 8 insertions(+), 3 deletions(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
-index b6c62c861..6b84e5b2b 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
 @@ -630,7 +630,7 @@ public class ChatActivity extends BaseFragment implements

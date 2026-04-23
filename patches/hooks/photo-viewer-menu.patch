@@ -8,7 +8,7 @@ Subject: [PATCH] "copy photo" in photo viewer
  1 file changed, 30 insertions(+), 3 deletions(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/PhotoViewer.java b/TMessagesProj/src/main/java/org/telegram/ui/PhotoViewer.java
-index 6d74644cf..bbb65fb71 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/PhotoViewer.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/PhotoViewer.java
 @@ -871,7 +871,7 @@ public class PhotoViewer implements NotificationCenter.NotificationCenterDelegat

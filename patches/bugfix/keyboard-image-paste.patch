@@ -9,7 +9,7 @@ Subject: [PATCH] fix for a bug causing images pasted from gboard to be sent
  1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatActivityEnterView.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatActivityEnterView.java
-index c9a451d63..4b3d5714f 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatActivityEnterView.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatActivityEnterView.java
 @@ -66,6 +66,7 @@ import android.text.TextUtils;

@@ -8,7 +8,7 @@ Subject: [PATCH] a button to jump from comments to discussion group
  1 file changed, 7 insertions(+)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
-index f2926868c..8cdca404b 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
 @@ -3716,6 +3716,8 @@ public class ChatActivity extends BaseFragment implements

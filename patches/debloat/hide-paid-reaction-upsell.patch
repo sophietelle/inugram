@@ -10,7 +10,7 @@ Subject: [PATCH] hide paid reactions upsell (particles, not showing when
  2 files changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/Reactions/ReactionsLayoutInBubble.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/Reactions/ReactionsLayoutInBubble.java
-index 6aaab8046..36a5bdf40 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/Reactions/ReactionsLayoutInBubble.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/Reactions/ReactionsLayoutInBubble.java
 @@ -209,7 +209,7 @@ public class ReactionsLayoutInBubble {
@@ -23,7 +23,7 @@ index 6aaab8046..36a5bdf40 100644
                      }
                  }
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/ReactionsContainerLayout.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/ReactionsContainerLayout.java
-index 98818a32b..568c2ace5 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/ReactionsContainerLayout.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/ReactionsContainerLayout.java
 @@ -703,7 +703,7 @@ public class ReactionsContainerLayout extends FrameLayout implements Notificatio

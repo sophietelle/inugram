@@ -9,7 +9,7 @@ Subject: [PATCH] hide bot commands menu button and webview button
  2 files changed, 7 insertions(+), 4 deletions(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Cells/DialogCell.java b/TMessagesProj/src/main/java/org/telegram/ui/Cells/DialogCell.java
-index 38b04dc4b..def86e7cd 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Cells/DialogCell.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Cells/DialogCell.java
 @@ -2466,7 +2466,7 @@ public class DialogCell extends BaseCell implements StoriesListPlaceProvider.Ava
@@ -22,7 +22,7 @@ index 38b04dc4b..def86e7cd 100644
              int buttonWidth = (int) (dp(2 * 13) + openButtonText.getCurrentWidth()), p = dp(13);
              messageWidth -= buttonWidth;
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatActivityEnterView.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatActivityEnterView.java
-index 4b3d5714f..660214a1f 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatActivityEnterView.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatActivityEnterView.java
 @@ -8,6 +8,8 @@

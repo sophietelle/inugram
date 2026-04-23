@@ -8,7 +8,7 @@ Subject: [PATCH] disable "motion photos" in attach picker by default
  1 file changed, 1 insertion(+)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/messenger/MediaController.java b/TMessagesProj/src/main/java/org/telegram/messenger/MediaController.java
-index f4c9bd1b9..43c93a422 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/messenger/MediaController.java
 +++ b/TMessagesProj/src/main/java/org/telegram/messenger/MediaController.java
 @@ -5889,6 +5889,7 @@ public class MediaController implements AudioManager.OnAudioFocusChangeListener,

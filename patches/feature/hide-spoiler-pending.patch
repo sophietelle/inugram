@@ -12,7 +12,7 @@ Subject: [PATCH] add "hide with spoiler" action to toggle spoiler inside photo
  4 files changed, 34 insertions(+), 9 deletions(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/messenger/SendMessagesHelper.java b/TMessagesProj/src/main/java/org/telegram/messenger/SendMessagesHelper.java
-index e286cde37..fcaa5a238 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/messenger/SendMessagesHelper.java
 +++ b/TMessagesProj/src/main/java/org/telegram/messenger/SendMessagesHelper.java
 @@ -1868,10 +1868,10 @@ public class SendMessagesHelper extends BaseController implements NotificationCe
@@ -45,7 +45,7 @@ index e286cde37..fcaa5a238 100644
          }
      }
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatActivityEnterView.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatActivityEnterView.java
-index 2a795dd48..359c4e9e6 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatActivityEnterView.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatActivityEnterView.java
 @@ -5440,6 +5440,7 @@ public class ChatActivityEnterView extends FrameLayout implements
@@ -66,7 +66,7 @@ index 2a795dd48..359c4e9e6 100644
                                      if (DialogObject.isEncryptedDialog(dialog_id)) {
                                          accountInstance.getMessagesController().saveGif(parent, document);
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatAttachAlertPhotoLayout.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatAttachAlertPhotoLayout.java
-index b70e4383d..bcac5dcdd 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatAttachAlertPhotoLayout.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatAttachAlertPhotoLayout.java
 @@ -240,6 +240,7 @@ public class ChatAttachAlertPhotoLayout extends ChatAttachAlert.AttachAlertLayou
@@ -117,7 +117,7 @@ index b70e4383d..bcac5dcdd 100644
                      photoEntry.isAttachSpoilerRevealed = false;
                      selectedIds.add(photoEntry.imageId);
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/PhotoViewer.java b/TMessagesProj/src/main/java/org/telegram/ui/PhotoViewer.java
-index bbb65fb71..374d3c604 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/PhotoViewer.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/PhotoViewer.java
 @@ -2907,6 +2907,7 @@ public class PhotoViewer implements NotificationCenter.NotificationCenterDelegat

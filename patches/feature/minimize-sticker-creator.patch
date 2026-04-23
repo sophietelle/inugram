@@ -11,7 +11,7 @@ Subject: [PATCH] toggle minimizing of the sticker creator button in recent
  3 files changed, 25 insertions(+), 1 deletion(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/messenger/MediaDataController.java b/TMessagesProj/src/main/java/org/telegram/messenger/MediaDataController.java
-index 8c1192578..921203421 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/messenger/MediaDataController.java
 +++ b/TMessagesProj/src/main/java/org/telegram/messenger/MediaDataController.java
 @@ -907,7 +907,7 @@ public class MediaDataController extends BaseController {
@@ -24,7 +24,7 @@ index 8c1192578..921203421 100644
          }
          return result;
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Cells/StickerSetNameCell.java b/TMessagesProj/src/main/java/org/telegram/ui/Cells/StickerSetNameCell.java
-index 77a61c287..e84872ae0 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Cells/StickerSetNameCell.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Cells/StickerSetNameCell.java
 @@ -201,6 +201,13 @@ public class StickerSetNameCell extends FrameLayout {
@@ -42,7 +42,7 @@ index 77a61c287..e84872ae0 100644
          textView.setOnClickListener(listener);
      }
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/EmojiView.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/EmojiView.java
-index 7d25c36d8..121587e6a 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/EmojiView.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/EmojiView.java
 @@ -157,6 +157,7 @@ import java.util.List;

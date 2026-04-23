@@ -9,7 +9,7 @@ Subject: [PATCH] fix for "Regular" option in formatting popup not properly
  1 file changed, 59 insertions(+), 1 deletion(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/EditTextCaption.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/EditTextCaption.java
-index 824fe8dba..9e056277e 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/EditTextCaption.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/EditTextCaption.java
 @@ -446,7 +446,65 @@ public class EditTextCaption extends EditTextBoldCursor {

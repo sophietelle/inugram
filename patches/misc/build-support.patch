@@ -20,7 +20,7 @@ Subject: [PATCH] build support stuff for fork-specific code: - added kotlin -
  12 files changed, 93 insertions(+), 335 deletions(-)
 
 diff --git a/TMessagesProj/build.gradle b/TMessagesProj/build.gradle
-index 15e025a39..366f0c5a9 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/build.gradle
 +++ b/TMessagesProj/build.gradle
 @@ -1,6 +1,7 @@
@@ -192,7 +192,7 @@ index 15e025a39..366f0c5a9 100644
 \ No newline at end of file
 +preBuild.dependsOn checkVisibility
 diff --git a/TMessagesProj/google-services.json b/TMessagesProj/google-services.json
-index 640e841b2..9242e3914 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/google-services.json
 +++ b/TMessagesProj/google-services.json
 @@ -1,95 +1,45 @@
@@ -305,7 +305,7 @@ index 640e841b2..9242e3914 100644
        }
      }
 diff --git a/TMessagesProj/proguard-rules.pro b/TMessagesProj/proguard-rules.pro
-index eb365859f..99ebfe299 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/proguard-rules.pro
 +++ b/TMessagesProj/proguard-rules.pro
 @@ -104,6 +104,17 @@
@@ -328,7 +328,7 @@ index eb365859f..99ebfe299 100644
  -dontobfuscate
 \ No newline at end of file
 diff --git a/TMessagesProj/src/main/java/org/telegram/messenger/BuildVars.java b/TMessagesProj/src/main/java/org/telegram/messenger/BuildVars.java
-index 4ed7e6491..6273e21cf 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/messenger/BuildVars.java
 +++ b/TMessagesProj/src/main/java/org/telegram/messenger/BuildVars.java
 @@ -25,23 +25,24 @@ public class BuildVars {
@@ -363,7 +363,7 @@ index 4ed7e6491..6273e21cf 100644
      static {
          if (ApplicationLoader.applicationContext != null) {
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/PaymentFormActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/PaymentFormActivity.java
-index a4dcff2b8..e5a02833d 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/PaymentFormActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/PaymentFormActivity.java
 @@ -82,14 +82,11 @@ import com.google.android.gms.wallet.PaymentDataRequest;
@@ -445,7 +445,7 @@ index a4dcff2b8..e5a02833d 100644
                                  if (canceled) {
                                      return;
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/SettingsActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/SettingsActivity.java
-index c89eee157..92151112d 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/SettingsActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/SettingsActivity.java
 @@ -909,7 +909,7 @@ public class SettingsActivity extends BaseFragment implements NotificationCenter
@@ -458,7 +458,7 @@ index c89eee157..92151112d 100644
              FileLog.e(e);
          }
 diff --git a/TMessagesProj_App/build.gradle b/TMessagesProj_App/build.gradle
-index 68e09135c..06589c515 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj_App/build.gradle
 +++ b/TMessagesProj_App/build.gradle
 @@ -16,7 +16,6 @@ configurations.all {
@@ -624,7 +624,7 @@ index 68e09135c..06589c515 100644
          }
      }
 diff --git a/TMessagesProj_App/google-services.json b/TMessagesProj_App/google-services.json
-index 640e841b2..9242e3914 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj_App/google-services.json
 +++ b/TMessagesProj_App/google-services.json
 @@ -1,95 +1,45 @@
@@ -737,7 +737,7 @@ index 640e841b2..9242e3914 100644
        }
      }
 diff --git a/TMessagesProj_AppTests/build.gradle b/TMessagesProj_AppTests/build.gradle
-index 2b0af1803..7dacc43ee 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj_AppTests/build.gradle
 +++ b/TMessagesProj_AppTests/build.gradle
 @@ -23,8 +23,8 @@ dependencies {
@@ -757,7 +757,7 @@ index 2b0af1803..7dacc43ee 100644
  }
 -
 diff --git a/build.gradle b/build.gradle
-index 528fd746d..c2f536f6d 100644
+index 0000000..0000000 100644
 --- a/build.gradle
 +++ b/build.gradle
 @@ -10,9 +10,17 @@ buildscript {
@@ -781,7 +781,7 @@ index 528fd746d..c2f536f6d 100644
  }
 \ No newline at end of file
 diff --git a/gradle.properties b/gradle.properties
-index 1f2ee28ee..94a355fcf 100644
+index 0000000..0000000 100644
 --- a/gradle.properties
 +++ b/gradle.properties
 @@ -15,7 +15,7 @@
@@ -803,7 +803,7 @@ index 1f2ee28ee..94a355fcf 100644
  android.nonTransitiveRClass=false
  android.nonFinalResIds=false
 diff --git a/settings.gradle b/settings.gradle
-index 2ac4c6de3..3c2e1ff67 100644
+index 0000000..0000000 100644
 --- a/settings.gradle
 +++ b/settings.gradle
 @@ -1,6 +1,2 @@

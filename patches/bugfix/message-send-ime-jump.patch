@@ -9,7 +9,7 @@ Subject: [PATCH] fix bubble jump when ime height changes while send animation
  1 file changed, 1 insertion(+), 5 deletions(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/TextMessageEnterTransition.java b/TMessagesProj/src/main/java/org/telegram/ui/TextMessageEnterTransition.java
-index 30d3166d3..67ec18756 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/TextMessageEnterTransition.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/TextMessageEnterTransition.java
 @@ -356,9 +356,6 @@ public class TextMessageEnterTransition implements MessageEnterTransitionContain

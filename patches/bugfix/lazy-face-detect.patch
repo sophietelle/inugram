@@ -11,7 +11,7 @@ Subject: [PATCH] avoid running face detect eagerly for every photo, instead do
  2 files changed, 52 insertions(+), 3 deletions(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/PhotoFilterView.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/PhotoFilterView.java
-index 796cc3fc1..0ee54ce00 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/PhotoFilterView.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/PhotoFilterView.java
 @@ -1218,6 +1218,31 @@ public class PhotoFilterView extends FrameLayout implements FilterShaders.Filter
@@ -47,7 +47,7 @@ index 796cc3fc1..0ee54ce00 100644
  
          private Context mContext;
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/PhotoViewer.java b/TMessagesProj/src/main/java/org/telegram/ui/PhotoViewer.java
-index 6c30baabe..94b76dbe7 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/PhotoViewer.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/PhotoViewer.java
 @@ -1969,6 +1969,7 @@ public class PhotoViewer implements NotificationCenter.NotificationCenterDelegat

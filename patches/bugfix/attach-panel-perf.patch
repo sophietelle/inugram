@@ -8,7 +8,7 @@ Subject: [PATCH] improve attach sheet performance
  1 file changed, 36 insertions(+), 18 deletions(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Stories/recorder/AlbumButton.java b/TMessagesProj/src/main/java/org/telegram/ui/Stories/recorder/AlbumButton.java
-index cacaa7bc6..108ffc515 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Stories/recorder/AlbumButton.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Stories/recorder/AlbumButton.java
 @@ -36,11 +36,15 @@ public class AlbumButton extends View {

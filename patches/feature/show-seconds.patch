@@ -8,7 +8,7 @@ Subject: [PATCH] show seconds in timestamps
  1 file changed, 3 insertions(+)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/messenger/LocaleController.java b/TMessagesProj/src/main/java/org/telegram/messenger/LocaleController.java
-index a22291e31..42e6d5178 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/messenger/LocaleController.java
 +++ b/TMessagesProj/src/main/java/org/telegram/messenger/LocaleController.java
 @@ -73,6 +73,9 @@ public class LocaleController {

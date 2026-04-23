@@ -11,7 +11,7 @@ Subject: [PATCH] dialog folders display mode customizations
  4 files changed, 99 insertions(+), 29 deletions(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/messenger/MessagesController.java b/TMessagesProj/src/main/java/org/telegram/messenger/MessagesController.java
-index 117231c5c..98f17ecd8 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/messenger/MessagesController.java
 +++ b/TMessagesProj/src/main/java/org/telegram/messenger/MessagesController.java
 @@ -1262,6 +1262,7 @@ public class MessagesController extends BaseController implements NotificationCe
@@ -23,7 +23,7 @@ index 117231c5c..98f17ecd8 100644
          public ArrayList<TL_chatlists.TL_exportedChatlistInvite> invites = null;
  
 diff --git a/TMessagesProj/src/main/java/org/telegram/messenger/MessagesStorage.java b/TMessagesProj/src/main/java/org/telegram/messenger/MessagesStorage.java
-index b6fcfb026..c9516548d 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/messenger/MessagesStorage.java
 +++ b/TMessagesProj/src/main/java/org/telegram/messenger/MessagesStorage.java
 @@ -68,6 +68,7 @@ import java.util.concurrent.CountDownLatch;
@@ -116,7 +116,7 @@ index b6fcfb026..c9516548d 100644
                  Integer folderId = dialogsByFolders.get(user.id);
                  int idx1 = folderId == null || folderId < 0 || folderId > 1 ? 0 : folderId;
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/FilterTabsView.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/FilterTabsView.java
-index 323214aac..66ecd2825 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/FilterTabsView.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/FilterTabsView.java
 @@ -34,11 +34,9 @@ import android.text.SpannableStringBuilder;
@@ -408,7 +408,7 @@ index 323214aac..66ecd2825 100644
          }
      }
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/DialogsActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/DialogsActivity.java
-index 9166adfab..5d58a85d1 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/DialogsActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/DialogsActivity.java
 @@ -265,6 +265,7 @@ import java.util.List;

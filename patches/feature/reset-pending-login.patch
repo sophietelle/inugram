@@ -8,7 +8,7 @@ Subject: [PATCH] a menu to reset pending login session
  1 file changed, 27 insertions(+), 2 deletions(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/LoginActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/LoginActivity.java
-index fd6deeaea..ceacdc487 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/LoginActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/LoginActivity.java
 @@ -346,6 +346,7 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No

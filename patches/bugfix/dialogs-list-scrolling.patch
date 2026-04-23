@@ -9,7 +9,7 @@ Subject: [PATCH] fix some glitches with the pull-to-reveal-archive mode in
  1 file changed, 13 insertions(+), 5 deletions(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/DialogsActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/DialogsActivity.java
-index b1dd1ec9a..9166adfab 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/DialogsActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/DialogsActivity.java
 @@ -8855,11 +8855,15 @@ public class DialogsActivity extends BaseFragment implements NotificationCenter.

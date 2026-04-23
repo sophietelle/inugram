@@ -8,7 +8,7 @@ Subject: [PATCH] tweaks for the dialogs list fab
  1 file changed, 25 insertions(+), 13 deletions(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/DialogsActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/DialogsActivity.java
-index 0ad06e4bb..32adf75ea 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/DialogsActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/DialogsActivity.java
 @@ -265,6 +265,7 @@ import java.util.List;

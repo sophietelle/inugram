@@ -10,7 +10,7 @@ Subject: [PATCH] move the voice record button into attachments drawer
  3 files changed, 63 insertions(+), 11 deletions(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatActivityEnterView.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatActivityEnterView.java
-index 660214a1f..2a795dd48 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatActivityEnterView.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatActivityEnterView.java
 @@ -216,6 +216,7 @@ import java.util.HashSet;
@@ -180,7 +180,7 @@ index 660214a1f..2a795dd48 100644
          ) : 0));
      }
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatAttachAlert.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatAttachAlert.java
-index 36e4a4ad2..bb0b78f5a 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatAttachAlert.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatAttachAlert.java
 @@ -1051,7 +1051,7 @@ public class ChatAttachAlert extends BottomSheet implements NotificationCenter.N
@@ -193,7 +193,7 @@ index 36e4a4ad2..bb0b78f5a 100644
  
      private LinearLayoutManager buttonsLayoutManager;
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/InstantCameraView.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/InstantCameraView.java
-index 2e4908c8e..10d8f7004 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/InstantCameraView.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/InstantCameraView.java
 @@ -70,6 +70,7 @@ import androidx.core.graphics.ColorUtils;

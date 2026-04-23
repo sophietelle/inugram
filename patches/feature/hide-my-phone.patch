@@ -9,7 +9,7 @@ Subject: [PATCH] hide the current user's phone number from the ui
  2 files changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/ProfileActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/ProfileActivity.java
-index 65259599c..cad501541 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/ProfileActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/ProfileActivity.java
 @@ -13256,7 +13256,7 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
@@ -22,7 +22,7 @@ index 65259599c..cad501541 100644
                              phoneNumber = user.phone;
                          } else {
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/SettingsActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/SettingsActivity.java
-index 2a7cade93..8a9d5206b 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/SettingsActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/SettingsActivity.java
 @@ -530,7 +530,7 @@ public class SettingsActivity extends BaseFragment implements NotificationCenter

@@ -13,7 +13,7 @@ Subject: [PATCH] hdie fade views
  6 files changed, 10 insertions(+)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatAttachAlert.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatAttachAlert.java
-index 586ef3809..3af5b6e00 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatAttachAlert.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatAttachAlert.java
 @@ -2666,6 +2666,7 @@ public class ChatAttachAlert extends BottomSheet implements NotificationCenter.N
@@ -33,7 +33,7 @@ index 586ef3809..3af5b6e00 100644
              gradientProtectionDrawable.draw(canvas);
              gradientProtectionDrawable2.setColor(Theme.multAlpha(Theme.getColor(bgKeyColor, resourcesProvider), 0.95f));
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/DialogsActivityTopBubblesFadeView.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/DialogsActivityTopBubblesFadeView.java
-index ed13ef074..27d69cd55 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/DialogsActivityTopBubblesFadeView.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/DialogsActivityTopBubblesFadeView.java
 @@ -58,6 +58,7 @@ public class DialogsActivityTopBubblesFadeView extends View {
@@ -45,7 +45,7 @@ index ed13ef074..27d69cd55 100644
      }
  }
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/ShareAlert.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/ShareAlert.java
-index a537a0f36..e13c104f9 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/ShareAlert.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/ShareAlert.java
 @@ -1327,6 +1327,7 @@ public class ShareAlert extends BottomSheet implements NotificationCenter.Notifi
@@ -57,7 +57,7 @@ index a537a0f36..e13c104f9 100644
                  fadeDrawable.setBounds(0, getMeasuredHeight() - AndroidUtilities.navigationBarHeight - dp(72), getMeasuredWidth(), getMeasuredHeight());
                  fadeDrawable.draw(canvas);
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/chat/ChatActivityTopFadeView.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/chat/ChatActivityTopFadeView.java
-index e2aa2fe9e..1365d7018 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/chat/ChatActivityTopFadeView.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/chat/ChatActivityTopFadeView.java
 @@ -43,6 +43,7 @@ public class ChatActivityTopFadeView extends View {
@@ -69,7 +69,7 @@ index e2aa2fe9e..1365d7018 100644
              drawable.draw(canvas);
          }
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/chat/ChatInputViewsContainer.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/chat/ChatInputViewsContainer.java
-index 92de3536d..4255534f3 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/chat/ChatInputViewsContainer.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/chat/ChatInputViewsContainer.java
 @@ -55,6 +55,7 @@ public class ChatInputViewsContainer extends FrameLayout {
@@ -81,7 +81,7 @@ index 92de3536d..4255534f3 100644
                      backgroundWithFadeDrawable.draw(canvas);
                  }
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/MainTabsActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/MainTabsActivity.java
-index 5aaafc37d..d7b791e66 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/MainTabsActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/MainTabsActivity.java
 @@ -806,6 +806,10 @@ public class MainTabsActivity extends ViewPagerActivity implements NotificationC

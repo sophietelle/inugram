@@ -9,7 +9,7 @@ Subject: [PATCH] show voice/video button hint only once
  2 files changed, 3 insertions(+)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/messenger/SharedConfig.java b/TMessagesProj/src/main/java/org/telegram/messenger/SharedConfig.java
-index d7495600e..f03150ec6 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/messenger/SharedConfig.java
 +++ b/TMessagesProj/src/main/java/org/telegram/messenger/SharedConfig.java
 @@ -888,6 +888,7 @@ public class SharedConfig {
@@ -21,7 +21,7 @@ index d7495600e..f03150ec6 100644
      }
  
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
-index 810f9f060..cc1989c33 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
 @@ -12822,6 +12822,7 @@ public class ChatActivity extends BaseFragment implements

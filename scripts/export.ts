@@ -72,7 +72,8 @@ async function exportPatchFile(repoDir: string, patchName: string) {
 
   step(`Exporting ${patchName} -> ${relative(rootDir, targetFile)}`)
   const patch = await git`git format-patch --stdout --zero-commit -1 ${commitId}`
-  await fs.writeFile(targetFile, patch.stdout)
+  const stable = patch.stdout.replace(/^index [0-9a-f]+\.\.[0-9a-f]+( \d+)?$/gm, 'index 0000000..0000000$1')
+  await fs.writeFile(targetFile, stable)
 
   return parsed
 }

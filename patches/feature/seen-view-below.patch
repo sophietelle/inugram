@@ -10,7 +10,7 @@ Subject: [PATCH] move the "seen by" menu item to the bottom of the menu
  3 files changed, 75 insertions(+), 21 deletions(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
-index 37a03ea42..6cb9d0c5a 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
 @@ -30332,6 +30332,10 @@ public class ChatActivity extends BaseFragment implements
@@ -188,7 +188,7 @@ index 37a03ea42..6cb9d0c5a 100644
  
              ChatScrimPopupContainerLayout scrimPopupContainerLayout = new ChatScrimPopupContainerLayout(contentView.getContext()) {
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/PopupSwipeBackLayout.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/PopupSwipeBackLayout.java
-index ed3409272..3a0883379 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/PopupSwipeBackLayout.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/PopupSwipeBackLayout.java
 @@ -241,7 +241,10 @@ public class PopupSwipeBackLayout extends FrameLayout {
@@ -216,7 +216,7 @@ index ed3409272..3a0883379 100644
                  y = fY;
                  w = fW;
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/MessageSeenView.java b/TMessagesProj/src/main/java/org/telegram/ui/MessageSeenView.java
-index 80149c417..152420299 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/MessageSeenView.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/MessageSeenView.java
 @@ -296,7 +296,8 @@ public class MessageSeenView extends FrameLayout {

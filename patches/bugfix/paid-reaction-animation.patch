@@ -8,7 +8,7 @@ Subject: [PATCH] disable paid reaction animation via LiteMode flag
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/ReactionsContainerLayout.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/ReactionsContainerLayout.java
-index f92a0b855..e99be4c87 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/ReactionsContainerLayout.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/ReactionsContainerLayout.java
 @@ -1976,7 +1976,7 @@ public class ReactionsContainerLayout extends FrameLayout implements Notificatio

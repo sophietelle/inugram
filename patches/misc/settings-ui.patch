@@ -9,7 +9,7 @@ Subject: [PATCH] settings ui
  2 files changed, 11 insertions(+)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/messenger/ApplicationLoader.java b/TMessagesProj/src/main/java/org/telegram/messenger/ApplicationLoader.java
-index 29f10b394..d5cacc91a 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/messenger/ApplicationLoader.java
 +++ b/TMessagesProj/src/main/java/org/telegram/messenger/ApplicationLoader.java
 @@ -289,6 +289,8 @@ public class ApplicationLoader extends Application {
@@ -22,7 +22,7 @@ index 29f10b394..d5cacc91a 100644
              FileLog.d("app start time = " + (startTime = SystemClock.elapsedRealtime()));
              try {
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/SettingsActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/SettingsActivity.java
-index 92151112d..ee2002b40 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/SettingsActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/SettingsActivity.java
 @@ -60,6 +60,8 @@ import androidx.core.view.ViewCompat;

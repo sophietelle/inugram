@@ -9,7 +9,7 @@ Subject: [PATCH] disabling animated spoiler in power settings doesn't apply to
  1 file changed, 9 insertions(+)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Cells/ChatMessageCell.java b/TMessagesProj/src/main/java/org/telegram/ui/Cells/ChatMessageCell.java
-index 2f3441b40..e18fcb1f7 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Cells/ChatMessageCell.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Cells/ChatMessageCell.java
 @@ -14962,6 +14962,15 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate

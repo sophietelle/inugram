@@ -8,7 +8,7 @@ Subject: [PATCH] configurable defaults for "delete for both/all" checkboxes
  1 file changed, 9 insertions(+)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/AlertsCreator.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/AlertsCreator.java
-index 495c955cc..ce637f467 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/AlertsCreator.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/AlertsCreator.java
 @@ -2401,6 +2401,9 @@ public class AlertsCreator {

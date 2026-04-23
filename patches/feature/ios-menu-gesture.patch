@@ -10,7 +10,7 @@ Subject: [PATCH] support ios-style menu gestures (release to commit) in
  2 files changed, 16 insertions(+), 11 deletions(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/ItemOptions.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/ItemOptions.java
-index a2398dde4..7f8d13957 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/ItemOptions.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/ItemOptions.java
 @@ -141,6 +141,7 @@ public class ItemOptions {
@@ -59,7 +59,7 @@ index a2398dde4..7f8d13957 100644
  
          if (blurForMenu && scrimBlur3SourceBitmap != null) {
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/MainTabsActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/MainTabsActivity.java
-index d7b791e66..a467e5490 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/MainTabsActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/MainTabsActivity.java
 @@ -269,10 +269,7 @@ public class MainTabsActivity extends ViewPagerActivity implements NotificationC

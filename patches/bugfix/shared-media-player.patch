@@ -9,7 +9,7 @@ Subject: [PATCH] fixed a few visual glitches with the media player inside the
  1 file changed, 16 insertions(+), 3 deletions(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/SharedMediaLayout.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/SharedMediaLayout.java
-index 0cdfd44e7..5a9f9dc01 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/SharedMediaLayout.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/SharedMediaLayout.java
 @@ -3630,10 +3630,19 @@ public class SharedMediaLayout extends FrameLayout implements NotificationCenter

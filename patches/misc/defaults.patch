@@ -10,7 +10,7 @@ Subject: [PATCH] improved opinionated defaults
  3 files changed, 12 insertions(+), 24 deletions(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/messenger/LiteMode.java b/TMessagesProj/src/main/java/org/telegram/messenger/LiteMode.java
-index 6c37252d4..a340a8e72 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/messenger/LiteMode.java
 +++ b/TMessagesProj/src/main/java/org/telegram/messenger/LiteMode.java
 @@ -53,35 +53,23 @@ public class LiteMode {
@@ -55,7 +55,7 @@ index 6c37252d4..a340a8e72 100644
      public static int PRESET_POWER_SAVER = 0;
  
 diff --git a/TMessagesProj/src/main/java/org/telegram/messenger/SharedConfig.java b/TMessagesProj/src/main/java/org/telegram/messenger/SharedConfig.java
-index bd13f798a..d7495600e 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/messenger/SharedConfig.java
 +++ b/TMessagesProj/src/main/java/org/telegram/messenger/SharedConfig.java
 @@ -286,7 +286,7 @@ public class SharedConfig {
@@ -95,7 +95,7 @@ index bd13f798a..d7495600e 100644
              loadDebugConfig(preferences);
  
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/LoginActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/LoginActivity.java
-index 9cc7426b8..3cad0e63c 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/LoginActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/LoginActivity.java
 @@ -318,7 +318,7 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No

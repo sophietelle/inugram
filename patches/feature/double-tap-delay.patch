@@ -9,7 +9,7 @@ Subject: [PATCH] customizable double-tap delay
  2 files changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/GestureDetector2.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/GestureDetector2.java
-index c020b6c66..a20755526 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/GestureDetector2.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/GestureDetector2.java
 @@ -55,7 +55,7 @@ public class GestureDetector2 {
@@ -22,7 +22,7 @@ index c020b6c66..a20755526 100644
  
      private static final int SHOW_PRESS = 1;
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/GestureDetectorFixDoubleTap.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/GestureDetectorFixDoubleTap.java
-index ddf95e6f8..8b4a65f00 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/GestureDetectorFixDoubleTap.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/GestureDetectorFixDoubleTap.java
 @@ -18,14 +18,14 @@ public class GestureDetectorFixDoubleTap {

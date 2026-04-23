@@ -54,6 +54,8 @@ async function ensureBranch(commit: string) {
 async function ensureStgitStack(commit: string, branchExisted: boolean) {
   const repo = cd(worktreeDir)
   await repo`git config stgit.namelength 120`
+  await repo`git config commit.gpgsign false`
+  await repo`git config tag.gpgsign false`
 
   if (hasStgitStack(worktreeDir, BRANCH)) {
     step('Stgit stack already initialized')
@@ -132,7 +134,7 @@ async function forceReimportPatches(seriesEntries: string[]) {
 
   const dirty = (await repo`git status --porcelain`).stdout.trim()
   if (dirty) {
-    throw new Error('Refusing to force-reimport: worktree is dirty')
+    throw new Error(`Refusing to force-reimport: worktree is dirty: ${dirty}`)
   }
 
   const existing = await getAllPatchNames(worktreeDir)

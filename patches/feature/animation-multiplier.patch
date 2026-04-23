@@ -9,7 +9,7 @@ Subject: [PATCH] customizable animation speed multiplier for most animations
  2 files changed, 3 insertions(+), 2 deletions(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/ActionBar/ActionBarLayout.java b/TMessagesProj/src/main/java/org/telegram/ui/ActionBar/ActionBarLayout.java
-index 31617bc31..035d3245a 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/ActionBar/ActionBarLayout.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/ActionBar/ActionBarLayout.java
 @@ -1768,7 +1768,7 @@ public class ActionBarLayout extends FrameLayout implements INavigationLayout, F
@@ -22,7 +22,7 @@ index 31617bc31..035d3245a 100644
                  if (animationProgress > 1.0f) {
                      animationProgress = 1.0f;
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/AnimatedFloat.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/AnimatedFloat.java
-index 88c193acb..08bbc4f9a 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/AnimatedFloat.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/AnimatedFloat.java
 @@ -161,10 +161,11 @@ public class AnimatedFloat {

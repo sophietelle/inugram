@@ -8,7 +8,7 @@ Subject: [PATCH] show all recent stickers
  1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/messenger/MediaDataController.java b/TMessagesProj/src/main/java/org/telegram/messenger/MediaDataController.java
-index eccfd16d4..8c1192578 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/messenger/MediaDataController.java
 +++ b/TMessagesProj/src/main/java/org/telegram/messenger/MediaDataController.java
 @@ -905,7 +905,8 @@ public class MediaDataController extends BaseController {

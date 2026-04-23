@@ -9,7 +9,7 @@ Subject: [PATCH] media type filter + "show only matches" in chat search
  2 files changed, 33 insertions(+), 18 deletions(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/messenger/MediaDataController.java b/TMessagesProj/src/main/java/org/telegram/messenger/MediaDataController.java
-index 921203421..16aac27f2 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/messenger/MediaDataController.java
 +++ b/TMessagesProj/src/main/java/org/telegram/messenger/MediaDataController.java
 @@ -3909,7 +3909,7 @@ public class MediaDataController extends BaseController {
@@ -49,7 +49,7 @@ index 921203421..16aac27f2 100644
                          } else {
                              done.run();
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
-index b2e33a986..e881b42dd 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
 @@ -440,7 +440,7 @@ public class ChatActivity extends BaseFragment implements

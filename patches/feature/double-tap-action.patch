@@ -9,7 +9,7 @@ Subject: [PATCH] double-tap messages actions
  2 files changed, 27 insertions(+), 4 deletions(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
-index 7e4bae855..64d7d994c 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
 @@ -766,9 +766,9 @@ public class ChatActivity extends BaseFragment implements
@@ -87,7 +87,7 @@ index 7e4bae855..64d7d994c 100644
              return;
          }
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/ReactionsContainerLayout.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/ReactionsContainerLayout.java
-index 568c2ace5..f92a0b855 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/ReactionsContainerLayout.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/ReactionsContainerLayout.java
 @@ -235,6 +235,8 @@ public class ReactionsContainerLayout extends FrameLayout implements Notificatio

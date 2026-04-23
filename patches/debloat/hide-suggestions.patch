@@ -9,7 +9,7 @@ Subject: [PATCH] hide server-pushed suggestions throughout the app
  2 files changed, 2 insertions(+)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/messenger/BirthdayController.java b/TMessagesProj/src/main/java/org/telegram/messenger/BirthdayController.java
-index 4441e841c..b66d04409 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/messenger/BirthdayController.java
 +++ b/TMessagesProj/src/main/java/org/telegram/messenger/BirthdayController.java
 @@ -131,6 +131,7 @@ public class BirthdayController {
@@ -21,7 +21,7 @@ index 4441e841c..b66d04409 100644
          return state != null && !state.isTodayEmpty();
      }
 diff --git a/TMessagesProj/src/main/java/org/telegram/messenger/MessagesController.java b/TMessagesProj/src/main/java/org/telegram/messenger/MessagesController.java
-index af9c39c11..117231c5c 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/messenger/MessagesController.java
 +++ b/TMessagesProj/src/main/java/org/telegram/messenger/MessagesController.java
 @@ -10505,6 +10505,7 @@ public class MessagesController extends BaseController implements NotificationCe

@@ -9,7 +9,7 @@ Subject: [PATCH] customizable TextClassifier used by the input fields,
  1 file changed, 1 insertion(+)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/EditTextBoldCursor.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/EditTextBoldCursor.java
-index 1da2e38e8..a35bf4711 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/EditTextBoldCursor.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/EditTextBoldCursor.java
 @@ -229,6 +229,7 @@ public class EditTextBoldCursor extends EditTextEffects {

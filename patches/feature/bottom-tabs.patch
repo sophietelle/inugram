@@ -18,7 +18,7 @@ Subject: [PATCH] bottom tabs tweaks: compact mode, hiding contacts, hiding it
  10 files changed, 122 insertions(+), 49 deletions(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/CallLogActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/CallLogActivity.java
-index 51a2f6b68..422afb9a9 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/CallLogActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/CallLogActivity.java
 @@ -121,6 +121,7 @@ import androidx.core.content.ContextCompat;
@@ -79,7 +79,7 @@ index 51a2f6b68..422afb9a9 100644
  		iBlur3PositionActionBar.set(0, -additionalList, fragmentView.getMeasuredWidth(), actionBar.getMeasuredHeight() + additionalList);
  		iBlur3PositionMainTabs.set(0, mainTabTop, fragmentView.getMeasuredWidth(), mainTabBottom);
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/BulletinFactory.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/BulletinFactory.java
-index 037518249..bf5f2e8be 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/BulletinFactory.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/BulletinFactory.java
 @@ -58,6 +58,7 @@ import org.telegram.ui.Stories.recorder.HintView2;
@@ -113,7 +113,7 @@ index 037518249..bf5f2e8be 100644
      }
  
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/glass/GlassTabView.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/glass/GlassTabView.java
-index b25cc5f38..f6d265b3c 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/glass/GlassTabView.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/glass/GlassTabView.java
 @@ -614,4 +614,31 @@ public class GlassTabView extends FrameLayout implements MainTabsLayout.Tab, Fac
@@ -150,7 +150,7 @@ index b25cc5f38..f6d265b3c 100644
  }
 \ No newline at end of file
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/ContactsActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/ContactsActivity.java
-index 8449d943c..0663f5276 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/ContactsActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/ContactsActivity.java
 @@ -113,6 +113,7 @@ import org.telegram.ui.Components.inset.WindowAnimatedInsetsProvider;
@@ -184,7 +184,7 @@ index 8449d943c..0663f5276 100644
          iBlur3PositionActionBar.set(0, -additionalList, fragmentView.getMeasuredWidth(), actionBar.getMeasuredHeight() + additionalList + additionalSearch );
          iBlur3PositionMainTabs.set(0, mainTabTop, fragmentView.getMeasuredWidth(), mainTabBottom);
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/DialogsActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/DialogsActivity.java
-index 043a7f7b7..201d0207d 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/DialogsActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/DialogsActivity.java
 @@ -264,6 +264,8 @@ import java.util.HashSet;
@@ -237,7 +237,7 @@ index 043a7f7b7..201d0207d 100644
          final int actionBarHeight = actionBar.getMeasuredHeight()
              + dp(DialogsActivity.SEARCH_FIELD_HEIGHT)
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/MainTabsActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/MainTabsActivity.java
-index 950de5c43..5aaafc37d 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/MainTabsActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/MainTabsActivity.java
 @@ -68,6 +68,7 @@ import org.telegram.ui.Stories.recorder.HintView2;
@@ -457,7 +457,7 @@ index 950de5c43..5aaafc37d 100644
          if (accountSwitchHint == null && MessagesController.getGlobalMainSettings().getInt("accountswitchhint", 0) < 2) {
              AndroidUtilities.runOnUIThread(() -> {
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/ProfileActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/ProfileActivity.java
-index 9be6be9d6..300ca06c8 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/ProfileActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/ProfileActivity.java
 @@ -334,6 +334,7 @@ import java.util.concurrent.atomic.AtomicReference;
@@ -491,7 +491,7 @@ index 9be6be9d6..300ca06c8 100644
          iBlur3PositionActionBar.set(0, -additionalList, fragmentView.getMeasuredWidth(), actionBar.getMeasuredHeight() + additionalList);
          iBlur3PositionMainTabs.set(0, mainTabTop, fragmentView.getMeasuredWidth(), mainTabBottom);
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/SettingsActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/SettingsActivity.java
-index ee2002b40..216ee7ed9 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/SettingsActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/SettingsActivity.java
 @@ -60,6 +60,7 @@ import androidx.core.view.ViewCompat;
@@ -523,7 +523,7 @@ index ee2002b40..216ee7ed9 100644
          iBlur3PositionActionBar.set(0, -additionalList, fragmentView.getMeasuredWidth(), actionBar.getMeasuredHeight() + additionalList);
          iBlur3PositionMainTabs.set(0, mainTabTop, fragmentView.getMeasuredWidth(), mainTabBottom);
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/TopicsFragment.java b/TMessagesProj/src/main/java/org/telegram/ui/TopicsFragment.java
-index 44a7dc922..df092618e 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/TopicsFragment.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/TopicsFragment.java
 @@ -144,6 +144,7 @@ import java.util.HashMap;
@@ -557,7 +557,7 @@ index 44a7dc922..df092618e 100644
          iBlur3PositionActionBar.set(0, -additionalList, fragmentView.getMeasuredWidth(), actionBar.getMeasuredHeight() + additionalList + additionalSearch );
          iBlur3PositionMainTabs.set(0, mainTabTop, fragmentView.getMeasuredWidth(), mainTabBottom);
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/ViewPagerActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/ViewPagerActivity.java
-index c159a168f..dcc2a1994 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/ViewPagerActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/ViewPagerActivity.java
 @@ -218,7 +218,7 @@ public abstract class ViewPagerActivity extends BaseFragment {

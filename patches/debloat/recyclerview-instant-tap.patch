@@ -8,7 +8,7 @@ Subject: [PATCH] enable "instant tap" mode in recyclerlistview by default
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/RecyclerListView.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/RecyclerListView.java
-index 6709597da..31140bed0 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/RecyclerListView.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/RecyclerListView.java
 @@ -177,7 +177,7 @@ public class RecyclerListView extends RecyclerView implements IBlur3Capture {

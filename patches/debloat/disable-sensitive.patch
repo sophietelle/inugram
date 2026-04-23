@@ -9,7 +9,7 @@ Subject: [PATCH] disable local sensitive filtering
  2 files changed, 3 insertions(+)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/messenger/MessageObject.java b/TMessagesProj/src/main/java/org/telegram/messenger/MessageObject.java
-index 080d58a29..125fd91f9 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/messenger/MessageObject.java
 +++ b/TMessagesProj/src/main/java/org/telegram/messenger/MessageObject.java
 @@ -630,6 +630,7 @@ public class MessageObject {
@@ -21,7 +21,7 @@ index 080d58a29..125fd91f9 100644
          if (messageOwner == null) return false;
          if (!canBeSensitive()) return false;
 diff --git a/TMessagesProj/src/main/java/org/telegram/messenger/MessagesController.java b/TMessagesProj/src/main/java/org/telegram/messenger/MessagesController.java
-index bb25554d5..af9c39c11 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/messenger/MessagesController.java
 +++ b/TMessagesProj/src/main/java/org/telegram/messenger/MessagesController.java
 @@ -21399,6 +21399,7 @@ public class MessagesController extends BaseController implements NotificationCe

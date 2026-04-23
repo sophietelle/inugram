@@ -33,7 +33,7 @@ Subject: [PATCH] non-island ui in various parts of the app
  26 files changed, 310 insertions(+), 151 deletions(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Cells/SharedPhotoVideoCell2.java b/TMessagesProj/src/main/java/org/telegram/ui/Cells/SharedPhotoVideoCell2.java
-index 086305067..ca4f8012b 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Cells/SharedPhotoVideoCell2.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Cells/SharedPhotoVideoCell2.java
 @@ -586,8 +586,8 @@ public class SharedPhotoVideoCell2 extends FrameLayout {
@@ -48,7 +48,7 @@ index 086305067..ca4f8012b 100644
              lerp(dp(1), dp(8), checkBoxProgress)
          );
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
-index 3a9ef63e3..3f778af05 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
 @@ -132,6 +132,9 @@ import androidx.viewpager.widget.ViewPager;
@@ -281,7 +281,7 @@ index 3a9ef63e3..3f778af05 100644
  
      private OnPostDrawView invalidateBlurredSourcesView;
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatActivityEnterView.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatActivityEnterView.java
-index 82cd625cf..3b6177ce9 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatActivityEnterView.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatActivityEnterView.java
 @@ -8970,8 +8970,8 @@ public class ChatActivityEnterView extends FrameLayout implements
@@ -296,7 +296,7 @@ index 82cd625cf..3b6177ce9 100644
                      videoTimelineView.setVisibility(GONE);
                  } else {
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatActivityTopPanelLayout.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatActivityTopPanelLayout.java
-index 9dcb73749..73dd71715 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatActivityTopPanelLayout.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatActivityTopPanelLayout.java
 @@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
@@ -346,7 +346,7 @@ index 9dcb73749..73dd71715 100644
      }
  }
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatAttachAlert.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatAttachAlert.java
-index e40b1e162..5feabe69f 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatAttachAlert.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatAttachAlert.java
 @@ -172,6 +172,7 @@ import java.util.List;
@@ -394,7 +394,7 @@ index e40b1e162..5feabe69f 100644
              BaseFragment lastFragment = baseFragment;
              if (lastFragment == null) {
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/DialogsActivityTopPanelLayout.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/DialogsActivityTopPanelLayout.java
-index c1600e865..b43de22aa 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/DialogsActivityTopPanelLayout.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/DialogsActivityTopPanelLayout.java
 @@ -17,9 +17,12 @@ import androidx.core.graphics.ColorUtils;
@@ -431,7 +431,7 @@ index c1600e865..b43de22aa 100644
          }
  
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/FilterTabsView.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/FilterTabsView.java
-index 66ecd2825..84101973b 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/FilterTabsView.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/FilterTabsView.java
 @@ -1547,6 +1547,7 @@ public class FilterTabsView extends FrameLayout {
@@ -455,7 +455,7 @@ index 66ecd2825..84101973b 100644
          canvas.clipPath(clipPath);
          super.dispatchDraw(canvas);
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/FragmentSearchField.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/FragmentSearchField.java
-index 8a1ab008b..8efe169d8 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/FragmentSearchField.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/FragmentSearchField.java
 @@ -65,6 +65,7 @@ public class FragmentSearchField extends FrameLayout implements FactorAnimator.T
@@ -490,7 +490,7 @@ index 8a1ab008b..8efe169d8 100644
      }
  
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/MediaActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/MediaActivity.java
-index 5e442735b..7afa0358d 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/MediaActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/MediaActivity.java
 @@ -1069,7 +1069,7 @@ public class MediaActivity extends BaseFragment implements SharedMediaLayout.Sha
@@ -503,7 +503,7 @@ index 5e442735b..7afa0358d 100644
          actionBar.setItemsColor(Theme.getColor(Theme.key_windowBackgroundWhiteBlackText), true);
          actionBar.setItemsBackgroundColor(Theme.getColor(Theme.key_actionBarActionModeDefaultSelector), false);
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/MentionsContainerView.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/MentionsContainerView.java
-index 1a68b7cfb..060ba471b 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/MentionsContainerView.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/MentionsContainerView.java
 @@ -54,6 +54,7 @@ import org.telegram.ui.ContentPreviewViewer;
@@ -566,7 +566,7 @@ index 1a68b7cfb..060ba471b 100644
          } else {
              listView.setPadding(dp(isGif ? 7 : 5), isGif ? dp(2) : 0, dp(isGif ? 7 : 5), isGif ? dp(2) : 0);
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/ScrollSlidingTextTabStrip.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/ScrollSlidingTextTabStrip.java
-index 2607144c5..9169eb343 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/ScrollSlidingTextTabStrip.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/ScrollSlidingTextTabStrip.java
 @@ -68,7 +68,7 @@ public class ScrollSlidingTextTabStrip extends HorizontalScrollView implements T
@@ -630,7 +630,7 @@ index 2607144c5..9169eb343 100644
  
          isOpen = open;
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/SharedMediaLayout.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/SharedMediaLayout.java
-index 5a9f9dc01..9349b000c 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/SharedMediaLayout.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/SharedMediaLayout.java
 @@ -74,6 +74,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
@@ -864,7 +864,7 @@ index 5a9f9dc01..9349b000c 100644
      }
  
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/TopicsTabsView.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/TopicsTabsView.java
-index 6aaac8da5..493a0b9bf 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/TopicsTabsView.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/TopicsTabsView.java
 @@ -71,13 +71,14 @@ import org.telegram.ui.TopicCreateFragment;
@@ -957,7 +957,7 @@ index 6aaac8da5..493a0b9bf 100644
      }
  
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/TranslateButton.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/TranslateButton.java
-index 32550fdcc..d4a43bd3f 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/TranslateButton.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/TranslateButton.java
 @@ -128,7 +128,9 @@ public class TranslateButton extends FrameLayout implements Theme.Colorable {
@@ -972,7 +972,7 @@ index 32550fdcc..d4a43bd3f 100644
          menuView.setColorFilter(new PorterDuffColorFilter(Theme.getColor(Theme.key_chat_topPanelClose, resourcesProvider), PorterDuff.Mode.MULTIPLY));
          translateDrawable.setColorFilter(new PorterDuffColorFilter(Theme.getColor(Theme.key_chat_addContact, resourcesProvider), PorterDuff.Mode.MULTIPLY));
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/blur3/drawable/color/impl/BlurredBackgroundProviderImpl.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/blur3/drawable/color/impl/BlurredBackgroundProviderImpl.java
-index 8f19ef3db..f12dd52cf 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/blur3/drawable/color/impl/BlurredBackgroundProviderImpl.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/blur3/drawable/color/impl/BlurredBackgroundProviderImpl.java
 @@ -12,6 +12,7 @@ import org.telegram.messenger.MessagesController;
@@ -1016,7 +1016,7 @@ index 8f19ef3db..f12dd52cf 100644
  
      public static BlurredBackgroundProvider bulletin(Theme.ResourcesProvider resourcesProvider) {
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/chat/ChatInputViewsContainer.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/chat/ChatInputViewsContainer.java
-index 4255534f3..61d6febaf 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/chat/ChatInputViewsContainer.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/chat/ChatInputViewsContainer.java
 @@ -78,6 +78,7 @@ public class ChatInputViewsContainer extends FrameLayout {
@@ -1047,7 +1047,7 @@ index 4255534f3..61d6febaf 100644
          }
  
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/chat/ChatListViewPaddingsAnimator.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/chat/ChatListViewPaddingsAnimator.java
-index f95a8adce..507b3fa5f 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/chat/ChatListViewPaddingsAnimator.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/chat/ChatListViewPaddingsAnimator.java
 @@ -39,7 +39,14 @@ public class ChatListViewPaddingsAnimator {
@@ -1067,7 +1067,7 @@ index f95a8adce..507b3fa5f 100644
                          FileLog.e(t);
                      }
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/chat/buttons/ChatActivityBlurredRoundButton.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/chat/buttons/ChatActivityBlurredRoundButton.java
-index 252ec857d..eb660666a 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/chat/buttons/ChatActivityBlurredRoundButton.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/chat/buttons/ChatActivityBlurredRoundButton.java
 @@ -52,12 +52,12 @@ public class ChatActivityBlurredRoundButton extends FrameLayout implements Facto
@@ -1097,7 +1097,7 @@ index 252ec857d..eb660666a 100644
  
      public void showLoading(boolean loading, boolean animated) {
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/chat/layouts/ChatActivityChannelButtonsLayout.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/chat/layouts/ChatActivityChannelButtonsLayout.java
-index a12c60489..0f58fd277 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/chat/layouts/ChatActivityChannelButtonsLayout.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/chat/layouts/ChatActivityChannelButtonsLayout.java
 @@ -28,6 +28,7 @@ import org.telegram.ui.Components.chat.buttons.ChatActivityBlurredRoundButton;
@@ -1119,7 +1119,7 @@ index a12c60489..0f58fd277 100644
              button.setOnClickListener(v -> {
                  if (onClickListeners[buttonId] != null) {
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/glass/GlassTabView.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/glass/GlassTabView.java
-index f6d265b3c..ef4dda269 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/glass/GlassTabView.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/glass/GlassTabView.java
 @@ -70,6 +70,7 @@ public class GlassTabView extends FrameLayout implements MainTabsLayout.Tab, Fac
@@ -1156,7 +1156,7 @@ index f6d265b3c..ef4dda269 100644
      }
  
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/DialogsActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/DialogsActivity.java
-index 32adf75ea..7394252ab 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/DialogsActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/DialogsActivity.java
 @@ -268,6 +268,7 @@ import desu.inugram.InuHooks;
@@ -1608,7 +1608,7 @@ index 32adf75ea..7394252ab 100644
  
      private void checkUi_searchFieldStyle() {
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/ProfileActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/ProfileActivity.java
-index 9d0e4c05f..65259599c 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/ProfileActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/ProfileActivity.java
 @@ -2055,7 +2055,7 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
@@ -1621,7 +1621,7 @@ index 9d0e4c05f..65259599c 100644
              scrollableViewNoiseSuppressor = null;
              //iBlur3SourceGlassFrosted = null;
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/SearchTabsAndFiltersLayout.java b/TMessagesProj/src/main/java/org/telegram/ui/SearchTabsAndFiltersLayout.java
-index d02a371bc..23d73551e 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/SearchTabsAndFiltersLayout.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/SearchTabsAndFiltersLayout.java
 @@ -15,6 +15,7 @@ import org.telegram.ui.Components.blur3.drawable.BlurredBackgroundDrawable;
@@ -1645,7 +1645,7 @@ index d02a371bc..23d73551e 100644
          canvas.clipPath(clipPath);
          super.dispatchDraw(canvas);
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/bots/BotAdView.java b/TMessagesProj/src/main/java/org/telegram/ui/bots/BotAdView.java
-index 8e6230d52..afa910994 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/bots/BotAdView.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/bots/BotAdView.java
 @@ -59,7 +59,7 @@ public class BotAdView extends FrameLayout {
@@ -1658,7 +1658,7 @@ index 8e6230d52..afa910994 100644
  
          setBackground(Theme.createRadSelectorDrawable(Theme.multAlpha(Theme.getColor(Theme.key_featuredStickers_addButton, resourcesProvider), .1f), 0, 0));
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/bots/BotCommandsMenuContainer.java b/TMessagesProj/src/main/java/org/telegram/ui/bots/BotCommandsMenuContainer.java
-index 66facc045..5dd8db943 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/bots/BotCommandsMenuContainer.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/bots/BotCommandsMenuContainer.java
 @@ -288,8 +288,8 @@ public class BotCommandsMenuContainer extends FrameLayout implements NestedScrol
@@ -1673,7 +1673,7 @@ index 66facc045..5dd8db943 100644
          listView.setOutlineProvider(backgroundDrawable.getViewOutlineProvider());
      }
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/bots/ChatAttachAlertBotWebViewLayout.java b/TMessagesProj/src/main/java/org/telegram/ui/bots/ChatAttachAlertBotWebViewLayout.java
-index a2230c684..97cd1cb33 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/bots/ChatAttachAlertBotWebViewLayout.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/bots/ChatAttachAlertBotWebViewLayout.java
 @@ -31,6 +31,7 @@ import androidx.dynamicanimation.animation.FloatValueHolder;

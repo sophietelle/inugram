@@ -8,7 +8,7 @@ Subject: [PATCH] fork-specific database migration hook
  1 file changed, 1 insertion(+)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/messenger/MessagesStorage.java b/TMessagesProj/src/main/java/org/telegram/messenger/MessagesStorage.java
-index 6908af601..b6fcfb026 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/messenger/MessagesStorage.java
 +++ b/TMessagesProj/src/main/java/org/telegram/messenger/MessagesStorage.java
 @@ -377,6 +377,7 @@ public class MessagesStorage extends BaseController {

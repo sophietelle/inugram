@@ -8,7 +8,7 @@ Subject: [PATCH] customizable max chat input lines (+ bumped default)
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatActivityEnterView.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatActivityEnterView.java
-index 359c4e9e6..82cd625cf 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatActivityEnterView.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatActivityEnterView.java
 @@ -5624,7 +5624,7 @@ public class ChatActivityEnterView extends FrameLayout implements

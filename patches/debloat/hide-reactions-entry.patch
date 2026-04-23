@@ -8,7 +8,7 @@ Subject: [PATCH] hide animation when sending a reaction
  1 file changed, 1 insertion(+)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/Reactions/ReactionsLayoutInBubble.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/Reactions/ReactionsLayoutInBubble.java
-index 36a5bdf40..590c101a4 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/Reactions/ReactionsLayoutInBubble.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/Reactions/ReactionsLayoutInBubble.java
 @@ -1628,6 +1628,7 @@ public class ReactionsLayoutInBubble {

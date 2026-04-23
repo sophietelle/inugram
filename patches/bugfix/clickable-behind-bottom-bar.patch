@@ -9,7 +9,7 @@ Subject: [PATCH] make area to the left/right of the bottom bar tabs
  1 file changed, 6 insertions(+), 2 deletions(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/MainTabsActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/MainTabsActivity.java
-index a467e5490..b51937228 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/MainTabsActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/MainTabsActivity.java
 @@ -328,8 +328,12 @@ public class MainTabsActivity extends ViewPagerActivity implements NotificationC

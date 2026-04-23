@@ -10,7 +10,7 @@ Subject: [PATCH] hide ai features
  3 files changed, 3 insertions(+), 2 deletions(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/ArticleViewer.java b/TMessagesProj/src/main/java/org/telegram/ui/ArticleViewer.java
-index 1435b2e26..e350c0458 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/ArticleViewer.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/ArticleViewer.java
 @@ -1779,6 +1779,7 @@ public class ArticleViewer implements NotificationCenter.NotificationCenterDeleg
@@ -22,7 +22,7 @@ index 1435b2e26..e350c0458 100644
                      block.first = true;
                      if (block instanceof TLRPC.TL_pageBlockCover) {
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Cells/ChatMessageCell.java b/TMessagesProj/src/main/java/org/telegram/ui/Cells/ChatMessageCell.java
-index fa4031b3f..3f9f56a63 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Cells/ChatMessageCell.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Cells/ChatMessageCell.java
 @@ -6805,7 +6805,7 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
@@ -35,7 +35,7 @@ index fa4031b3f..3f9f56a63 100644
              isReplyQuote = false;
              isReplyTaskOrPollOption = false;
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatActivityEnterView.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatActivityEnterView.java
-index b36ca2339..c9a451d63 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatActivityEnterView.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatActivityEnterView.java
 @@ -5846,7 +5846,7 @@ public class ChatActivityEnterView extends FrameLayout implements

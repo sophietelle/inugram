@@ -14,7 +14,7 @@ Subject: [PATCH] added some missing Emoji.replaceEmoji calls in various places
  7 files changed, 29 insertions(+), 14 deletions(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Cells/DialogCell.java b/TMessagesProj/src/main/java/org/telegram/ui/Cells/DialogCell.java
-index 1ce45b710..62587799b 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Cells/DialogCell.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Cells/DialogCell.java
 @@ -2525,6 +2525,7 @@ public class DialogCell extends BaseCell implements StoriesListPlaceProvider.Ava
@@ -26,7 +26,7 @@ index 1ce45b710..62587799b 100644
                      CharSequence s = AndroidUtilities.highlightText(messageNameString, message.highlightedWords, resourcesProvider);
                      if (s != null) {
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
-index 3f778af05..37a03ea42 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
 @@ -15091,11 +15091,11 @@ public class ChatActivity extends BaseFragment implements
@@ -71,7 +71,7 @@ index 3f778af05..37a03ea42 100644
                      chatActivityEnterView.setWebPage(webPage, true);
                  }
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/EditTextEmoji.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/EditTextEmoji.java
-index f7084bc79..8729e3b92 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/EditTextEmoji.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/EditTextEmoji.java
 @@ -74,7 +74,7 @@ public class EditTextEmoji extends FrameLayout implements NotificationCenter.Not
@@ -84,7 +84,7 @@ index f7084bc79..8729e3b92 100644
      public boolean includeNavigationBar;
      AdjustPanLayoutHelper adjustPanLayoutHelper;
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/MessagePreviewView.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/MessagePreviewView.java
-index 70c2b05d1..54a213ba1 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/MessagePreviewView.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/MessagePreviewView.java
 @@ -45,7 +45,7 @@ import org.telegram.messenger.BuildVars;
@@ -106,7 +106,7 @@ index 70c2b05d1..54a213ba1 100644
  
          @Override
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/MainTabsActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/MainTabsActivity.java
-index b51937228..8e6633657 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/MainTabsActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/MainTabsActivity.java
 @@ -32,6 +32,7 @@ import org.telegram.messenger.AndroidUtilities;
@@ -127,7 +127,7 @@ index b51937228..8e6633657 100644
          textView.setEllipsize(TextUtils.TruncateAt.END);
          btn.addView(textView, LayoutHelper.createLinear(0, LayoutHelper.WRAP_CONTENT, 1f, Gravity.CENTER_VERTICAL, 13, 0, 14, 0));
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/SettingsActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/SettingsActivity.java
-index fab37b043..2a7cade93 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/SettingsActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/SettingsActivity.java
 @@ -527,7 +527,7 @@ public class SettingsActivity extends BaseFragment implements NotificationCenter
@@ -149,7 +149,7 @@ index fab37b043..2a7cade93 100644
              botDrawable.setCurrentAccount(account);
              emojiStatusDrawable.setCurrentAccount(account);
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Stories/recorder/CaptionContainerView.java b/TMessagesProj/src/main/java/org/telegram/ui/Stories/recorder/CaptionContainerView.java
-index 079353c74..857b504b9 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Stories/recorder/CaptionContainerView.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Stories/recorder/CaptionContainerView.java
 @@ -33,6 +33,7 @@ import android.text.Editable;

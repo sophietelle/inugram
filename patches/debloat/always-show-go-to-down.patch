@@ -9,7 +9,7 @@ Subject: [PATCH] disable the "only show go to bottom button when scrolling up"
  1 file changed, 7 insertions(+), 1 deletion(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
-index 87a9cffda..810f9f060 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
 @@ -6797,7 +6797,13 @@ public class ChatActivity extends BaseFragment implements

@@ -9,7 +9,7 @@ Subject: [PATCH] stock incorrectly handles double-taps in RecyclerListView by
  1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/RecyclerListView.java b/TMessagesProj/src/main/java/org/telegram/ui/Components/RecyclerListView.java
-index 3aa6c066c..6709597da 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/RecyclerListView.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/RecyclerListView.java
 @@ -172,6 +172,7 @@ public class RecyclerListView extends RecyclerView implements IBlur3Capture {

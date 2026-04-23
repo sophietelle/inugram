@@ -12,7 +12,7 @@ Subject: [PATCH] added some infra for internal web apps (mostly ported from
  4 files changed, 13 insertions(+), 6 deletions(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/ActionBar/BottomSheetTabs.java b/TMessagesProj/src/main/java/org/telegram/ui/ActionBar/BottomSheetTabs.java
-index 5d2840386..5d4611144 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/ActionBar/BottomSheetTabs.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/ActionBar/BottomSheetTabs.java
 @@ -927,6 +927,7 @@ public class BottomSheetTabs extends FrameLayout {
@@ -24,7 +24,7 @@ index 5d2840386..5d4611144 100644
              return UserObject.getUserName(user);
          }
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/bots/BotWebViewAttachedSheet.java b/TMessagesProj/src/main/java/org/telegram/ui/bots/BotWebViewAttachedSheet.java
-index 39e2efa28..3a6c2c737 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/bots/BotWebViewAttachedSheet.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/bots/BotWebViewAttachedSheet.java
 @@ -948,7 +948,7 @@ public class BotWebViewAttachedSheet implements NotificationCenter.NotificationC
@@ -56,7 +56,7 @@ index 39e2efa28..3a6c2c737 100644
          actionBar.setActionBarMenuOnItemClick(new ActionBar.ActionBarMenuOnItemClick() {
              @Override
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/bots/BotWebViewSheet.java b/TMessagesProj/src/main/java/org/telegram/ui/bots/BotWebViewSheet.java
-index 387e9aba9..e04c6dcfa 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/bots/BotWebViewSheet.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/bots/BotWebViewSheet.java
 @@ -1346,7 +1346,7 @@ public class BotWebViewSheet extends Dialog implements NotificationCenter.Notifi
@@ -91,7 +91,7 @@ index 387e9aba9..e04c6dcfa 100644
              })
              .addIf(onVerifiedAge == null && currentBot != null && (currentBot.show_in_side_menu || currentBot.show_in_attach_menu), R.drawable.msg_delete, LocaleController.getString(R.string.BotWebViewDeleteBot), () -> {
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/bots/WebViewRequestProps.java b/TMessagesProj/src/main/java/org/telegram/ui/bots/WebViewRequestProps.java
-index d347faf60..d3aafca0e 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/bots/WebViewRequestProps.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/bots/WebViewRequestProps.java
 @@ -28,6 +28,7 @@ public class WebViewRequestProps {

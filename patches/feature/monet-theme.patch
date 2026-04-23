@@ -11,7 +11,7 @@ Subject: [PATCH] monet theme, almost directly ported from NagramX
  4 files changed, 69 insertions(+), 2 deletions(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/ActionBar/Theme.java b/TMessagesProj/src/main/java/org/telegram/ui/ActionBar/Theme.java
-index f14a469b4..5c7d547bf 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/ActionBar/Theme.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/ActionBar/Theme.java
 @@ -149,6 +149,7 @@ import java.util.Locale;
@@ -116,7 +116,7 @@ index f14a469b4..5c7d547bf 100644
                                      value = Utilities.parseInt(param);
                                  }
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/DialogsActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/DialogsActivity.java
-index 5d58a85d1..0ad06e4bb 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/DialogsActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/DialogsActivity.java
 @@ -13137,6 +13137,9 @@ public class DialogsActivity extends BaseFragment implements NotificationCenter.
@@ -130,7 +130,7 @@ index 5d58a85d1..0ad06e4bb 100644
  
          final Activity activity = getParentActivity();
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/LaunchActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/LaunchActivity.java
-index 810dcd7b8..ac5e41e08 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/LaunchActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/LaunchActivity.java
 @@ -6802,6 +6802,7 @@ public class LaunchActivity extends BasePermissionsActivity implements INavigati
@@ -142,7 +142,7 @@ index 810dcd7b8..ac5e41e08 100644
          //FileLog.d("UI resume time = " + (SystemClock.elapsedRealtime() - ApplicationLoader.startTime));
          NotificationCenter.getGlobalInstance().postNotificationName(NotificationCenter.startAllHeavyOperations, 4096);
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/SettingsActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/SettingsActivity.java
-index 216ee7ed9..fab37b043 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/SettingsActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/SettingsActivity.java
 @@ -1176,6 +1176,12 @@ public class SettingsActivity extends BaseFragment implements NotificationCenter

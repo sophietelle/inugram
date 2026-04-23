@@ -9,7 +9,7 @@ Subject: [PATCH] photo viewer ui elements not respecting LiteMode blur
  2 files changed, 18 insertions(+), 7 deletions(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/messenger/SharedConfig.java b/TMessagesProj/src/main/java/org/telegram/messenger/SharedConfig.java
-index f03150ec6..b63a8dcce 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/messenger/SharedConfig.java
 +++ b/TMessagesProj/src/main/java/org/telegram/messenger/SharedConfig.java
 @@ -1773,6 +1773,10 @@ public class SharedConfig {
@@ -24,7 +24,7 @@ index f03150ec6..b63a8dcce 100644
          private static SharedPreferences prefs;
  
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/PhotoViewer.java b/TMessagesProj/src/main/java/org/telegram/ui/PhotoViewer.java
-index 374d3c604..6c30baabe 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/PhotoViewer.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/PhotoViewer.java
 @@ -6414,7 +6414,7 @@ public class PhotoViewer implements NotificationCenter.NotificationCenterDelegat

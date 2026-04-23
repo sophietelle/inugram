@@ -10,7 +10,7 @@ Subject: [PATCH] add password autofill hints for password managers
  3 files changed, 5 insertions(+)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/LoginActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/LoginActivity.java
-index 3cad0e63c..fd6deeaea 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/LoginActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/LoginActivity.java
 @@ -5250,6 +5250,7 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
@@ -30,7 +30,7 @@ index 3cad0e63c..fd6deeaea 100644
                  }
                  codeField[a].setTypeface(Typeface.DEFAULT);
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/TwoStepVerificationActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/TwoStepVerificationActivity.java
-index b0de7a349..866e58931 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/TwoStepVerificationActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/TwoStepVerificationActivity.java
 @@ -272,6 +272,7 @@ public class TwoStepVerificationActivity extends BaseFragment implements Notific
@@ -42,7 +42,7 @@ index b0de7a349..866e58931 100644
          passwordEditText.setTypeface(Typeface.DEFAULT);
          passwordEditText.setCursorColor(Theme.getColor(Theme.key_windowBackgroundWhiteInputFieldActivated));
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/TwoStepVerificationSetupActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/TwoStepVerificationSetupActivity.java
-index 43204077d..7f57622ba 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/TwoStepVerificationSetupActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/TwoStepVerificationSetupActivity.java
 @@ -991,6 +991,7 @@ public class TwoStepVerificationSetupActivity extends BaseFragment {

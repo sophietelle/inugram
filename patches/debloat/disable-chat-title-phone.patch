@@ -9,7 +9,7 @@ Subject: [PATCH] disable showing phone number instead of the display name in
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
-index 64d7d994c..c66515ffa 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
 @@ -19328,7 +19328,7 @@ public class ChatActivity extends BaseFragment implements

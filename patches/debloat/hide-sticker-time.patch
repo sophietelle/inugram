@@ -8,7 +8,7 @@ Subject: [PATCH] hide sticker time overlay
  1 file changed, 14 insertions(+), 2 deletions(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Cells/ChatMessageCell.java b/TMessagesProj/src/main/java/org/telegram/ui/Cells/ChatMessageCell.java
-index 018179c62..2f3441b40 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Cells/ChatMessageCell.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Cells/ChatMessageCell.java
 @@ -18421,6 +18421,11 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate

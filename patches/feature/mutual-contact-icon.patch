@@ -9,7 +9,7 @@ Subject: [PATCH] show an icon for mutual contacts in contacts view
  2 files changed, 21 insertions(+), 1 deletion(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Adapters/ContactsAdapter.java b/TMessagesProj/src/main/java/org/telegram/ui/Adapters/ContactsAdapter.java
-index 404491d6d..69e6ed4d9 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Adapters/ContactsAdapter.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Adapters/ContactsAdapter.java
 @@ -447,7 +447,7 @@ public class ContactsAdapter extends RecyclerListView.SectionsAdapter {
@@ -22,7 +22,7 @@ index 404491d6d..69e6ed4d9 100644
                  view = cell;
                  break;
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Cells/UserCell.java b/TMessagesProj/src/main/java/org/telegram/ui/Cells/UserCell.java
-index c0347f0f7..e918e4eab 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Cells/UserCell.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Cells/UserCell.java
 @@ -75,6 +75,7 @@ public class UserCell extends FrameLayout implements NotificationCenter.Notifica

@@ -69,6 +69,7 @@ stg new feature__double-tap-to-edit -m 'Allow editing by double tapping a messag
 
 - `desu.inugram.InuHooks` — central bus for hooks into stock lifecycle (`init`, `onResume`, etc.). Prefer adding a `@JvmStatic` method here for a one-line stock patch call site, instead of exposing each helper to Java.
 - `desu.inugram.InuConfig` — all fork prefs. SharedPreferences name: `inugram`. Loaded once from `InuHooks.init`.
+- Inside stgit patches, `worktree/` prefix is omitted from paths, something to keep in mind when editing/referencing existing patches.
 
 ### `InuConfig` pattern
 

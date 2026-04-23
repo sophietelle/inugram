@@ -18,7 +18,7 @@ Subject: [PATCH] change app name to Inugram
  11 files changed, 37 insertions(+), 42 deletions(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/messenger/LocaleController.java b/TMessagesProj/src/main/java/org/telegram/messenger/LocaleController.java
-index 2bb253919..a22291e31 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/messenger/LocaleController.java
 +++ b/TMessagesProj/src/main/java/org/telegram/messenger/LocaleController.java
 @@ -1431,9 +1431,9 @@ public class LocaleController {
@@ -43,7 +43,7 @@ index 2bb253919..a22291e31 100644
              int resourceId = ApplicationLoader.applicationContext.getResources().getIdentifier(key, "string", ApplicationLoader.applicationContext.getPackageName());
              if (resourceId != 0) {
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/DialogsActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/DialogsActivity.java
-index fed111c5a..043a7f7b7 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/DialogsActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/DialogsActivity.java
 @@ -3457,12 +3457,7 @@ public class DialogsActivity extends BaseFragment implements NotificationCenter.
@@ -68,7 +68,7 @@ index fed111c5a..043a7f7b7 100644
 \ No newline at end of file
 +}
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Stories/DialogStoriesCell.java b/TMessagesProj/src/main/java/org/telegram/ui/Stories/DialogStoriesCell.java
-index 7f1695b97..ec90d47d3 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Stories/DialogStoriesCell.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Stories/DialogStoriesCell.java
 @@ -316,6 +316,8 @@ public class DialogStoriesCell extends FrameLayout implements NotificationCenter
@@ -139,7 +139,7 @@ index 7f1695b97..ec90d47d3 100644
          if (subtitleOverlayContainer != null) {
              subtitleOverlayContainer.setAlpha(progress);
 diff --git a/TMessagesProj/src/main/res/values-de/strings.xml b/TMessagesProj/src/main/res/values-de/strings.xml
-index 9054784ad..f7c6075c1 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/res/values-de/strings.xml
 +++ b/TMessagesProj/src/main/res/values-de/strings.xml
 @@ -1,7 +1,7 @@
@@ -153,7 +153,7 @@ index 9054784ad..f7c6075c1 100644
      <string name="English">Englisch</string>
      <string name="LanguageNameInEnglish">German</string>
 diff --git a/TMessagesProj/src/main/res/values-es/strings.xml b/TMessagesProj/src/main/res/values-es/strings.xml
-index 4779808ea..f47768a96 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/res/values-es/strings.xml
 +++ b/TMessagesProj/src/main/res/values-es/strings.xml
 @@ -1,7 +1,7 @@
@@ -176,7 +176,7 @@ index 4779808ea..f47768a96 100644
      <string name="Page3Title">Gratuito</string>
      <string name="Page4Title">Seguro</string>
 diff --git a/TMessagesProj/src/main/res/values-it/strings.xml b/TMessagesProj/src/main/res/values-it/strings.xml
-index 3e7688d9d..e64650b95 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/res/values-it/strings.xml
 +++ b/TMessagesProj/src/main/res/values-it/strings.xml
 @@ -1,7 +1,7 @@
@@ -190,7 +190,7 @@ index 3e7688d9d..e64650b95 100644
      <string name="English">Inglese</string>
      <string name="LanguageNameInEnglish">Italian</string>
 diff --git a/TMessagesProj/src/main/res/values-nl/strings.xml b/TMessagesProj/src/main/res/values-nl/strings.xml
-index f3df87e85..12cd974c0 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/res/values-nl/strings.xml
 +++ b/TMessagesProj/src/main/res/values-nl/strings.xml
 @@ -1,6 +1,6 @@
@@ -202,7 +202,7 @@ index f3df87e85..12cd974c0 100644
      <string name="LanguageName">Nederlands</string>
      <string name="English">Engels</string>
 diff --git a/TMessagesProj/src/main/res/values-pt-rBR/strings.xml b/TMessagesProj/src/main/res/values-pt-rBR/strings.xml
-index 03d0ba337..329b1e13b 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/res/values-pt-rBR/strings.xml
 +++ b/TMessagesProj/src/main/res/values-pt-rBR/strings.xml
 @@ -1,7 +1,7 @@
@@ -225,7 +225,7 @@ index 03d0ba337..329b1e13b 100644
      <string name="Page3Title">Gratuito</string>
      <string name="Page4Title">Seguro</string>
 diff --git a/TMessagesProj/src/main/res/values-ru/strings.xml b/TMessagesProj/src/main/res/values-ru/strings.xml
-index 24c562920..8d6171ef6 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/res/values-ru/strings.xml
 +++ b/TMessagesProj/src/main/res/values-ru/strings.xml
 @@ -1,7 +1,7 @@
@@ -248,7 +248,7 @@ index 24c562920..8d6171ef6 100644
      <string name="Page3Title">Бесплатный</string>
      <string name="Page4Title">Безопасный</string>
 diff --git a/TMessagesProj/src/main/res/values-uk/strings.xml b/TMessagesProj/src/main/res/values-uk/strings.xml
-index d46834430..9b02cfb86 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/res/values-uk/strings.xml
 +++ b/TMessagesProj/src/main/res/values-uk/strings.xml
 @@ -1,7 +1,7 @@
@@ -271,7 +271,7 @@ index d46834430..9b02cfb86 100644
      <string name="Page3Title">Безплатний</string>
      <string name="Page4Title">Захищений</string>
 diff --git a/TMessagesProj/src/main/res/values/strings.xml b/TMessagesProj/src/main/res/values/strings.xml
-index afb924cc4..44a4c6446 100644
+index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/res/values/strings.xml
 +++ b/TMessagesProj/src/main/res/values/strings.xml
 @@ -1,7 +1,7 @@
