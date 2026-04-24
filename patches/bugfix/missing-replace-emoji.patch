@@ -4,33 +4,32 @@ Date: Sun, 19 Apr 2026 05:33:38 +0300
 Subject: [PATCH] added some missing Emoji.replaceEmoji calls in various places
 
 ---
- .../org/telegram/ui/Cells/AudioPlayerCell.java  |  4 ++--
+ .../org/telegram/ui/Cells/AudioPlayerCell.java  |  3 ++-
  .../java/org/telegram/ui/Cells/DialogCell.java  |  1 +
  .../telegram/ui/ChannelAdminLogActivity.java    |  3 ++-
  .../main/java/org/telegram/ui/ChatActivity.java | 17 +++++++++--------
  .../ui/Components/AudioPlayerAlert.java         |  2 ++
  .../telegram/ui/Components/EditTextEmoji.java   |  2 +-
- .../ui/Components/MessagePreviewView.java       |  4 ++--
+ .../ui/Components/MessagePreviewView.java       |  3 ++-
  .../java/org/telegram/ui/MainTabsActivity.java  |  3 ++-
  .../java/org/telegram/ui/MessageSeenView.java   |  5 +++--
  .../java/org/telegram/ui/SettingsActivity.java  |  4 ++--
  .../Stories/recorder/CaptionContainerView.java  | 13 +++++++++++++
- 11 files changed, 39 insertions(+), 19 deletions(-)
+ 11 files changed, 39 insertions(+), 17 deletions(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Cells/AudioPlayerCell.java b/TMessagesProj/src/main/java/org/telegram/ui/Cells/AudioPlayerCell.java
 index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Cells/AudioPlayerCell.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Cells/AudioPlayerCell.java
-@@ -30,7 +30,7 @@ import android.widget.ImageView;
+@@ -30,6 +30,7 @@ import android.widget.ImageView;
  
  import org.telegram.messenger.AndroidUtilities;
  import org.telegram.messenger.DownloadController;
--import org.telegram.messenger.FileLoader;
-+import org.telegram.messenger.Emoji;import org.telegram.messenger.FileLoader;
++import org.telegram.messenger.Emoji;
+ import org.telegram.messenger.FileLoader;
  import org.telegram.messenger.FileLog;
  import org.telegram.messenger.ImageLoader;
- import org.telegram.messenger.LocaleController;
-@@ -144,7 +144,7 @@ public class AudioPlayerCell extends FrameLayout implements DownloadController.F
+@@ -144,7 +145,7 @@ public class AudioPlayerCell extends FrameLayout implements DownloadController.F
              CharSequence authorFinal = TextUtils.ellipsize(author, Theme.chat_contextResult_descriptionTextPaint, maxWidth, TextUtils.TruncateAt.END);
              CharSequence authorFinalH = AndroidUtilities.highlightText(authorFinal, currentMessageObject.highlightedWords, resourcesProvider);
              if (authorFinalH == null) authorFinalH = authorFinal;
@@ -162,16 +161,15 @@ diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/MessagePrevi
 index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/MessagePreviewView.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/MessagePreviewView.java
-@@ -45,7 +45,7 @@ import org.telegram.messenger.BuildVars;
+@@ -45,6 +45,7 @@ import org.telegram.messenger.BuildVars;
  import org.telegram.messenger.ChatMessageSharedResources;
  import org.telegram.messenger.ChatObject;
  import org.telegram.messenger.ContactsController;
--import org.telegram.messenger.FileLog;
-+import org.telegram.messenger.Emoji;import org.telegram.messenger.FileLog;
++import org.telegram.messenger.Emoji;
+ import org.telegram.messenger.FileLog;
  import org.telegram.messenger.MessagePreviewParams;
  import org.telegram.messenger.LocaleController;
- import org.telegram.messenger.MessageObject;
-@@ -2156,7 +2156,7 @@ public class MessagePreviewView extends FrameLayout {
+@@ -2156,7 +2157,7 @@ public class MessagePreviewView extends FrameLayout {
          }
  
          public void setSubtitle(CharSequence text, boolean animated) {
