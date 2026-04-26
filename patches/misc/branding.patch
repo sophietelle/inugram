@@ -4,9 +4,16 @@ Date: Tue, 21 Apr 2026 09:21:29 +0300
 Subject: [PATCH] change app name to Inugram
 
 ---
+ TMessagesProj/src/main/AndroidManifest.xml    | 16 +++++++++++++++
  .../telegram/messenger/LocaleController.java  |  6 +++---
  .../java/org/telegram/ui/DialogsActivity.java |  9 ++-------
+ .../telegram/ui/LauncherIconController.java   |  3 ++-
  .../ui/Stories/DialogStoriesCell.java         | 20 +++++++++----------
+ .../java/org/telegram/ui/ThemeActivity.java   | 12 +++++++++--
+ .../res/mipmap-anydpi-v26/ic_launcher.xml     |  6 +++---
+ .../mipmap-anydpi-v26/ic_launcher_round.xml   |  6 +++---
+ .../mipmap-anydpi-v26/ic_launcher_stock.xml   |  6 ++++++
+ .../ic_launcher_stock_round.xml               |  6 ++++++
  .../src/main/res/values-de/strings.xml        |  4 ++--
  .../src/main/res/values-es/strings.xml        |  6 +++---
  .../src/main/res/values-it/strings.xml        |  4 ++--
@@ -15,8 +22,37 @@ Subject: [PATCH] change app name to Inugram
  .../src/main/res/values-ru/strings.xml        |  6 +++---
  .../src/main/res/values-uk/strings.xml        |  6 +++---
  TMessagesProj/src/main/res/values/strings.xml | 10 +++++-----
- 11 files changed, 37 insertions(+), 42 deletions(-)
+ 18 files changed, 83 insertions(+), 51 deletions(-)
+ create mode 100644 TMessagesProj/src/main/res/mipmap-anydpi-v26/ic_launcher_stock.xml
+ create mode 100644 TMessagesProj/src/main/res/mipmap-anydpi-v26/ic_launcher_stock_round.xml
 
+diff --git a/TMessagesProj/src/main/AndroidManifest.xml b/TMessagesProj/src/main/AndroidManifest.xml
+index 0000000..0000000 100644
+--- a/TMessagesProj/src/main/AndroidManifest.xml
++++ b/TMessagesProj/src/main/AndroidManifest.xml
+@@ -127,6 +127,22 @@
+             <meta-data android:name="android.app.shortcuts" android:resource="@xml/shortcuts" />
+         </activity-alias>
+ 
++        <activity-alias
++            android:enabled="false"
++            android:name="org.telegram.messenger.StockIcon"
++            android:targetActivity="org.telegram.ui.LaunchActivity"
++            android:icon="@mipmap/ic_launcher_stock"
++            android:roundIcon="@mipmap/ic_launcher_stock_round"
++            android:exported="true">
++
++            <intent-filter>
++                <action android:name="android.intent.action.MAIN" />
++                <category android:name="android.intent.category.LAUNCHER" />
++                <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER" />
++            </intent-filter>
++            <meta-data android:name="android.app.shortcuts" android:resource="@xml/shortcuts" />
++        </activity-alias>
++
+         <activity-alias
+             android:enabled="false"
+             android:name="org.telegram.messenger.VintageIcon"
 diff --git a/TMessagesProj/src/main/java/org/telegram/messenger/LocaleController.java b/TMessagesProj/src/main/java/org/telegram/messenger/LocaleController.java
 index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/messenger/LocaleController.java
@@ -67,6 +103,20 @@ index 0000000..0000000 100644
 -}
 \ No newline at end of file
 +}
+diff --git a/TMessagesProj/src/main/java/org/telegram/ui/LauncherIconController.java b/TMessagesProj/src/main/java/org/telegram/ui/LauncherIconController.java
+index 0000000..0000000 100644
+--- a/TMessagesProj/src/main/java/org/telegram/ui/LauncherIconController.java
++++ b/TMessagesProj/src/main/java/org/telegram/ui/LauncherIconController.java
+@@ -34,7 +34,8 @@ public class LauncherIconController {
+     }
+ 
+     public enum LauncherIcon {
+-        DEFAULT("DefaultIcon", R.drawable.icon_background_sa, R.mipmap.icon_foreground_sa, R.string.AppIconDefault),
++        DEFAULT("DefaultIcon", R.drawable.icon_background_inu, R.drawable.icon_foreground_inu, R.string.AppIconDefault),
++        STOCK("StockIcon", R.drawable.icon_background_sa, R.mipmap.icon_foreground_sa, R.string.InuAppIconStock),
+         VINTAGE("VintageIcon", R.drawable.icon_6_background_sa, R.mipmap.icon_6_foreground_sa, R.string.AppIconVintage),
+         AQUA("AquaIcon", R.drawable.icon_4_background_sa, R.mipmap.icon_foreground_sa, R.string.AppIconAqua),
+         PREMIUM("PremiumIcon", R.drawable.icon_3_background_sa, R.mipmap.icon_3_foreground_sa, R.string.AppIconPremium, true),
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Stories/DialogStoriesCell.java b/TMessagesProj/src/main/java/org/telegram/ui/Stories/DialogStoriesCell.java
 index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Stories/DialogStoriesCell.java
@@ -138,6 +188,113 @@ index 0000000..0000000 100644
          }
          if (subtitleOverlayContainer != null) {
              subtitleOverlayContainer.setAlpha(progress);
+diff --git a/TMessagesProj/src/main/java/org/telegram/ui/ThemeActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/ThemeActivity.java
+index 0000000..0000000 100644
+--- a/TMessagesProj/src/main/java/org/telegram/ui/ThemeActivity.java
++++ b/TMessagesProj/src/main/java/org/telegram/ui/ThemeActivity.java
+@@ -844,6 +844,7 @@ public class ThemeActivity extends BaseFragment implements NotificationCenter.No
+         getNotificationCenter().addObserver(this, NotificationCenter.contentSettingsLoaded);
+         getNotificationCenter().addObserver(this, NotificationCenter.themeUploadedToServer);
+         getNotificationCenter().addObserver(this, NotificationCenter.themeUploadError);
++        NotificationCenter.getGlobalInstance().addObserver(this, NotificationCenter.showBulletin);
+         if (currentType == THEME_TYPE_BASIC) {
+             Theme.loadRemoteThemes(currentAccount, true);
+             Theme.checkCurrentRemoteTheme(true);
+@@ -867,6 +868,7 @@ public class ThemeActivity extends BaseFragment implements NotificationCenter.No
+         getNotificationCenter().removeObserver(this, NotificationCenter.contentSettingsLoaded);
+         getNotificationCenter().removeObserver(this, NotificationCenter.themeUploadedToServer);
+         getNotificationCenter().removeObserver(this, NotificationCenter.themeUploadError);
++        NotificationCenter.getGlobalInstance().removeObserver(this, NotificationCenter.showBulletin);
+         Theme.saveAutoNightThemeConfig();
+     }
+ 
+@@ -883,6 +885,10 @@ public class ThemeActivity extends BaseFragment implements NotificationCenter.No
+             if (listAdapter != null && themeAccentListRow != -1) {
+                 listAdapter.notifyItemChanged(themeAccentListRow, new Object());
+             }
++        } else if (id == NotificationCenter.showBulletin) {
++            if (args.length > 0 && Integer.valueOf(org.telegram.ui.Components.Bulletin.TYPE_APP_ICON).equals(args[0]) && listAdapter != null && appIconShadowRow != -1) {
++                listAdapter.notifyItemChanged(appIconShadowRow);
++            }
+         } else if (id == NotificationCenter.themeListUpdated) {
+             updateRows(true);
+         } else if (id == NotificationCenter.themeUploadedToServer) {
+@@ -2525,6 +2531,8 @@ public class ThemeActivity extends BaseFragment implements NotificationCenter.No
+                         cell.setText(getString("ChatListSwipeGestureInfo", R.string.ChatListSwipeGestureInfo));
+                     } else if (position == liteModeInfoRow) {
+                         cell.setText(getString("LiteModeInfo", R.string.LiteModeInfo));
++                    } else if (position == appIconShadowRow) {
++                        cell.setText(desu.inugram.InuHooks.getCurrentAppIconLicense());
+                     } else {
+                         cell.setFixedSize(12);
+                         cell.setText("");
+@@ -2727,11 +2735,11 @@ public class ThemeActivity extends BaseFragment implements NotificationCenter.No
+                     position == contactsReimportRow || position == contactsSortRow ||
+                     position == bluetoothScoRow || position == searchEngineRow) {
+                 return TYPE_TEXT_SETTING;
+-            } else if (position == automaticBrightnessInfoRow || position == scheduleLocationInfoRow || position == swipeGestureInfoRow || position == stickersInfoRow || position == liteModeInfoRow) {
++            } else if (position == automaticBrightnessInfoRow || position == scheduleLocationInfoRow || position == swipeGestureInfoRow || position == stickersInfoRow || position == liteModeInfoRow || position == appIconShadowRow) {
+                 return TYPE_TEXT_INFO_PRIVACY;
+             } else if (position == themeInfoRow || position == nightTypeInfoRow || position == scheduleFromToInfoRow ||
+                     position == settings2Row || position == newThemeInfoRow || position == chatListInfoRow || position == bubbleRadiusInfoRow ||
+-                    position == saveToGallerySectionRow || position == appIconShadowRow || position == lastShadowRow || position == stickersSectionRow ||
++                    position == saveToGallerySectionRow || position == lastShadowRow || position == stickersSectionRow ||
+                     position == mediaSoundSectionRow || position == otherSectionRow) {
+                 return TYPE_SHADOW;
+             } else if (position == nightDisabledRow || position == nightScheduledRow || position == nightAutomaticRow || position == nightSystemDefaultRow) {
+diff --git a/TMessagesProj/src/main/res/mipmap-anydpi-v26/ic_launcher.xml b/TMessagesProj/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
+index 0000000..0000000 100644
+--- a/TMessagesProj/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
++++ b/TMessagesProj/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+-    <background android:drawable="@drawable/icon_background" />
+-    <foreground android:drawable="@mipmap/icon_foreground" />
+-    <monochrome android:drawable="@drawable/icon_plane" />
++    <background android:drawable="@drawable/icon_background_inu" />
++    <foreground android:drawable="@drawable/icon_foreground_inu" />
++    <monochrome android:drawable="@drawable/icon_plane_inu" />
+ </adaptive-icon>
+\ No newline at end of file
+diff --git a/TMessagesProj/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml b/TMessagesProj/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml
+index 0000000..0000000 100644
+--- a/TMessagesProj/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml
++++ b/TMessagesProj/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+-    <background android:drawable="@drawable/icon_background_round" />
+-    <foreground android:drawable="@mipmap/icon_foreground_round" />
+-    <monochrome android:drawable="@drawable/icon_plane" />
++    <background android:drawable="@drawable/icon_background_inu" />
++    <foreground android:drawable="@drawable/icon_foreground_inu_round" />
++    <monochrome android:drawable="@drawable/icon_plane_inu" />
+ </adaptive-icon>
+diff --git a/TMessagesProj/src/main/res/mipmap-anydpi-v26/ic_launcher_stock.xml b/TMessagesProj/src/main/res/mipmap-anydpi-v26/ic_launcher_stock.xml
+new file mode 100644
+index 0000000..0000000
+--- /dev/null
++++ b/TMessagesProj/src/main/res/mipmap-anydpi-v26/ic_launcher_stock.xml
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="utf-8"?>
++<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
++    <background android:drawable="@drawable/icon_background" />
++    <foreground android:drawable="@mipmap/icon_foreground" />
++    <monochrome android:drawable="@drawable/icon_plane" />
++</adaptive-icon>
+diff --git a/TMessagesProj/src/main/res/mipmap-anydpi-v26/ic_launcher_stock_round.xml b/TMessagesProj/src/main/res/mipmap-anydpi-v26/ic_launcher_stock_round.xml
+new file mode 100644
+index 0000000..0000000
+--- /dev/null
++++ b/TMessagesProj/src/main/res/mipmap-anydpi-v26/ic_launcher_stock_round.xml
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="utf-8"?>
++<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
++    <background android:drawable="@drawable/icon_background_round" />
++    <foreground android:drawable="@mipmap/icon_foreground_round" />
++    <monochrome android:drawable="@drawable/icon_plane" />
++</adaptive-icon>
 diff --git a/TMessagesProj/src/main/res/values-de/strings.xml b/TMessagesProj/src/main/res/values-de/strings.xml
 index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/res/values-de/strings.xml

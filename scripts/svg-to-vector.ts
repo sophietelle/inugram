@@ -1,4 +1,4 @@
-type SvgAttrs = Record<string, string>
+export type SvgAttrs = Record<string, string>
 
 function parseSvgAttrs(raw: string): SvgAttrs {
   const attrs: SvgAttrs = {}
@@ -8,7 +8,7 @@ function parseSvgAttrs(raw: string): SvgAttrs {
   return attrs
 }
 
-function fmtNum(n: number): string {
+export function fmtNum(n: number): string {
   if (!Number.isFinite(n)) throw new Error(`Invalid number: ${n}`)
   return Number.isInteger(n) ? String(n) : String(+n.toFixed(4))
 }
@@ -80,7 +80,7 @@ function svgElementPathData(tag: string, attrs: SvgAttrs): string | null {
   return null
 }
 
-interface SvgShape {
+export interface SvgShape {
   d: string
   fill?: string
   stroke?: string
@@ -89,7 +89,7 @@ interface SvgShape {
   strokeLineJoin?: string
 }
 
-function parseSvgBody(body: string): SvgShape[] {
+export function parseSvgBody(body: string): SvgShape[] {
   const shapes: SvgShape[] = []
   const stack: SvgAttrs[] = [{}]
   // eslint-disable-next-line regexp/no-super-linear-backtracking
@@ -124,26 +124,39 @@ function parseSvgBody(body: string): SvgShape[] {
   return shapes
 }
 
-const DEFAULT_COLOR = '#ffffff'
+const DEFAULT_COLOR = '#FFFFFFFF'
+
+const NAMED_COLORS: Record<string, string> = {
+  white: '#FFFFFF',
+  black: '#000000',
+  red: '#FF0000',
+  green: '#008000',
+  blue: '#0000FF',
+  transparent: '#00000000',
+}
 
 function normalizeSvgColor(value: string): string {
   if (value === 'currentColor') return DEFAULT_COLOR
+  let hex: string | null = null
   if (value.startsWith('#')) {
-    let hex = value.slice(1).toUpperCase()
-    if (hex.length === 3) hex = [...hex].map(c => c + c).join('')
-    if (hex.length === 6) hex = `FF${hex}`
-    return `#${hex}`
+    hex = value.slice(1).toUpperCase()
+  } else {
+    const named = NAMED_COLORS[value.toLowerCase()]
+    if (named) hex = named.slice(1)
   }
-  return value
+  if (hex == null) throw new Error(`Unsupported SVG color: ${value}`)
+  if (hex.length === 3) hex = [...hex].map(c => c + c).join('')
+  if (hex.length === 6) hex = `FF${hex}`
+  return `#${hex}`
 }
 
-function resolveFillColor(value: string | undefined): string | null {
+export function resolveFillColor(value: string | undefined): string | null {
   if (value === 'none') return null
   if (!value) return DEFAULT_COLOR
   return normalizeSvgColor(value)
 }
 
-function resolveStrokeColor(value: string | undefined): string | null {
+export function resolveStrokeColor(value: string | undefined): string | null {
   if (!value || value === 'none') return null
   return normalizeSvgColor(value)
 }

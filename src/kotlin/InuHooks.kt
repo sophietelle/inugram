@@ -5,6 +5,7 @@ import android.os.Build
 import android.os.Bundle
 import desu.inugram.helpers.MainTabsHelper
 import desu.inugram.helpers.MonetHelper
+import org.telegram.messenger.AndroidUtilities
 import org.telegram.messenger.LocaleController.getString
 import org.telegram.messenger.R
 import org.telegram.messenger.UserConfig
@@ -15,6 +16,7 @@ import org.telegram.ui.Components.ItemOptions
 import org.telegram.ui.ContactsActivity
 import org.telegram.ui.DialogsActivity
 import org.telegram.ui.LaunchActivity
+import org.telegram.ui.LauncherIconController
 import org.telegram.ui.ProfileActivity
 import org.telegram.ui.SettingsActivity
 
@@ -57,6 +59,17 @@ object InuHooks {
         val delay = InuConfig.DOUBLE_TAP_DELAY.value
         GestureDetectorFixDoubleTap.GestureDetectorCompatImplBase.DOUBLE_TAP_TIMEOUT = delay
         GestureDetector2.DOUBLE_TAP_TIMEOUT = delay
+    }
+
+    @JvmStatic
+    fun getCurrentAppIconLicense(): CharSequence {
+        val current = LauncherIconController.LauncherIcon.entries
+            .firstOrNull { LauncherIconController.isEnabled(it) }
+        val resId = when (current) {
+            LauncherIconController.LauncherIcon.DEFAULT -> R.string.InuAppIconLicenseInugram
+            else -> R.string.InuAppIconLicenseTelegram
+        }
+        return AndroidUtilities.replaceTags(getString(resId))
     }
 
     @JvmStatic
