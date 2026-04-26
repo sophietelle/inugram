@@ -206,7 +206,7 @@ class InuBehaviorSettingsActivity : InuSettingsPageActivity() {
 
             TOGGLE_DISABLE_INTRO_STICKER -> {
                 val new = InuConfig.DISABLE_INTRO_STICKER.toggle()
-                (view as? TextCheckCell)?.isChecked = new
+                (view as? NotificationsCheckCell)?.isChecked = new
             }
 
             TOGGLE_DISABLE_DRAFT_UPLOAD -> {
