@@ -6,7 +6,8 @@
   "scripts": {
     "setup": "tsx scripts/setup.ts",
     "export": "tsx scripts/export.ts",
-    "rebase": "tsx scripts/rebase.ts"
+    "rebase": "tsx scripts/rebase.ts",
+    "append-to-patch": "tsx scripts/append-to-patch.ts"
   },
   "dependencies": {
     "@antfu/eslint-config": "^8.1.0",

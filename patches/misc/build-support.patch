@@ -11,13 +11,13 @@ Subject: [PATCH] build support stuff for fork-specific code: - added kotlin -
  .../org/telegram/messenger/BuildVars.java     |  14 ++-
  .../org/telegram/ui/PaymentFormActivity.java  |  28 +++--
  .../org/telegram/ui/SettingsActivity.java     |   2 +-
- TMessagesProj_App/build.gradle                | 105 +++---------------
+ TMessagesProj_App/build.gradle                | 106 +++---------------
  TMessagesProj_App/google-services.json        |  76 +++----------
  TMessagesProj_AppTests/build.gradle           |   5 +-
  build.gradle                                  |  12 +-
  gradle.properties                             |   4 +-
  settings.gradle                               |   4 -
- 12 files changed, 108 insertions(+), 333 deletions(-)
+ 12 files changed, 109 insertions(+), 333 deletions(-)
 
 diff --git a/TMessagesProj/build.gradle b/TMessagesProj/build.gradle
 index 0000000..0000000 100644
@@ -471,7 +471,13 @@ diff --git a/TMessagesProj_App/build.gradle b/TMessagesProj_App/build.gradle
 index 0000000..0000000 100644
 --- a/TMessagesProj_App/build.gradle
 +++ b/TMessagesProj_App/build.gradle
-@@ -16,7 +16,6 @@ configurations.all {
+@@ -1,4 +1,5 @@
+ apply plugin: 'com.android.application'
++apply plugin: 'kotlin-android'
+ 
+ repositories {
+     mavenCentral()
+@@ -16,7 +17,6 @@ configurations.all {
  
  dependencies {
      implementation project(':TMessagesProj')
@@ -479,7 +485,7 @@ index 0000000..0000000 100644
      implementation files('../TMessagesProj/libs/libgsaverification-client.aar')
  }
  
-@@ -37,20 +36,11 @@ android {
+@@ -37,20 +37,11 @@ android {
      compileOptions {
          sourceCompatibility JavaVersion.VERSION_1_8
          targetCompatibility JavaVersion.VERSION_1_8
@@ -501,7 +507,7 @@ index 0000000..0000000 100644
              storePassword RELEASE_STORE_PASSWORD
              keyAlias RELEASE_KEY_ALIAS
              keyPassword RELEASE_KEY_PASSWORD
-@@ -61,7 +51,7 @@ android {
+@@ -61,7 +52,7 @@ android {
          debug {
              debuggable true
              jniDebuggable true
@@ -510,7 +516,7 @@ index 0000000..0000000 100644
              applicationIdSuffix ".beta"
              minifyEnabled false
              shrinkResources false
-@@ -70,18 +60,6 @@ android {
+@@ -70,18 +61,6 @@ android {
              ndk.debugSymbolLevel = 'FULL'
          }
  
@@ -529,7 +535,7 @@ index 0000000..0000000 100644
          release {
              debuggable false
              jniDebuggable false
-@@ -95,95 +73,38 @@ android {
+@@ -95,95 +74,38 @@ android {
      }
  
      sourceSets.debug {

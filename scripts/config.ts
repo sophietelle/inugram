@@ -26,6 +26,11 @@ export const forkSyncFiles: ForkSyncFile[] = [
     directory: true,
   },
   {
+    source: 'src/kotlin-app',
+    target: 'TMessagesProj_App/src/main/kotlin/desu/inugram',
+    directory: true,
+  },
+  {
     source: 'src/java/google_material',
     target: 'TMessagesProj/src/main/java/google_material',
     directory: true,
