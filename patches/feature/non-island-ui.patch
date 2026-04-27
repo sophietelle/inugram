@@ -19,7 +19,7 @@ Subject: [PATCH] non-island ui in various parts of the app
  .../ui/Components/TopicsTabsView.java         |  28 ++--
  .../ui/Components/TranslateButton.java        |   4 +-
  .../impl/BlurredBackgroundProviderImpl.java   |  15 ++-
- .../chat/ChatInputViewsContainer.java         |  12 +-
+ .../chat/ChatInputViewsContainer.java         |  25 +++-
  .../chat/ChatListViewPaddingsAnimator.java    |   9 +-
  .../ChatActivityBlurredRoundButton.java       |   6 +-
  .../ChatActivityChannelButtonsLayout.java     |   4 +
@@ -30,7 +30,7 @@ Subject: [PATCH] non-island ui in various parts of the app
  .../java/org/telegram/ui/bots/BotAdView.java  |   2 +-
  .../ui/bots/BotCommandsMenuContainer.java     |   4 +-
  .../bots/ChatAttachAlertBotWebViewLayout.java |   5 +-
- 26 files changed, 319 insertions(+), 151 deletions(-)
+ 26 files changed, 331 insertions(+), 152 deletions(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Cells/SharedPhotoVideoCell2.java b/TMessagesProj/src/main/java/org/telegram/ui/Cells/SharedPhotoVideoCell2.java
 index 0000000..0000000 100644
@@ -1054,7 +1054,27 @@ index 0000000..0000000 100644
          blurredBackgroundDrawable.setPadding(dp(7));
          blurredBackgroundDrawable.setRadius(dp(INPUT_BUBBLE_RADIUS));
      }
-@@ -267,11 +268,14 @@ public class ChatInputViewsContainer extends FrameLayout {
+@@ -85,7 +86,8 @@ public class ChatInputViewsContainer extends FrameLayout {
+     public void setUnderKeyboardBackgroundDrawable(BlurredBackgroundDrawable drawable) {
+         underKeyboardBackgroundDrawable = drawable;
+         underKeyboardBackgroundDrawable.enableInAppKeyboardOptimization();
+-        underKeyboardBackgroundDrawable.setRadius(dp(INPUT_KEYBOARD_RADIUS), dp(INPUT_KEYBOARD_RADIUS), 0, 0);
++        final int topRadius = desu.inugram.helpers.NonIslandHelper.chatElements() ? 0 : dp(INPUT_KEYBOARD_RADIUS);
++        underKeyboardBackgroundDrawable.setRadius(topRadius, topRadius, 0, 0);
+         underKeyboardBackgroundDrawable.setThickness(dp(32));
+         underKeyboardBackgroundDrawable.setIntensity(0.4f);
+     }
+@@ -177,7 +179,8 @@ public class ChatInputViewsContainer extends FrameLayout {
+                     rightBottomRadius = bottomRight == null ? 0 : bottomRight.getRadius();
+                 }
+             }
+-            underKeyboardBackgroundDrawable.setRadius(dp(INPUT_KEYBOARD_RADIUS), dp(INPUT_KEYBOARD_RADIUS), rightBottomRadius, leftBottomRadius, true);
++            final int topRadius = desu.inugram.helpers.NonIslandHelper.chatElements() ? 0 : dp(INPUT_KEYBOARD_RADIUS);
++            underKeyboardBackgroundDrawable.setRadius(topRadius, topRadius, rightBottomRadius, leftBottomRadius, true);
+         }
+     }
+ 
+@@ -267,11 +270,23 @@ public class ChatInputViewsContainer extends FrameLayout {
          );
          tmpRect.inset(0, -dp(7));
          tmpRect.offset(0, blurTop + (int) bubbleInputTranlationY);
@@ -1067,9 +1087,17 @@ index 0000000..0000000 100644
  
 -        blurredBackgroundDrawable.setBounds(tmpRect);
 -        blurredBackgroundDrawable.draw(canvas);
--
++        if (!nonIsland || hasBar) {
++            blurredBackgroundDrawable.setBounds(tmpRect);
++            blurredBackgroundDrawable.draw(canvas);
++        }
+ 
 -        if (needDrawInAppKeyboard) {
-+        if (needDrawInAppKeyboard && !desu.inugram.helpers.NonIslandHelper.chatElements()) { // inputIslandBubbleDrawable covers the under-keyboard area too
++        // in non-island mode the bubble bg also covers the under-keyboard area, but
++        // only when fully opaque — when the bar fades out (e.g. selection mode + open
++        // stickers panel) we need the under-keyboard bg as fallback.
++        final boolean bubbleCoversKeyboard = nonIsland && hasBar && blurredBackgroundDrawable.getAlpha() == 255;
++        if (needDrawInAppKeyboard && !bubbleCoversKeyboard) {
              underKeyboardBackgroundDrawable.draw(canvas);
          }
  

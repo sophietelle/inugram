@@ -5,8 +5,8 @@ Subject: [PATCH] disable channel bottom bar (mute and join buttons)
 
 ---
  .../src/main/java/org/telegram/ui/ChatActivity.java | 13 +++++++++----
- .../ui/Components/chat/ChatInputViewsContainer.java | 11 +++++++++--
- 2 files changed, 18 insertions(+), 6 deletions(-)
+ .../ui/Components/chat/ChatInputViewsContainer.java |  4 +++-
+ 2 files changed, 12 insertions(+), 5 deletions(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
 index 0000000..0000000 100644
@@ -71,7 +71,7 @@ diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Components/chat/ChatInp
 index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Components/chat/ChatInputViewsContainer.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Components/chat/ChatInputViewsContainer.java
-@@ -268,14 +268,21 @@ public class ChatInputViewsContainer extends FrameLayout {
+@@ -270,7 +270,9 @@ public class ChatInputViewsContainer extends FrameLayout {
          );
          tmpRect.inset(0, -dp(7));
          tmpRect.offset(0, blurTop + (int) bubbleInputTranlationY);
@@ -82,19 +82,6 @@ index 0000000..0000000 100644
              tmpRect.top += dp(14);
              tmpRect.bottom = getMeasuredHeight();
              tmpRect.left = 0;
-             tmpRect.right = getMeasuredWidth();
-         }
- 
--        if (needDrawInAppKeyboard && !desu.inugram.helpers.NonIslandHelper.chatElements()) { // inputIslandBubbleDrawable covers the under-keyboard area too
-+        if (!nonIsland || hasBar) {
-+            blurredBackgroundDrawable.setBounds(tmpRect);
-+            blurredBackgroundDrawable.draw(canvas);
-+        }
-+
-+        if (needDrawInAppKeyboard && !nonIsland) { // inputIslandBubbleDrawable covers the under-keyboard area too
-             underKeyboardBackgroundDrawable.draw(canvas);
-         }
- 
 -- 
 2.52.0
 
