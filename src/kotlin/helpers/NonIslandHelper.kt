@@ -28,6 +28,18 @@ object NonIslandHelper {
     @JvmStatic
     fun chatElements(): Boolean = InuConfig.NON_ISLAND_CHAT_ELEMENTS.value
 
+    // ChatActivity.java
+    @JvmStatic
+    fun needChatLightNavBar(
+        inputBubbleHeight: Float,
+        resourcesProvider: Theme.ResourcesProvider?,
+    ): Boolean? {
+        if (!chatElements()) return null
+        if (inputBubbleHeight <= 0f) return null
+        val color = Theme.getColor(Theme.key_chat_messagePanelBackground, resourcesProvider)
+        return AndroidUtilities.computePerceivedBrightness(color) <= 0.9f
+    }
+
     // ChatAttachAlert.java
     const val ATTACH_TAB_SHADOW_DP = 3f
 

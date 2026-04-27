@@ -5,7 +5,7 @@ Subject: [PATCH] non-island ui in various parts of the app
 
 ---
  .../ui/Cells/SharedPhotoVideoCell2.java       |   4 +-
- .../java/org/telegram/ui/ChatActivity.java    |  58 +++++---
+ .../java/org/telegram/ui/ChatActivity.java    |  67 +++++++---
  .../ui/Components/ChatActivityEnterView.java  |   4 +-
  .../ChatActivityTopPanelLayout.java           |  16 ++-
  .../ui/Components/ChatAttachAlert.java        |  16 +++
@@ -30,7 +30,7 @@ Subject: [PATCH] non-island ui in various parts of the app
  .../java/org/telegram/ui/bots/BotAdView.java  |   2 +-
  .../ui/bots/BotCommandsMenuContainer.java     |   4 +-
  .../bots/ChatAttachAlertBotWebViewLayout.java |   5 +-
- 26 files changed, 310 insertions(+), 151 deletions(-)
+ 26 files changed, 319 insertions(+), 151 deletions(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Cells/SharedPhotoVideoCell2.java b/TMessagesProj/src/main/java/org/telegram/ui/Cells/SharedPhotoVideoCell2.java
 index 0000000..0000000 100644
@@ -208,7 +208,18 @@ index 0000000..0000000 100644
                  + inputIslandHeightCurrent
                  + getTopicTabsSideSize(TopicsTabsView.Position.BOTTOM)
                  + windowInsetsStateHolder.getAnimatedMaxBottomInset();
-@@ -17404,7 +17418,7 @@ public class ChatActivity extends BaseFragment implements
+@@ -16803,6 +16817,10 @@ public class ChatActivity extends BaseFragment implements
+     private boolean shouldHaveLightNavigationBarIcons;
+ 
+     public boolean isShouldHaveLightNavigationBarIcons() {
++        if (chatInputViewsContainer != null) {
++            Boolean override = NonIslandHelper.needChatLightNavBar(chatInputViewsContainer.getInputBubbleHeight(), themeDelegate);
++            if (override != null) return override;
++        }
+         return shouldHaveLightNavigationBarIcons && (!windowInsetsStateHolder.inAppViewIsVisible() || themeDelegate != null && themeDelegate.isDark);
+     }
+ 
+@@ -17404,7 +17422,7 @@ public class ChatActivity extends BaseFragment implements
                  }
              }
              if (child == actionBar && parentLayout != null) {
@@ -217,7 +228,7 @@ index 0000000..0000000 100644
              }
              return result;
          }
-@@ -18161,7 +18175,7 @@ public class ChatActivity extends BaseFragment implements
+@@ -18161,7 +18179,7 @@ public class ChatActivity extends BaseFragment implements
                      int contentWidthSpec = View.MeasureSpec.makeMeasureSpec(widthSize, View.MeasureSpec.EXACTLY);
                      int contentHeightSpec = View.MeasureSpec.makeMeasureSpec(allHeight
                              - (isInsideContainer ? 0 : actionBarHeight)
@@ -226,7 +237,7 @@ index 0000000..0000000 100644
                              - windowInsetsStateHolder.getCurrentNavigationBarInset(),
                          View.MeasureSpec.EXACTLY);
                      child.measure(contentWidthSpec, contentHeightSpec);
-@@ -18335,7 +18349,7 @@ public class ChatActivity extends BaseFragment implements
+@@ -18335,7 +18353,7 @@ public class ChatActivity extends BaseFragment implements
                  } else if (child == emojiButtonRed) {
                      childTop -= windowInsetsStateHolder.getCurrentMaxBottomInset() + dp(7);
                  } else if (chatActivityEnterView != null && child == chatActivityEnterView.recordedAudioPanel) {
@@ -235,7 +246,7 @@ index 0000000..0000000 100644
                  } else if (child == gifHintTextView || child == voiceHintTextView || child == mediaBanTooltip || child == emojiHintTextView) {
                      childTop -= inputFieldHeight;
                  } else if (child == chatListView || child == chatListThanosEffect || child == floatingDateView || child == floatingTopicSeparator || child == infoTopView) {
-@@ -44896,7 +44910,7 @@ public class ChatActivity extends BaseFragment implements
+@@ -44896,7 +44914,7 @@ public class ChatActivity extends BaseFragment implements
          }
  
          final float margin = windowInsetsStateHolder.getAnimatedMaxBottomInset() +
@@ -244,7 +255,7 @@ index 0000000..0000000 100644
  
          topicsTabs.setSideMenuBackgroundMarginBottom(margin);
      }
-@@ -44904,13 +44918,13 @@ public class ChatActivity extends BaseFragment implements
+@@ -44904,13 +44922,13 @@ public class ChatActivity extends BaseFragment implements
      private void checkUi_botMenuPosition() {
          final float margin = windowInsetsStateHolder.getAnimatedMaxBottomInset()
              + getTopicTabsSideSize(TopicsTabsView.Position.BOTTOM)
@@ -260,7 +271,23 @@ index 0000000..0000000 100644
          }
      }
  
-@@ -45008,6 +45022,10 @@ public class ChatActivity extends BaseFragment implements
+@@ -44964,10 +44982,15 @@ public class ChatActivity extends BaseFragment implements
+             return;
+         }
+ 
++        final boolean inu_prevHadBubble = inputIslandHeightCurrent > 0;
+         inputIslandHeightCurrent = calculateInputIslandHeight(false);
+         inputIslandHeightTarget = calculateInputIslandHeight(true);
+ 
+         chatInputViewsContainer.setInputBubbleHeight(inputIslandHeightCurrent);
++        // input bg covering navbar area changes => re-evaluate nav icon color
++        if (NonIslandHelper.chatElements() && inu_prevHadBubble != (inputIslandHeightCurrent > 0)) {
++            checkSystemBarColors();
++        }
+         updatePagedownButtonsPosition();
+         updateBotforumTabsBottomMargin();
+         checkUi_botMenuPosition();
+@@ -45008,6 +45031,10 @@ public class ChatActivity extends BaseFragment implements
          if (topPanelLayoutFade == null) {
              return;
          }
@@ -271,7 +298,7 @@ index 0000000..0000000 100644
  
          float fadeHeight = 0;
          float fadeAlphaInv = 1;
-@@ -45495,7 +45513,7 @@ public class ChatActivity extends BaseFragment implements
+@@ -45495,7 +45522,7 @@ public class ChatActivity extends BaseFragment implements
      }
  
      private float getTopicTabsSideSize(TopicsTabsView.Position position) {
