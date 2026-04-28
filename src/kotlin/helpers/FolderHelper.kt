@@ -148,6 +148,11 @@ object FolderHelper {
     }
 
     @JvmStatic
+    fun isBottomPosition(): Boolean {
+        return InuConfig.FOLDERS_POSITION.value == InuConfig.FoldersPositionItem.BOTTOM
+    }
+
+    @JvmStatic
     fun needIcons(): Boolean {
         return InuConfig.FOLDERS_DISPLAY_MODE.value != InuConfig.FoldersDisplayModeItem.TITLES
     }

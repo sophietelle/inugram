@@ -265,6 +265,16 @@ object InuConfig {
     @JvmField
     val FOLDERS_UNREAD_COUNTER_MODE = FoldersUnreadCounterModeItem()
 
+    class FoldersPositionItem : IntItem("folders_position", TOP) {
+        companion object {
+            const val TOP = 0
+            const val BOTTOM = 1
+        }
+    }
+
+    @JvmField
+    val FOLDERS_POSITION = FoldersPositionItem()
+
     class StickerTimeModeItem : IntItem("sticker_time_mode", SHOW) {
         companion object {
             const val SHOW = 1;

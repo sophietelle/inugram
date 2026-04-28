@@ -1,6 +1,7 @@
 package desu.inugram.helpers
 
 import android.graphics.Canvas
+import android.view.Gravity
 import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.core.view.isVisible
@@ -71,14 +72,18 @@ object NonIslandHelper {
     @JvmStatic
     fun applyFilterTabBar(tabsView: FilterTabsView, contentView: SizeNotifierFrameLayout) {
         if (!tabBars()) return
+        val isBottom = FolderHelper.isBottomPosition()
         tabsView.setBlurredBackground(null)
         tabsView.background = null
-        tabsView.inu_blurHelper = BlurBehindHelper(tabsView, contentView, Theme.key_windowBackgroundWhite)
+        tabsView.inu_blurHelper = BlurBehindHelper(tabsView, contentView, Theme.key_windowBackgroundWhite, !isBottom, if (isBottom) 3f else 0f, if (!isBottom) 3f else 0f)
         tabsView.setPadding(0, 0, 0, 0)
         val lp = tabsView.layoutParams as? FrameLayout.LayoutParams ?: return
         lp.height = dp(36f)
         lp.leftMargin = 0
         lp.rightMargin = 0
+        if (isBottom) {
+            lp.gravity = Gravity.BOTTOM
+        }
     }
 
     @JvmStatic

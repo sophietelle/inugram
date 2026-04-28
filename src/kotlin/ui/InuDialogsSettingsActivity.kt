@@ -41,6 +41,16 @@ class InuDialogsSettingsActivity : InuSettingsPageActivity() {
                 }
             )
         )
+        items.add(
+            UItem.asButton(
+                BUTTON_FOLDERS_POSITION,
+                LocaleController.getString(R.string.InuFoldersPosition),
+                when (InuConfig.FOLDERS_POSITION.value) {
+                    InuConfig.FoldersPositionItem.BOTTOM -> LocaleController.getString(R.string.InuFoldersPositionBottom)
+                    else -> LocaleController.getString(R.string.InuFoldersPositionTop)
+                }
+            )
+        )
         items.add(UItem.asShadow(null))
         // end folders section
 
@@ -181,6 +191,24 @@ class InuDialogsSettingsActivity : InuSettingsPageActivity() {
                     .create()
             )
 
+            BUTTON_FOLDERS_POSITION -> showDialog(
+                RadioDialogBuilder(context, getResourceProvider())
+                    .setTitle(LocaleController.getString(R.string.InuFoldersPosition))
+                    .setItems(
+                        arrayOf(
+                            LocaleController.getString(R.string.InuFoldersPositionTop),
+                            LocaleController.getString(R.string.InuFoldersPositionBottom),
+                        ),
+                        InuConfig.FOLDERS_POSITION.value,
+                    ) { _, which ->
+                        if (which == InuConfig.FOLDERS_POSITION.value) return@setItems
+                        InuConfig.FOLDERS_POSITION.value = which
+                        listView.adapter.update(true)
+                        showRestartBulletin()
+                    }
+                    .create()
+            )
+
             TOGGLE_BOT_WEBVIEW_BUTTON -> {
                 val new = InuConfig.HIDE_BOT_WEBVIEW_DIALOGS.toggle()
                 (view as? TextCheckCell)?.isChecked = new
@@ -271,6 +299,7 @@ class InuDialogsSettingsActivity : InuSettingsPageActivity() {
     companion object {
         private val BUTTON_FOLDERS_DISPLAY_MODE = InuUtils.generateId()
         private val BUTTON_FOLDERS_UNREAD_COUNTER_MODE = InuUtils.generateId()
+        private val BUTTON_FOLDERS_POSITION = InuUtils.generateId()
         private val TOGGLE_BOT_WEBVIEW_BUTTON = InuUtils.generateId()
         private val TOGGLE_OLD_MENTION_INDICATOR = InuUtils.generateId()
         private val TOGGLE_BOTTOM_TABS_HIDE = InuUtils.generateId()

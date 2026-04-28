@@ -1,0 +1,123 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Sophie <ryuko@inbox.lv>
+Date: Tue, 28 Apr 2026 17:59:03 +0300
+Subject: Move folder tabs to bottom of main page
+
+---
+ .../java/org/telegram/ui/DialogsActivity.java | 40 +++++++++++++------
+ 1 file changed, 27 insertions(+), 13 deletions(-)
+
+diff --git a/TMessagesProj/src/main/java/org/telegram/ui/DialogsActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/DialogsActivity.java
+index 0000000..0000000 100644
+--- a/TMessagesProj/src/main/java/org/telegram/ui/DialogsActivity.java
++++ b/TMessagesProj/src/main/java/org/telegram/ui/DialogsActivity.java
+@@ -1031,7 +1031,7 @@ public class DialogsActivity extends BaseFragment implements NotificationCenter.
+                 if (dialogStoriesCellVisible) {
+                     storiesAlpha = 1f - Utilities.clamp(rightSlidingProgress / 0.5f, 1f, 0f);
+                 }
+-                if (filterTabsView != null && filterTabsView.getVisibility() == View.VISIBLE) {
++                if (filterTabsView != null && filterTabsView.getVisibility() == View.VISIBLE && !desu.inugram.helpers.FolderHelper.isBottomPosition()) {
+                     tabsYOffset -= (1f - animatorFilterTabsVisible.getFloatValue()) * filterTabsView.getMeasuredHeight();
+                 }
+                 if (fragmentSearchField != null && !NonIslandHelper.globalSearch()) {
+@@ -1040,7 +1040,7 @@ public class DialogsActivity extends BaseFragment implements NotificationCenter.
+                 float rightFragmentOffset = 0;
+                 if (rightFragmentTransitionInProgress) {
+                     float scrollOffset = rightFragmentTransitionIsOpen ? 0 : scrollYOffset;
+-                    rightFragmentOffset = -AndroidUtilities.lerp(-scrollOffset + (dp(!rightFragmentTransitionIsOpen && canShowFilterTabsView ? 50 : 0)), scrollOffset, rightSlidingDialogContainer.openedProgress);
++                    rightFragmentOffset = -AndroidUtilities.lerp(-scrollOffset + (dp(!rightFragmentTransitionIsOpen && canShowFilterTabsView && !desu.inugram.helpers.FolderHelper.isBottomPosition() ? 50 : 0)), scrollOffset, rightSlidingDialogContainer.openedProgress);
+                 }
+                 float addH = 0;
+                 if (hasStories) {
+@@ -1070,7 +1070,7 @@ public class DialogsActivity extends BaseFragment implements NotificationCenter.
+             updateStoriesViewAlpha(storiesAlpha);
+             super.dispatchDraw(canvas);
+             drawHeaderShadow(canvas, top + actionBarHeight
+-                + (NonIslandHelper.tabBars() && filterTabsView != null ? filterTabsView.getMeasuredHeight() : 0)
++                + (!desu.inugram.helpers.FolderHelper.isBottomPosition() && NonIslandHelper.tabBars() && filterTabsView != null ? filterTabsView.getMeasuredHeight() : 0)
+                 + (NonIslandHelper.tabBars() && topPanelLayout != null ? (int) topPanelLayout.getAnimatedHeightWithPadding(0) : 0));
+ 
+             /*if (fragmentContextView != null && fragmentContextView.isCallStyle()) {
+@@ -1148,7 +1148,7 @@ public class DialogsActivity extends BaseFragment implements NotificationCenter.
+                     int contentWidthSpec = View.MeasureSpec.makeMeasureSpec(widthSize, View.MeasureSpec.EXACTLY);
+                     int h = heightSize + dp(2);
+                     if (rightSlidingDialogContainer.hasFragment()) {
+-                        if (canShowFilterTabsView) {
++                        if (canShowFilterTabsView && !desu.inugram.helpers.FolderHelper.isBottomPosition()) {
+                             h += dp(50);
+                         }
+                         if (hasStories) {
+@@ -2037,8 +2037,10 @@ public class DialogsActivity extends BaseFragment implements NotificationCenter.
+             final float filterTabsVisibility = getFilterTabsVisibilityFactor(false);
+             final float topPanelsVisibility = topPanelLayout != null ? topPanelLayout.getMetadata().getTotalVisibility() : 0f;
+ 
+-            t += (int) (dp(36 + (!NonIslandHelper.tabBars() ? 14 : 0)) * filterTabsVisibility);
+-            additionalPadding += (int) (dp(36 + (!NonIslandHelper.tabBars() ? 14 : 0)) * filterTabsVisibility);
++            if (!desu.inugram.helpers.FolderHelper.isBottomPosition()) {
++                t += (int) (dp(36 + (!NonIslandHelper.tabBars() ? 14 : 0)) * filterTabsVisibility);
++                additionalPadding += (int) (dp(36 + (!NonIslandHelper.tabBars() ? 14 : 0)) * filterTabsVisibility);
++            }
+ 
+             if (topPanelLayout != null) {
+                 final int h = (int) topPanelLayout.getAnimatedHeightWithPadding(lerp((float) dp(14), dp(7), filterTabsVisibility));
+@@ -5115,7 +5117,11 @@ public class DialogsActivity extends BaseFragment implements NotificationCenter.
+             filterTabsViewBackground.setPadding(dp(6.666f));
+             filterTabsView.setPadding(0, dp(7), 0, dp(7));
+             filterTabsView.setBlurredBackground(filterTabsViewBackground);
+-            contentView.addView(filterTabsView, LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT, 36 + 7 + 7, Gravity.TOP, 4, 0, 4, 0));
++            contentView.addView(filterTabsView, LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT, 36 + 7 + 7, desu.inugram.helpers.FolderHelper.isBottomPosition() ? Gravity.BOTTOM : Gravity.TOP, 4, 0, 4, 0));
++            if (desu.inugram.helpers.FolderHelper.isBottomPosition()) {
++                FrameLayout.LayoutParams inu_lp = (FrameLayout.LayoutParams) filterTabsView.getLayoutParams();
++                inu_lp.bottomMargin = additionNavigationBarHeight;
++            }
+             NonIslandHelper.applyFilterTabBar(filterTabsView, contentView);
+         }
+ 
+@@ -6522,9 +6528,13 @@ public class DialogsActivity extends BaseFragment implements NotificationCenter.
+         float fadeViewT = totalOffset;
+ 
+         if (filterTabsView != null) {
+-            filterTabsView.setTranslationY(totalOffset - searchOffset);
+-            filtersTabVisibility = filterTabsView.getAlpha();
+-            filtersTabHeight = dp(36 + (NonIslandHelper.tabBars() ? 0 : 7)) * filtersTabVisibility;
++            if (desu.inugram.helpers.FolderHelper.isBottomPosition()) {
++                filterTabsView.setTranslationY(-(1f - getFilterTabsVisibilityFactor(false)) * filterTabsView.getMeasuredHeight());
++            } else {
++                filterTabsView.setTranslationY(totalOffset - searchOffset);
++            }
++            filtersTabVisibility = desu.inugram.helpers.FolderHelper.isBottomPosition() ? 0 : filterTabsView.getAlpha();
++            filtersTabHeight = desu.inugram.helpers.FolderHelper.isBottomPosition() ? 0 : dp(36 + (NonIslandHelper.tabBars() ? 0 : 7)) * filtersTabVisibility;
+             totalOffset += filtersTabHeight;
+         }
+ 
+@@ -6532,7 +6542,7 @@ public class DialogsActivity extends BaseFragment implements NotificationCenter.
+             if (NonIslandHelper.globalSearch()) {
+                 topPanelLayout.setTranslationY(
+                     scrollYOffset + storiesHeight + tabsYOffset + storiesOverscroll
+-                    + (filterTabsView == null ? 0 : (dp(36 + (NonIslandHelper.tabBars() ? 0 : 7)) * getFilterTabsVisibilityFactor(false)))
++                    + (filterTabsView == null || desu.inugram.helpers.FolderHelper.isBottomPosition() ? 0 : (dp(36 + (NonIslandHelper.tabBars() ? 0 : 7)) * getFilterTabsVisibilityFactor(false)))
+                 );
+             } else {
+                 topPanelLayout.setTranslationY(lerp(
+@@ -7116,7 +7126,7 @@ public class DialogsActivity extends BaseFragment implements NotificationCenter.
+             public int getTopOffset(int tag) {
+                 return (
+                     (actionBar != null ? actionBar.getMeasuredHeight() : 0) +
+-                    (filterTabsView != null && filterTabsView.getVisibility() == View.VISIBLE ? filterTabsView.getMeasuredHeight() : 0) +
++                    (!desu.inugram.helpers.FolderHelper.isBottomPosition() && filterTabsView != null && filterTabsView.getVisibility() == View.VISIBLE ? filterTabsView.getMeasuredHeight() : 0) +
+                     (topPanelLayout != null ? topPanelLayout.getHeight() : 0) +
+                     (dialogStoriesCell != null && dialogStoriesCellVisible ? (int) ((1f - dialogStoriesCell.getCollapsedProgress()) * dp(DialogStoriesCell.HEIGHT_IN_DP)) : 0) +
+                     (NonIslandHelper.globalSearch() ? 0 : dp(SEARCH_FIELD_HEIGHT))
+@@ -13711,7 +13721,11 @@ public class DialogsActivity extends BaseFragment implements NotificationCenter.
+         if (commentView != null) {
+             return (int) (windowInsetsStateHolder.getAnimatedMaxBottomInset() + dp(9) + chatInputViewsContainer.getInputBubbleHeight() + dp(7) + dp(2));
+         } else {
+-            return navigationBarHeight + additionNavigationBarHeight;
++            int bottom = navigationBarHeight + additionNavigationBarHeight;
++            if (desu.inugram.helpers.FolderHelper.isBottomPosition() && filterTabsView != null && filterTabsView.getVisibility() == View.VISIBLE) {
++                bottom += filterTabsView.getMeasuredHeight();
++            }
++            return bottom;
+         }
+     }
+ 

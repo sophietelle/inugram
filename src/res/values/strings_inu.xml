@@ -114,6 +114,9 @@
     <string name="InuFoldersUnreadCounterRegular">Regular</string>
     <string name="InuFoldersUnreadCounterExcludeMuted">Exclude muted</string>
     <string name="InuFoldersUnreadCounterExcludeMutedNonDms">Exclude muted non-DMs</string>
+    <string name="InuFoldersPosition">Position</string>
+    <string name="InuFoldersPositionTop">Top</string>
+    <string name="InuFoldersPositionBottom">Bottom</string>
     <string name="InuCopyPhoto">Copy Photo</string>
     <string name="InuPhotoCopied">Photo copied to clipboard</string>
     <string name="InuCopyFrame">Copy Frame</string>
