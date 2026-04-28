@@ -221,6 +221,8 @@ object ApkInstaller {
                 if (isFailure(status)) {
                     abandonSession(i.getIntExtra(PackageInstaller.EXTRA_SESSION_ID, 0))
                     showInstallError(status)
+                } else if (status == PackageInstaller.STATUS_SUCCESS) {
+                    UpdateHelper.clearPending()
                 }
                 onDone.run()
                 safeUnregister()

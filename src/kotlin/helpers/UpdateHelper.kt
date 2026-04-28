@@ -15,6 +15,7 @@ import org.telegram.messenger.UserConfig
 import org.telegram.tgnet.ConnectionsManager
 import org.telegram.tgnet.TLRPC
 import kotlin.math.max
+import kotlin.math.min
 
 object UpdateHelper {
     const val USERNAME = "InugramCI"
@@ -74,7 +75,7 @@ object UpdateHelper {
             callback?.invoke(CheckResult.Error("Not logged in"))
             return
         }
-        if (BuildConfig.INU_BUILD_TYPE === "debug" || InuConfig.UPDATE_CHANNEL.value == UpdateChannelItem.DISABLED) {
+        if (BuildConfig.INU_BUILD_TYPE == "debug" || InuConfig.UPDATE_CHANNEL.value == UpdateChannelItem.DISABLED) {
             callback?.invoke(CheckResult.UpToDate)
             return
         }
@@ -127,16 +128,24 @@ object UpdateHelper {
                     document = info.document
                 }
 
-                // strip first line (should only contain the hashtag)
-                if (updateObj.text.count { it == '\n' } > 1) {
-                    val (firstLine, rest) = updateObj.text.split("\n", limit = 2)
+                val blockquote = updateObj.entities.firstOrNull {
+                    it is TLRPC.TL_messageEntityBlockquote
+                }
+                if (blockquote != null) {
+                    val start = blockquote.offset
+                    val end = blockquote.offset + blockquote.length
                     val newEntities = arrayListOf<TLRPC.MessageEntity>()
                     for (entity in updateObj.entities) {
-                        if (entity.offset + entity.length <= firstLine.length) continue
-                        entity.offset = max(0, entity.offset - firstLine.length - 1)
+                        if (entity === blockquote) continue
+                        if (entity.offset + entity.length <= start) continue
+                        if (entity.offset >= end) continue
+                        val clippedStart = max(entity.offset, start)
+                        val clippedEnd = min(entity.offset + entity.length, end)
+                        entity.offset = clippedStart - start
+                        entity.length = clippedEnd - clippedStart
                         newEntities.add(entity)
                     }
-                    updateObj.text = rest
+                    updateObj.text = updateObj.text.substring(start, end)
                     updateObj.entities = newEntities
                 }
 
