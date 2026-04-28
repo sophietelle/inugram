@@ -8,6 +8,7 @@ Subject: build support stuff for fork-specific code: - added kotlin - bumped
  TMessagesProj/build.gradle                    | 105 ++++------------
  TMessagesProj/google-services.json            |  76 ++----------
  TMessagesProj/proguard-rules.pro              |  12 ++
+ TMessagesProj/src/main/AndroidManifest.xml    |   1 +
  .../org/telegram/messenger/BuildVars.java     |  14 ++-
  .../org/telegram/ui/PaymentFormActivity.java  |  28 ++---
  .../org/telegram/ui/SettingsActivity.java     |  24 +---
@@ -17,7 +18,7 @@ Subject: build support stuff for fork-specific code: - added kotlin - bumped
  build.gradle                                  |  12 +-
  gradle.properties                             |   4 +-
  settings.gradle                               |   4 -
- 12 files changed, 117 insertions(+), 356 deletions(-)
+ 13 files changed, 118 insertions(+), 356 deletions(-)
 
 diff --git a/TMessagesProj/build.gradle b/TMessagesProj/build.gradle
 index 0000000..0000000 100644
@@ -338,6 +339,18 @@ index 0000000..0000000 100644
  -dontoptimize
  -dontobfuscate
 \ No newline at end of file
+diff --git a/TMessagesProj/src/main/AndroidManifest.xml b/TMessagesProj/src/main/AndroidManifest.xml
+index 0000000..0000000 100644
+--- a/TMessagesProj/src/main/AndroidManifest.xml
++++ b/TMessagesProj/src/main/AndroidManifest.xml
+@@ -60,6 +60,7 @@
+     <uses-permission android:name="android.permission.MANAGE_OWN_CALLS"/>
+     <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT"/>
+     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
++    <uses-permission android:name="android.permission.UPDATE_PACKAGES_WITHOUT_USER_ACTION" />
+     <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
+     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+ 
 diff --git a/TMessagesProj/src/main/java/org/telegram/messenger/BuildVars.java b/TMessagesProj/src/main/java/org/telegram/messenger/BuildVars.java
 index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/java/org/telegram/messenger/BuildVars.java

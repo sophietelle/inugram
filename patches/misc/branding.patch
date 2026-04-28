@@ -30,7 +30,7 @@ diff --git a/TMessagesProj/src/main/AndroidManifest.xml b/TMessagesProj/src/main
 index 0000000..0000000 100644
 --- a/TMessagesProj/src/main/AndroidManifest.xml
 +++ b/TMessagesProj/src/main/AndroidManifest.xml
-@@ -127,6 +127,22 @@
+@@ -128,6 +128,22 @@
              <meta-data android:name="android.app.shortcuts" android:resource="@xml/shortcuts" />
          </activity-alias>
  
