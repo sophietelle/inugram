@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import androidx.core.content.edit
 import desu.inugram.helpers.FormattingPopupConfig
+import desu.inugram.helpers.PinnedReactionsHelper
 import org.telegram.messenger.BuildConfig
 
 object InuConfig {
@@ -347,6 +348,12 @@ object InuConfig {
 
     @JvmField
     val REACTION_BAR_BELOW = BoolItem("reaction_bar_below", false)
+
+    @JvmField
+    val PINNED_REACTIONS_ENABLED = BoolItem("pinned_reactions_enabled", false)
+
+    @JvmField
+    val PINNED_REACTIONS = PinnedReactionsHelper.ConfigItem("pinned_reactions")
 
     @JvmField
     val OLD_MENTION_INDICATOR = BoolItem("old_mention_indicator", true)

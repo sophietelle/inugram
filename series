@@ -95,3 +95,4 @@ debloat/notification-bubbles.patch
 hooks/app-loader.patch
 bugfix/nav-stack-lockup.patch
 feature/no-sticker-extra-padding.patch
+feature/static-pinned-reactions.patch

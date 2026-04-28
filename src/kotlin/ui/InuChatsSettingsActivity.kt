@@ -162,6 +162,12 @@ class InuChatsSettingsActivity : InuSettingsPageActivity() {
         items.add(UItem.asHeader(LocaleController.getString(R.string.InuReactionsInRow)))
         items.add(UItem.asCustom(reactionsInRowSlider))
         items.add(
+            UItem.asButton(
+                BUTTON_PINNED_REACTIONS,
+                LocaleController.getString(R.string.InuPinnedReactions),
+            )
+        )
+        items.add(
             mkTwoLineCheckItem(
                 TOGGLE_REACTION_BAR_BELOW,
                 R.string.InuReactionBarBelow,
@@ -270,6 +276,8 @@ class InuChatsSettingsActivity : InuSettingsPageActivity() {
                 (view as? NotificationsCheckCell)?.isChecked = new
             }
 
+            BUTTON_PINNED_REACTIONS -> presentFragment(InuPinnedReactionsActivity())
+
             TOGGLE_SIMPLE_ATTACH_POPUP_ANIMATION -> {
                 val new = InuConfig.SIMPLE_ATTACH_POPUP_ANIMATION.toggle()
                 (view as? TextCheckCell)?.isChecked = new
@@ -305,6 +313,7 @@ class InuChatsSettingsActivity : InuSettingsPageActivity() {
         private val TOGGLE_DISABLE_CHAT_TITLE_PHONE = InuUtils.generateId()
         private val TOGGLE_HIDE_REACTION_ENTRY = InuUtils.generateId()
         private val TOGGLE_CHAT_VIEWS_BOTTOM = InuUtils.generateId()
+        private val BUTTON_PINNED_REACTIONS = InuUtils.generateId()
 
     }
 }

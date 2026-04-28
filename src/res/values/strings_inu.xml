@@ -201,6 +201,15 @@
     <string name="InuChatViewsBottom">Reachable views list</string>
     <string name="InuChatViewsBottomInfo">(Experimental!) Move message views/reactions list item to the bottom</string>
 
+    <string name="InuPinnedReactions">Pinned reactions</string>
+    <string name="InuPinnedReactionsInfo">Pin reactions at the start of the reactions bar.</string>
+    <string name="InuPinnedReactionsHeader">Pinned reactions</string>
+    <string name="InuPinnedReactionsLimitInfo">Up to 10 pinned reactions. Long-press to drag and reorder.</string>
+    <string name="InuPinnedReactionsCopyServer">Copy from server</string>
+    <string name="InuPinnedReactionsCopyServerConfirm">This will replace your current pinned reactions with the server-provided top reactions. Continue?</string>
+    <string name="InuPinnedReactionsRemoveAll">Remove all</string>
+    <string name="InuPinnedReactionsRemoveAllConfirm">Remove all pinned reactions?</string>
+
     <string name="InuOldMentionIndicator">Pre-12.6 mention indicator</string>
 
     <string name="InuTextClassifierMode">Text classifier mode</string>
