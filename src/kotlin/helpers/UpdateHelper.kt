@@ -69,6 +69,15 @@ object UpdateHelper {
         NotificationCenter.getGlobalInstance().postNotificationName(NotificationCenter.appUpdateAvailable)
     }
 
+    @JvmStatic
+    fun clearPendingIfInstalled() {
+        val pending = SharedConfig.pendingAppUpdate ?: return
+        val current = currentBuild()
+        if (pending.version == current.shortSha || pending.version == current.versionCode.toString()) {
+            clearPending()
+        }
+    }
+
     fun check(callback: ((CheckResult) -> Unit)?) {
         val account = UserConfig.selectedAccount
         if (!UserConfig.getInstance(account).isClientActivated) {

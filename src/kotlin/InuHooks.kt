@@ -5,6 +5,7 @@ import android.os.Build
 import android.os.Bundle
 import desu.inugram.helpers.MainTabsHelper
 import desu.inugram.helpers.MonetHelper
+import desu.inugram.helpers.UpdateHelper
 import org.telegram.messenger.AndroidUtilities
 import org.telegram.messenger.LocaleController.getString
 import org.telegram.messenger.R
@@ -26,6 +27,7 @@ object InuHooks {
         InuConfig.load(context)
         syncDoubleTapDelay()
         syncAnimationSpeed()
+        UpdateHelper.clearPendingIfInstalled()
     }
 
     @JvmStatic
